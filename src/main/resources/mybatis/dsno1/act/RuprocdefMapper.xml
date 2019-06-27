@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.fh.mapper.dsno1.act.RuprocdefMapper">
+	
+	<!--表名 -->
+	<sql id="tableName">
+		ACT_RU_TASK
+	</sql>
+	
+	<!--流程实例表 -->
+	<sql id="ptableName">
+		ACT_RE_PROCDEF
+	</sql>
+	
+	<!--流程变量表 -->
+	<sql id="vartableName">
+		ACT_RU_VARIABLE
+	</sql>
+	
+	<!--历史任务节点表 -->
+	<sql id="hitinsttableName">
+		ACT_HI_ACTINST
+	</sql>
+	
+	<!--历史任务表 -->
+	<sql id="hitasktableName">
+		ACT_HI_TASKINST
+	</sql>
+	
+	<!--历史流程变量表 -->
+	<sql id="hivartableName">
+		ACT_HI_VARINST
+	</sql>
+	
+	<!-- 待办任务 or正在运行任务列表-->
+	<select id="datalistPage" parameterType="page" resultType="pd">
+		select
+			f.*,
+			p.NAME_ PNAME_,
+			p.DGRM_RESOURCE_NAME_
+		from 
+		<include refid="tableName"></include> f
+		left join
+		<include refid="ptableName"></include> p
+		on f.PROC_DEF_ID_ = p.ID_
+		where 1=1
+		<if test="pd.keywords!= null and pd.keywords != ''"><!-- 关键词检索 -->
+			and
+				(
+					p.NAME_ LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
+					or 
+					f.NAME_ LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
+					or 
+					f.ASSIGNEE_ LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
+				)
+		</if>
+		<if test="pd.lastStart != null and pd.lastStart != ''"><!-- 开始时间检索 -->
+			and f.CREATE_TIME_ &gt;= #{pd.lastStart} 
+		</if>
+		<if test="pd.lastEnd != null and pd.lastEnd != ''"><!-- 结束时间检索 -->
+			and f.CREATE_TIME_ &lt;= #{pd.lastEnd} 
+		</if>
+		<if test="pd.USERNAME != null and pd.USERNAME != ''"><!-- 当前办理人检索 -->
+			and 
+				(
+					f.ASSIGNEE_ = #{pd.USERNAME} 
+					or
+					f.ASSIGNEE_ in ${pd.RNUMBERS}  
+		    	)
+		</if>
+		order by f.CREATE_TIME_ desc
+	</select>
+	
+	<!-- 已办任务列表-->
+	<select id="hitaskdatalistPage" parameterType="page" resultType="pd">
+		select
+			f.*,
+			p.NAME_ PNAME_,
+			p.DEPLOYMENT_ID_,
+			p.DGRM_RESOURCE_NAME_
+		from
+		(
+			select
+				 n.* 
+			from <include refid="hitasktableName"></include> n 
+			where (
+					n.ASSIGNEE_ = #{pd.USERNAME} 
+					or
+					n.ASSIGNEE_ in ${pd.RNUMBERS}  
+	    		  )
+			group by n.EXECUTION_ID_
+		
+		) f
+		left join
+		<include refid="ptableName"></include> p
+		on f.PROC_DEF_ID_ = p.ID_
+		where 1=1
+		<if test="pd.keywords!= null and pd.keywords != ''"><!-- 关键词检索 -->
+			and
+				(
+					p.NAME_ LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
+					or 
+					f.NAME_ LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
+					or 
+					f.ASSIGNEE_ LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
+				)
+		</if>
+		<if test="pd.lastStart != null and pd.lastStart != ''"><!-- 开始时间检索 -->
+			and f.END_TIME_ &gt;= #{pd.lastStart} 
+		</if>
+		<if test="pd.lastEnd != null and pd.lastEnd != ''"><!-- 结束时间检索 -->
+			and f.END_TIME_ &lt;= #{pd.lastEnd} 
+		</if>
+		<if test="pd.USERNAME != null and pd.USERNAME != ''"><!-- 办理人检索 -->
+			and 
+				(
+					f.ASSIGNEE_ = #{pd.USERNAME} 
+					or
+					f.ASSIGNEE_ in ${pd.RNUMBERS}  
+		    	)
+		</if>
+		and f.END_TIME_ is not NULL
+		order by f.END_TIME_ desc
+	</select>
+	
+	<!-- 流程变量列表 -->
+	<select id="varList" parameterType="pd" resultType="pd">
+		select
+			*
+		from 
+			<include refid="vartableName"></include>
+		where 1=1
+		<if test="PROC_INST_ID_ != null and PROC_INST_ID_ != ''"><!-- 流程实例ID -->
+			and PROC_INST_ID_ = #{PROC_INST_ID_}
+			and TASK_ID_ is NULL
+		</if>
+	</select>
+	
+	<!-- 历史任务节点列表关联历史流程变量表 -->
+	<select id="hiTaskList" parameterType="pd" resultType="pd">
+		select
+			ht.*,
+			hv.TEXT_
+		from 
+			<include refid="hitinsttableName"></include> ht
+		left join
+			<include refid="hivartableName"></include> hv
+		on ht.TASK_ID_ = hv.TASK_ID_
+		where 1=1
+		<if test="PROC_INST_ID_ != null and PROC_INST_ID_ != ''"><!-- 流程实例ID -->
+			and ht.PROC_INST_ID_ = #{PROC_INST_ID_} 
+		</if>
+		order by ht.ID_
+	</select>
+	
+	<!-- 激活or挂起任务(指定某个任务) -->
+	<update id="onoffTask" parameterType="pd" >
+		update
+		<include refid="tableName"></include>
+		set 
+			SUSPENSION_STATE_ = #{STATUS} 
+		where ID_ = #{ID_}
+	</update>
+	
+	<!-- 激活or挂起任务(指定某个流程的所有任务) -->
+	<update id="onoffAllTask" parameterType="pd" >
+		update
+		<include refid="tableName"></include>
+		set 
+			SUSPENSION_STATE_ = #{STATUS} 
+		where PROC_DEF_ID_ = #{ID_}
+	</update>
+	
+	
+	<!-- 根据流程ID查询工作流表单信息 -->
+	<select id="selectByPIId" parameterType="pd" resultType="pd">
+		select
+			*
+		from 
+		<if test="key == 'synergy' ">
+			oa_synergy t1 LEFT JOIN oa_synergymx t2 ON t1.SYNERGY_ID=t2.SYNERGY_ID
+		</if> 
+		<if test="key == 'distributed' ">
+			oa_distributed t1 LEFT JOIN oa_distributedmx t2 ON t1.DISTRIBUTED_ID=t2.DISTRIBUTED_ID
+		</if> 
+		<if test="key == 'studyplan' ">
+			oa_studyplan t1 LEFT JOIN oa_studyplanmx t2 ON t1.STUDYPLAN_ID=t2.STUDYPLAN_ID
+		</if> 
+		<if test="key == 'workplan' ">
+			oa_workplan t1 LEFT JOIN oa_workplanmx t2 ON t1.WORKPLAN_ID=t2.WORKPLAN_ID
+			
+		</if> 
+		<if test="key == 'study' ">
+			oa_study t1
+		</if> 
+		<if test="key == 'conclusion' ">
+			oa_conclusion t1
+		</if>
+		where t1.PROC_INST_ID_=#{PROC_INST_ID_}
+		<if test="key == 'workplan' ">
+			ORDER BY t2.TITLE
+		</if> 
+	</select>
+	
+	
+	<!-- 根据流程ID查询任务 -->
+	<select id="selectTaskID" parameterType="pd" resultType="pd">
+		SELECT
+	    *
+		FROM
+			act_ru_task
+		WHERE
+			PROC_INST_ID_ = #{PROC_INST_ID_}
+		AND (
+			ASSIGNEE_ = #{USERNAME}
+			OR ASSIGNEE_ IN ${RNUMBERS}
+		)
+	</select>
+	
+	<!-- 根据流程ID查询工作流表单信息 -->
+	<select id="selectToName" parameterType="pd" resultType="pd">
+		select  u.`NAME`  from  ACT_HI_ACTINST ht1 
+             left join ACT_HI_VARINST hv1 on ht1.TASK_ID_ = hv1.TASK_ID_
+             LEFT JOIN sys_user u ON u.USERNAME=ht1.ASSIGNEE_
+		     where ht1.PROC_INST_ID_ = #{PROC_INST_ID_} AND  ht1.ACT_ID_='QJ2'
+	         order by ht1.ID_ DESC LIMIT 1
+	</select>
+	
+	<!-- 根据流程ID查询工作流表单信息 -->
+	<select id="selectEndTime" parameterType="pd" resultType="pd">
+		select END_TIME_ from  ACT_HI_ACTINST ht1 
+             left join ACT_HI_VARINST hv1 on ht1.TASK_ID_ = hv1.TASK_ID_
+		     where ht1.PROC_INST_ID_ = #{PROC_INST_ID_}
+	         order by ht1.ID_ DESC LIMIT 1
+	</select>
+	
+	<!-- 根据流程ID查询工作流表单信息 -->
+	<select id="selectState" parameterType="pd" resultType="pd">
+		select ACT_NAME_ from  ACT_HI_ACTINST ht1 
+             left join ACT_HI_VARINST hv1 on ht1.TASK_ID_ = hv1.TASK_ID_
+		         where ht1.PROC_INST_ID_ = #{PROC_INST_ID_}
+	           order by ht1.ID_ DESC LIMIT 1
+	</select>
+	
+	<!-- 根据流程ID查询工作流表单信息 -->
+	<select id="selectOpinpons" parameterType="pd" resultType="pd">
+		select substring_index(((SUBSTRING(TEXT_, 1, CHAR_LENGTH(TEXT_)-4))),'>',-1)  as content from  ACT_HI_ACTINST ht1 
+             left join ACT_HI_VARINST hv1 on ht1.TASK_ID_ = hv1.TASK_ID_
+		         where ht1.PROC_INST_ID_ = #{PROC_INST_ID_}  AND ht1.ACT_ID_=#{QJ}
+	           order by ht1.ID_ DESC LIMIT 1
+	</select>
+	
+	
+</mapper>

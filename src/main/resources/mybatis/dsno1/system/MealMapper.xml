@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.fh.mapper.dsno1.system.MealMapper">
+	
+	<!--表名 -->
+	<sql id="tableName">
+		SYS_MEAL
+	</sql>
+	
+	<!--数据字典表名 -->
+	<sql id="dicTableName">
+		SYS_DICTIONARIES
+	</sql>
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		f.USER_ID,	
+		f.CREATETIME,	
+		f.UPDATETIME,	
+		f.MENU,	
+		f.ISORDER,	
+		f.ISSTOPORDER,	
+		f.DINNERTIME,	
+		f.MEAL_ID
+	</sql>
+	
+	<!-- 字段用于新增 -->
+	<sql id="Field2">
+		USER_ID,	
+		CREATETIME,	
+		UPDATETIME,	
+		MENU,	
+		ISORDER,	
+		ISSTOPORDER,	
+		DINNERTIME,	
+		MEAL_ID
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{USER_ID},	
+		#{CREATETIME},	
+		#{UPDATETIME},	
+		#{MENU},	
+		#{ISORDER},	
+		#{ISSTOPORDER},	
+		#{DINNERTIME},	
+		#{MEAL_ID}
+	</sql>
+	
+	<!-- 新增-->
+	<insert id="save" parameterType="pd">
+		INSERT INTO SYS_MEAL (
+		    MEAL_ID,
+			USER_ID,
+			CREATETIME
+		)VALUES
+	   (#{MEAL_ID},#{USER_ID}, NOW())
+	</insert>
+	
+	<!-- 删除-->
+	<delete id="delete" parameterType="pd">
+		delete from
+		<include refid="tableName"></include>
+		where 
+			MEAL_ID = #{MEAL_ID}
+	</delete>
+	
+	<!-- 修改 -->
+	<update id="edit" parameterType="pd">
+		update
+		<include refid="tableName"></include>
+		set 
+			USER_ID = #{USER_ID},
+			UPDATETIME = NOW(),
+			MENU = #{MENU},
+			ISORDER = #{ISORDER},
+			ISSTOPORDER = #{ISSTOPORDER},
+			DINNERTIME = #{DINNERTIME},
+			MEAL_ID = MEAL_ID
+		where 
+			MEAL_ID = #{MEAL_ID}
+	</update>
+	
+	<!-- 通过ID获取数据 -->
+	<select id="findById" parameterType="pd" resultType="pd">
+		select 
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include> f
+		where 
+			f.MEAL_ID = #{MEAL_ID}
+	</select>
+	
+	<!-- 列表 -->
+	<select id="datalistPage" parameterType="page" resultType="pd">
+		select
+		<include refid="Field"></include>,t.`NAME`
+		from 
+		<include refid="tableName"></include> f
+		LEFT JOIN sys_user t on t.USER_ID=f.USER_ID
+		where 1=1
+		<if test="pd.KEYWORDS != null and pd.KEYWORDS != ''"><!-- 关键词检索 -->
+			and
+				(
+				           
+					t.NAME LIKE CONCAT(CONCAT('%', #{pd.KEYWORDS}),'%')
+				)
+		</if>
+		<if test="pd.CREATETIME!=null and pd.CREATETIME!=''">	<!-- 订餐日期 -->
+			and date_format(f.CREATETIME,'%Y-%m-%d')   = #{pd.CREATETIME} 
+		</if>
+		<if test="pd.CREATETIME==null or pd.CREATETIME==''">	<!-- 订餐日期 -->
+			and date_format(f.CREATETIME,'%Y-%m-%d')   = date_format(now(),'%Y-%m-%d') 
+		</if>
+		ORDER BY f.CREATETIME DESC
+	</select>
+	
+	<!-- 列表(全部) -->
+	<select id="listAll" parameterType="pd" resultType="pd">
+		select
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include> f
+	</select>
+	
+	<!-- 批量删除 -->
+	<delete id="deleteAll" parameterType="String">
+		delete from
+		<include refid="tableName"></include>
+		where 
+			MEAL_ID in
+		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+                 #{item}
+		</foreach>
+	</delete>
+	
+	<!-- 通过ID获取数据 -->
+	<select id="findByUserId" parameterType="pd" resultType="pd">
+		SELECT
+			f.*
+		FROM
+			sys_meal f
+		  LEFT JOIN sys_user t ON f.USER_ID=t.USER_ID
+		WHERE
+			t.USERNAME = #{USERNAME}
+		AND to_days(f.CREATETIME) = to_days(now());
+	</select>
+</mapper>
