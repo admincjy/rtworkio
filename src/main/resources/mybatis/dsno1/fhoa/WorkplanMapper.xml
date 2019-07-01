@@ -98,48 +98,47 @@
 	<!-- 列表 -->
 	<select id="datalistPage" parameterType="page" resultType="pd">
 		select
-			f.NAME,
-             (select  u.`NAME`  from  ACT_HI_ACTINST ht1 
-             left join ACT_HI_VARINST hv1 on ht1.TASK_ID_ = hv1.TASK_ID_
-             LEFT JOIN sys_user u ON u.USERNAME=ht1.ASSIGNEE_
-		     where ht1.PROC_INST_ID_ = f.PROC_INST_ID_  AND  ht1.ACT_ID_='QJ2'
-	         order by ht1.ID_ DESC LIMIT 1)  as TONAME,	
-			f.COPYNAME,	
-			f.CONTENET,	
-			f.STARTTIME,
-             (select END_TIME_ from  ACT_HI_ACTINST ht1 
-             left join ACT_HI_VARINST hv1 on ht1.TASK_ID_ = hv1.TASK_ID_
-		         where ht1.PROC_INST_ID_ = f.PROC_INST_ID_
-	           order by ht1.ID_ DESC LIMIT 1) ENDTIME,	
-			f.PROC_INST_ID_,
-             (select ACT_NAME_ from  ACT_HI_ACTINST ht1 
-             left join ACT_HI_VARINST hv1 on ht1.TASK_ID_ = hv1.TASK_ID_
-		         where ht1.PROC_INST_ID_ = f.PROC_INST_ID_
-	           order by ht1.ID_ DESC LIMIT 1) STATE,	
-			f.WORKPLAN_ID,	 		
-		    f.CCNAME,
-			<if test="pd.NAME!= null and pd.NAME != ''"><!-- 关键词检索 -->
-			IF(f.NAME= #{pd.NAME},0,1) as ISCC, 
-			</if>
-		    GROUP_CONCAT(tt.TITLE)  as TITLE
-		from 
+		f.NAME,
+		(select  u.`NAME`  from  ACT_HI_ACTINST ht1
+		left join ACT_HI_VARINST hv1 on ht1.TASK_ID_ = hv1.TASK_ID_
+		LEFT JOIN sys_user u ON u.USERNAME=ht1.ASSIGNEE_
+		where ht1.PROC_INST_ID_ = f.PROC_INST_ID_  AND  ht1.ACT_ID_='QJ2'
+		order by ht1.ID_ DESC LIMIT 1)  as TONAME,
+		f.COPYNAME,
+		f.CONTENET,
+		f.STARTTIME,
+		(select END_TIME_ from  ACT_HI_ACTINST ht1
+		left join ACT_HI_VARINST hv1 on ht1.TASK_ID_ = hv1.TASK_ID_
+		where ht1.PROC_INST_ID_ = f.PROC_INST_ID_
+		order by ht1.ID_ DESC LIMIT 1) ENDTIME,
+		f.PROC_INST_ID_,
+		(select ACT_NAME_ from  ACT_HI_ACTINST ht1
+		left join ACT_HI_VARINST hv1 on ht1.TASK_ID_ = hv1.TASK_ID_
+		where ht1.PROC_INST_ID_ = f.PROC_INST_ID_
+		order by ht1.ID_ DESC LIMIT 1) STATE,
+		f.WORKPLAN_ID,
+		f.CCNAME,
+		<if test="pd.NAME!= null and pd.NAME != ''"><!-- 关键词检索 -->
+			IF(f.NAME= #{pd.NAME},0,1) as ISCC,
+		</if>
+		(SELECT GROUP_CONCAT(s.TITLE) FROM
+		(SELECT tt.TITLE FROM oa_workplanmx tt WHERE tt.WORKPLAN_ID = f.WORKPLAN_ID GROUP BY tt.TITLE) as s) as TITLE
+		from
 		<include refid="tableName"></include> f
-        LEFT JOIN oa_workplanmx tt on tt.WORKPLAN_ID=f.WORKPLAN_ID
 		where 1=1
 		<if test="pd.NAME!= null and pd.NAME != ''"><!-- 关键词检索 -->
-			and (f.NAME =  #{pd.NAME} or f.CCNAME LIKE CONCAT(CONCAT('%', #{pd.NAME}),'%')) 
-		</if>	
+			and (f.NAME =  #{pd.NAME} or f.CCNAME LIKE CONCAT(CONCAT('%', #{pd.NAME}),'%'))
+		</if>
 		<if test="pd.keywords!= null and pd.keywords != ''"><!-- 关键词检索 -->
 			and
-				(
-				<!--	根据需求自己加检索条件
-					字段1 LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
-					 or 
-					字段2 LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%') 
-				-->
-				)
+			(
+			<!--	根据需求自己加检索条件
+                字段1 LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
+                 or
+                字段2 LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
+            -->
+			)
 		</if>
-		GROUP BY f.WORKPLAN_ID
 		ORDER BY f.STARTTIME DESC
 	</select>
 	
@@ -163,96 +162,49 @@
 	</delete>
 	<!-- 报表列表 -->
 	<select id="reportPage" parameterType="page" resultType="pd">
-		 (SELECT
-		u.`NAME` AS zname,
-		w. NAME,
+		SELECT u.`NAME` as zname,
+		w.NAME,
 		w.TONAME,
 		w.COPYNAME,
 		w.CONTENET,
-		DATE_FORMAT(
-			w.STARTTIME,
-			'%Y-%m-%d %H:%i:%S'
-		) AS STARTTIME,
+		DATE_FORMAT(w.STARTTIME,'%Y-%m-%d %H:%i:%S') as STARTTIME,
 		w.ENDTIME,
 		w.PROC_INST_ID_,
 		w.STATE,
 		w.WORKPLAN_ID,
 		w.CCNAME,
 		r.DEPARTMENT,
-	    IF (w.WORKPLAN_ID IS NULL, 0, 1) AS submit,
-		 (
-			SELECT
-				ROUND(AVG(t.SCORE), 2)
-			FROM
-				oa_workplanmx t
-			WHERE
-				t.WORKPLAN_ID = w.WORKPLAN_ID
-			AND t.SCORE IS NOT NULL
-		) AS SCORE,
-		 GROUP_CONCAT(tt.TITLE) AS TITLE
-		FROM
-			sys_user u
-		LEFT JOIN sys_role r ON u.ROLE_ID = r.ROLE_ID
-		LEFT JOIN oa_workplan w ON u.`NAME` = w.`NAME`
-		LEFT JOIN oa_workplanmx tt ON tt.WORKPLAN_ID = w.WORKPLAN_ID
-		WHERE
-			u.`NAME` != '系统管理员'
-		<if test="pd.STARTCOMMITTIME!=null and pd.STARTCOMMITTIME!=''">
-			and w.STARTTIME &gt;= #{pd.STARTCOMMITTIME} 
-		</if>
-		<if test="pd.ENDTCOMMITIME!=null and pd.ENDTCOMMITIME!=''">		 	
-			and w.STARTTIME &lt;= #{pd.ENDTCOMMITIME} 
-		</if>
-		<if test="pd.KEYWORDS!= null and pd.KEYWORDS != ''"><!-- 关键词检索 -->
-			and
-				(
-				    u.`NAME` LIKE CONCAT(CONCAT('%', #{pd.KEYWORDS}),'%')
-					 or 
-					r.DEPARTMENT LIKE CONCAT(CONCAT('%', #{pd.KEYWORDS}),'%') 
-				
-				)
-		</if>
-		GROUP BY w.WORKPLAN_ID)
-		UNION all
+		IF(w.WORKPLAN_ID is null,0,1) as submit,
 		(SELECT
-			u.`NAME` AS zname,
-			null as NAME,
-			null as TONAME,
-			null as COPYNAME,
-			null as CONTENET,
-			null as STARTTIME,
-			null as ENDTIME,
-			null as PROC_INST_ID_,
-			null as STATE,
-			null as WORKPLAN_ID,
-			null as CCNAME,
-			r.DEPARTMENT,
-		    0 as submit,
-		    null as SCORE,
-		    null as TITLE
+		ROUND(AVG(t.SCORE),2)
 		FROM
-			sys_user u
-		LEFT JOIN sys_role r ON u.ROLE_ID = r.ROLE_ID
-		LEFT JOIN oa_workplan w ON u.`NAME` = w.`NAME`
-		<if test="pd.STARTCOMMITTIME!=null and pd.STARTCOMMITTIME!=''">
-			and w.STARTTIME &gt;= #{pd.STARTCOMMITTIME} 
-		</if>
-		<if test="pd.ENDTCOMMITIME!=null and pd.ENDTCOMMITIME!=''">		 	
-			and w.STARTTIME &lt;= #{pd.ENDTCOMMITIME} 
-		</if>
+		oa_workplanmx t
 		WHERE
-			u.`NAME` != '系统管理员'
-		    and w.WORKPLAN_ID is null
+		t.WORKPLAN_ID = w.WORKPLAN_ID
+		and t.SCORE is not null
+		) as SCORE,
+		(SELECT GROUP_CONCAT(s.TITLE) FROM
+		(SELECT tt.TITLE FROM oa_workplanmx tt WHERE tt.WORKPLAN_ID = w.WORKPLAN_ID GROUP BY tt.TITLE) as s) as TITLE
+		FROM sys_user u
+		LEFT JOIN sys_role r ON u.ROLE_ID = r.ROLE_ID
+		LEFT JOIN oa_workplan w ON u.`NAME`=w.`NAME`
+		<if test="pd.STARTCOMMITTIME!=null and pd.STARTCOMMITTIME!=''">
+			and w.STARTTIME &gt;= #{pd.STARTCOMMITTIME}
+		</if>
+		<if test="pd.ENDTCOMMITIME!=null and pd.ENDTCOMMITIME!=''">
+			and w.STARTTIME &lt;= #{pd.ENDTCOMMITIME}
+		</if>
+		where u.`NAME` !='系统管理员'
 		<if test="pd.KEYWORDS!= null and pd.KEYWORDS != ''"><!-- 关键词检索 -->
 			and
-				(
-				    u.`NAME` LIKE CONCAT(CONCAT('%', #{pd.KEYWORDS}),'%')
-					 or 
-					r.DEPARTMENT LIKE CONCAT(CONCAT('%', #{pd.KEYWORDS}),'%') 
-				
-				)
-		</if>)
-		ORDER BY DEPARTMENT
+			(
+			u.`NAME` LIKE CONCAT(CONCAT('%', #{pd.KEYWORDS}),'%')
+			or
+			r.DEPARTMENT LIKE CONCAT(CONCAT('%', #{pd.KEYWORDS}),'%')
+
+			)
+		</if>
+		ORDER BY r.DEPARTMENT
 	</select>
 	
 </mapper>
