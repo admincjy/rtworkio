@@ -25,9 +25,7 @@ import org.fh.service.${packageName}.${objectName}MxService;
 
 /** 
  * 说明：${TITLE}
- * 作者：FH Admin QQ313596790
  * 时间：${nowDate?string("yyyy-MM-dd")}
- * 官网：www.fhadmin.org
  */
 @Controller
 @RequestMapping("/${objectNameLower}")

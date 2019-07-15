@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 说明：数据字典实体类
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class Dictionaries {
 

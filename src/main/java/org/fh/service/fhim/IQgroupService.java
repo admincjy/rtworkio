@@ -8,7 +8,7 @@ import org.fh.entity.PageData;
 /**
  * 说明：我在的群组服务接口
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public interface IQgroupService {
 

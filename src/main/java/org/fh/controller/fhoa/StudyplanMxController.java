@@ -28,7 +28,7 @@ import org.fh.service.fhoa.StudyplanService;
  * 说明：学习计划流程(明细)
  * 作者：FH 
  * 时间：2019-05-05
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping("/studyplanmx")

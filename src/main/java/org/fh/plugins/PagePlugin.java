@@ -39,7 +39,7 @@ import org.springframework.stereotype.Component;
 /**
  * 说明：分页插件
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 @Component
 @Intercepts({@Signature(type=StatementHandler.class,method="prepare",args={Connection.class,Integer.class})})

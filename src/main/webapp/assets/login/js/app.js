@@ -112,5 +112,5 @@ particlesJS('particles-js',
       "background_size": "cover"
     }
   }
-//fhadmin QQ 313596790
+
 );

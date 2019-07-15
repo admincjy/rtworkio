@@ -12,7 +12,7 @@ import org.apache.commons.codec.binary.Base64;
 /**
  * 说明：BASE64处理
  * 作者：FH Admin Q313596790
- * 官网：www. fhadmin.org
+ *  ：www. fhadmin.org
  */
 public class ImageAnd64Binary {
 	

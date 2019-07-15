@@ -74,7 +74,7 @@
 
         //,textarea:'editorValue' // 提交表单时，服务器获取编辑器提交内容的所用的参数，多实例时可以给容器name属性，会将name给定的值最为每个实例的键值，不用每次实例化的时候都设置这个值
 
-        //,initialContent:'欢迎使用ueditor!'    //初始化编辑器的内容,也可以通过textarea/script给值，看官网例子
+        //,initialContent:'欢迎使用ueditor!'    //初始化编辑器的内容,也可以通过textarea/script给值，看 例子
 
         //,autoClearinitialContent:true //是否自动清除编辑器初始内容，注意：如果focus属性设置为true,这个也为真，那么编辑器一上来就会触发导致初始化的内容看不到了
 
@@ -106,7 +106,7 @@
         //,imagePopup:true      //图片操作的浮层开关，默认打开
 
         //,autoSyncData:true //自动同步编辑器要提交的数据
-        //,emotionLocalization:false //是否开启表情本地化，默认关闭。若要开启请确保emotion文件夹下包含官网提供的images表情文件夹
+        //,emotionLocalization:false //是否开启表情本地化，默认关闭。若要开启请确保emotion文件夹下包含 提供的images表情文件夹
 
         //粘贴只保留标签，去除标签所有属性
         //,retainOnlyLabelPasted: false
@@ -347,7 +347,7 @@
         //allowLinkProtocol 允许的链接地址，有这些前缀的链接地址不会自动添加http
         //, allowLinkProtocols: ['http:', 'https:', '#', '/', 'ftp:', 'mailto:', 'tel:', 'git:', 'svn:']
 
-        //webAppKey 百度应用的APIkey，每个站长必须首先去百度官网注册一个key后方能正常使用app功能，注册介绍，http://app.baidu.com/static/cms/getapikey.html
+        //webAppKey 百度应用的APIkey，每个站长必须首先去百度 注册一个key后方能正常使用app功能，注册介绍，http://app.baidu.com/static/cms/getapikey.html
         //, webAppKey: ""
 
         //默认过滤规则相关配置项目

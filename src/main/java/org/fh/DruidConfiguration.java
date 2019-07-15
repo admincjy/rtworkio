@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 说明：druid数据库连接池的配置类(必须与启动类包目录同级)
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 @Configuration
 public class DruidConfiguration {

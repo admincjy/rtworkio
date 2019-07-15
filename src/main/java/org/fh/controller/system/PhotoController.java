@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 说明：头像编辑处理类
  * 作者：FH 
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping("/photo")

@@ -8,7 +8,7 @@ import org.fh.entity.PageData;
  * 说明： synergy接口
  * 作者：FH Admin 
  * 时间：2019-04-27
- * 官网：
+ *  ：
  * @version
  */
 public interface SynergyService{

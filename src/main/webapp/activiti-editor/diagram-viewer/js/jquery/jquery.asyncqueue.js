@@ -1,6 +1,6 @@
 /*
 * This file is part of the jquery plugin "asyncQueue".
-*FHqq-3-1-3-5-9-6-7-9-0
+*
 * (c) Sebastien Roch <roch.sebastien@gmail.com>
 * @author (parallel) Dmitry Farafonov
 *

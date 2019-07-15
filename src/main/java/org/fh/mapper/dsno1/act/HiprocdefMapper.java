@@ -7,8 +7,7 @@ import org.fh.entity.PageData;
 
 /** 
  * 说明： 历史流程Mapper
- * 作者：FH Admin QQ313596790
- * 官网：www.fhadmin.org
+ * 作者：FH Admin 
  */
 public interface HiprocdefMapper {
 	

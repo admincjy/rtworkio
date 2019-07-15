@@ -31,7 +31,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * 说明：群组
  * 作者：FH 
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping("/qgroup")

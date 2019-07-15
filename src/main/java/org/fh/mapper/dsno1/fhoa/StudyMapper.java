@@ -8,7 +8,7 @@ import org.fh.entity.PageData;
  * 说明： 学习心得流程Mapper
  * 作者：FH 
  * 时间：
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  * @version
  */
 public interface StudyMapper{

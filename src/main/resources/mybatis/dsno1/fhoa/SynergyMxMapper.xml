@@ -133,5 +133,5 @@
 			SYNERGY_ID = #{SYNERGY_ID}
 	</select>
 	
-	<!-- fh313596790qq(青苔) -->
+	 
 </mapper>

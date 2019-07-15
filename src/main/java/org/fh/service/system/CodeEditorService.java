@@ -7,7 +7,7 @@ import org.fh.entity.PageData;
 /**
  * 说明：代码编辑器服务接口
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public interface CodeEditorService{
 

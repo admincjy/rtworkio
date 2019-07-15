@@ -8,7 +8,7 @@ import org.fh.entity.PageData;
 /**
  * 说明：状态(在线or隐身以及签名)Mapper
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public interface ImstateMapper {
 	

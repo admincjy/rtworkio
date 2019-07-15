@@ -36,7 +36,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * 说明：聊天即使通讯接口
  * 作者：FH 
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping("/iminterface")

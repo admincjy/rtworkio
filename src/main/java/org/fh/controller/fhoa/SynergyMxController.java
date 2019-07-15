@@ -28,7 +28,7 @@ import org.fh.service.fhoa.SynergyService;
  * 说明：synergy(明细)
  * 作者：FH Admin 
  * 时间：2019-04-27
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping("/synergymx")

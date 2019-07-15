@@ -9,7 +9,7 @@ import org.activiti.spring.boot.SecurityAutoConfiguration;
 /**
  * 说明：启动类 
  * 作者：
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)//去除冲突 
 @MapperScan("org.fh.mapper")

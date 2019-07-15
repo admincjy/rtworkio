@@ -5,7 +5,7 @@ import java.math.BigInteger;
 /**
  * 说明：权限计算帮助类
  * 作者：FH Admin Q 3 13596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class RightsHelper {
 	/**

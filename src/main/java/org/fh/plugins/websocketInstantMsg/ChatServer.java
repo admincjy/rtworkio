@@ -27,8 +27,7 @@ import org.java_websocket.server.WebSocketServer;
 
 /**
  * 说明：即时通讯
- * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ * 作者：FH Admin
  */
 public class ChatServer extends WebSocketServer{
 
@@ -577,5 +576,5 @@ public class ChatServer extends WebSocketServer{
 /**
  * 即时通讯
  * @author FH Admin
- * QQ  3 13 59 679 0
+ * 
  */

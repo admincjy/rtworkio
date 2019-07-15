@@ -5,7 +5,7 @@ import java.util.UUID;
 /**
  * 说明：生成UUID(32位不重复的字符串)
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class UuidUtil {
 

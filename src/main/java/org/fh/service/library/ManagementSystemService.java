@@ -6,9 +6,7 @@ import org.fh.entity.PageData;
 
 /** 
  * 说明： 朗威图书馆接口
- * 作者：FH Admin QQ313596790
- * 时间：2019-05-21
- * 官网：www.fhadmin.org
+ * 作者：FH Admin 
  * @version
  */
 public interface ManagementSystemService{

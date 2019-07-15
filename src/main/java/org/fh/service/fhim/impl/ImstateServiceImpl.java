@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * 说明：状态(在线or隐身以及签名)服务接口实现类
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 @Service
 @Transactional //开启事物

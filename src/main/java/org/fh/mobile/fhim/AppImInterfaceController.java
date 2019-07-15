@@ -36,7 +36,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * 说明：聊天即使通讯接口(手机端)
  * 作者：FH Admin Q 313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 @Controller
 @RequestMapping("/appiminterface")

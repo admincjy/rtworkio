@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 /**
  * 说明：ini文件读写操作工具类
  * 作者：FH Admin Q 313-596-790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class IniFileUtil {
 

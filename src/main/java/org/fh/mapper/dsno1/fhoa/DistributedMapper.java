@@ -6,9 +6,7 @@ import org.fh.entity.PageData;
 
 /** 
  * 说明： 工作派发流程Mapper
- * 作者：FH Admin QQ313596790
- * 时间：2019-04-28
- * 官网：www.fhadmin.org
+ * 作者：FH Admin 
  * @version
  */
 public interface DistributedMapper{

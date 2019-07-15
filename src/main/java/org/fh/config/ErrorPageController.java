@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 说明：处理404页面
  * 作者：FH 
- * 官网：
  */
 @Controller
 public class ErrorPageController implements ErrorController {

@@ -7,8 +7,7 @@ import org.fh.entity.PageData;
 
 /** 
  * 说明： 请假申请Mapper
- * 作者：FH Admin QQ313596790
- * 官网：www.fhadmin.org
+ * 作者：FH Admin 
  * @version
  */
 public interface MyleaveMapper{

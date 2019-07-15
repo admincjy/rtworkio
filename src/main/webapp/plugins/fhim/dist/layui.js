@@ -143,7 +143,7 @@ function(e) {
                 o()
             } () : setTimeout(p, 100))
         } (), i)
-    },//<!-- f-h-a dmin-QQ3-13-596-790 -->
+    },
     n.callback = {},
     o.prototype.factory = function(e) {
         if (layui[e]) return "function" == typeof n.callback[e] ? n.callback[e] : null

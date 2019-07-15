@@ -46,7 +46,7 @@ function tabClose(mid){
 	tab.close(mid);
 }
 
-//3-1-3-5-9-6-7-9-0-QQ
+
 function cmainFrameT() {
 	var hmainT = document.getElementById("page");
 	var bheightT = document.documentElement.clientHeight;

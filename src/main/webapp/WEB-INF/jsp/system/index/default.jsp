@@ -23,7 +23,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="FH Admin QQ313596790" />
+    <meta name="author" content="FH Admin  " />
 
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
@@ -54,7 +54,7 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <!--<h4>欢迎使用 RT Admin 系统	</h4>
-        									<h6>官网： <a href="http://www.fhadmin.org">www.rtadmin.org</a></h6>-->
+        									<h6> ： <a href="http://www.fhadmin.org">www.rtadmin.org</a></h6>-->
                                             <h4>欢迎使用朗威工作管理系统</h4>
         									<h6>如有疑问请联系信息技术部</h6>
                                         </div>

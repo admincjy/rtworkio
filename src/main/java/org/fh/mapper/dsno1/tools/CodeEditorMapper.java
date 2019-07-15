@@ -7,7 +7,7 @@ import org.fh.entity.PageData;
 /**
  * 说明：代码编辑器Mapper
  * 作者：FH Admin Q-313596-790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public interface CodeEditorMapper{
 

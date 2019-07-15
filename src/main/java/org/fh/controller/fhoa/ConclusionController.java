@@ -32,7 +32,7 @@ import org.fh.service.system.UsersService;
  * 说明：工作总结流程
  * 作者：FH
  * 时间：2019-04-30
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping("/conclusion")
@@ -108,7 +108,7 @@ public class ConclusionController extends AcStartController {
 	}
 	
 	/**删除
-	 * @param out
+	 * @param
 	 * @throws Exception
 	 */
 	@RequestMapping(value="/delete")

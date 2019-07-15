@@ -12,7 +12,7 @@ import org.java_websocket.WebSocket;
 /**
  * 说明：在线管理
  * 作者：FH Admin  3 13 596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class OnlineChatServerPool {
 

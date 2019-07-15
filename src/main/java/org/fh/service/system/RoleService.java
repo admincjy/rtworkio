@@ -9,7 +9,7 @@ import org.fh.entity.system.Role;
 /**
  * 说明：角色服务接口
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public interface RoleService {
 	

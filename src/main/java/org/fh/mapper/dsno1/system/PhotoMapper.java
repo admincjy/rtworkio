@@ -5,7 +5,7 @@ import org.fh.entity.PageData;
 /**
  * 说明：头像编辑Mapper
  * 作者：FH Admin Q313596 790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public interface PhotoMapper {
 	

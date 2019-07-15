@@ -8,7 +8,7 @@ import org.fh.entity.system.Menu;
 /**
  * 说明：菜单Mapper
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public interface MenuMapper {
 	

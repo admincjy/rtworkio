@@ -9,7 +9,7 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
 /**汉字解析拼音处理
  * 说明：Freemarker 模版引擎类
  * 作者：FH Admin Q 313-596-790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class GetPinyin {
 

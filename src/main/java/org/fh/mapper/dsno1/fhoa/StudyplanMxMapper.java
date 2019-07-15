@@ -7,7 +7,7 @@ import org.fh.entity.PageData;
 /** 
  * 说明： 学习计划流程(明细)Mapper
  * 时间：2019-05-05
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  * @version
  */
 public interface StudyplanMxMapper{

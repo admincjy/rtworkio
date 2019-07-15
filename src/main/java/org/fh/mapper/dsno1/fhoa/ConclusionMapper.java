@@ -6,9 +6,7 @@ import org.fh.entity.PageData;
 
 /** 
  * 说明： 工作总结流程Mapper
- * 作者：FH Admin QQ313596790
- * 时间：2019-04-30
- * 官网：www.fhadmin.org
+ * 作者：FH Admin 
  * @version
  */
 public interface ConclusionMapper{

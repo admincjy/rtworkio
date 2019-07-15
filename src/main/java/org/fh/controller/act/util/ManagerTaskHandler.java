@@ -8,7 +8,7 @@ import org.fh.util.Jurisdiction;
 /**
  * 说明：指定下一任务待办人
  * 作者：FH Admin 
- * 官网：
+ *  ：
  */
 @SuppressWarnings("serial")
 public class ManagerTaskHandler implements TaskListener {

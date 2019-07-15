@@ -4,8 +4,7 @@ import java.security.MessageDigest;
 
 /**
  * 说明：MD5处理
- * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ * 作者：FH Admin
  */
 public class MD5 {
 

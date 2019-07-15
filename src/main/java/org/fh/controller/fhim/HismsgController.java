@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 说明：聊天记录
  * 作者：FH 
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping("/hismsg")

@@ -5,7 +5,7 @@ import org.fh.entity.Page;
 /**
  * 说明：用户实体类
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class User {
 	private String USER_ID;		//用户id

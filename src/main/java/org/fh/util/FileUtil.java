@@ -15,7 +15,7 @@ import java.nio.channels.FileChannel.MapMode;
 /**
  * 说明：文件处理
  * 作者：FH Admin Q 313-596-790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class FileUtil {
 

@@ -5,7 +5,7 @@ import org.fh.entity.PageData;
 /**
  * 说明：头像编辑服务接口
  * 作者：FH Admin Q 31359679 0
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public interface PhotoService {
 	

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * 说明：Spring获取Bean工具类
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 @Component
 public class SpringUtil implements ApplicationContextAware {

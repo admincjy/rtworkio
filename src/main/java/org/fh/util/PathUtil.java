@@ -10,7 +10,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 /**
  * 说明：路径工具类
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class PathUtil {
 

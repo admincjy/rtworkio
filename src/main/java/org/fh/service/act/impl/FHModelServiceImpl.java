@@ -12,7 +12,7 @@ import org.fh.service.act.FHModelService;
 /** 
  * 说明： 模型管理接口实现类
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  * @version
  */
 @Service(value="fHModelServiceImpl")

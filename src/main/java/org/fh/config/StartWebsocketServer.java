@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 /**
  * 说明：web服务器启动后立即执行
  * 作者：FH Admin
- * 官网：
+ *  ：
  */
 @Component
 @Order(value = 1) // 1 代表启动顺序

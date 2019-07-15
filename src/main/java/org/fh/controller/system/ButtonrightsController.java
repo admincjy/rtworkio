@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 说明：按钮权限处理类
  * 作者：FH Admin 
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping(value="/buttonrights")

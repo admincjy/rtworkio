@@ -18,7 +18,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 /**
  * 说明：第二数据源配置
  * 作者：FH Admin 
- * 官网：
+ *  ：
  */
 @Configuration
 @MapperScan(basePackages = No2DataSourceConfig.PACKAGE, sqlSessionFactoryRef = "no2SqlSessionFactory")	//扫描 Mapper 接口并容器管理

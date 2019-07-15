@@ -11,8 +11,7 @@ import org.java_websocket.WebSocket;
 
 /**
  * 说明：即时通讯
- * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ * 作者：FH Admin
  */
 public class ChatServerPool {
 
@@ -167,5 +166,5 @@ public class ChatServerPool {
 /**
  * 即时通讯
  * @author FH Admin
- * QQ 3 1359 679 0
+ * 
  */

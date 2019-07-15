@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * 说明：头像编辑服务接口实现类
  * 作者：FH Admin Q 31359679 0
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 @Service
 @Transactional //开启事物

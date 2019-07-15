@@ -13,7 +13,7 @@ import org.fh.service.fhoa.SynergyMxService;
  * 说明： synergy(明细)接口实现类
  * 作者：FH Admin Q313596790
  * 时间：2019-04-27
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  * @version
  */
 @Service

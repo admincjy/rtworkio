@@ -42,7 +42,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 说明：待办任务
  * 作者：FH Admin 
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping(value="/rutask")
@@ -176,8 +176,9 @@ public class RuTaskController extends AcBusinessController {
 			  }
 	    }else if (key.indexOf("key_work_conclusion")!=-1) {
             if(qj.equals("QJ2")) {
-					model.addAttribute("isToName", "yes");
-			  }
+				model.addAttribute("isToName", "yes");
+			}
+			return "fhoa/conclusion/conclusion_rutask_handle";
 		}else if (key.indexOf("key_study_plan")!=-1) {
             if(qj.equals("QJ2")) {
 					model.addAttribute("isToName", "yes");
@@ -248,7 +249,7 @@ public class RuTaskController extends AcBusinessController {
 	}
 	
 	/**发送站内信
-	 * @param mv
+	 * @param
 	 * @param pd
 	 * @throws Exception
 	 */

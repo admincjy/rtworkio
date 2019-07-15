@@ -16,8 +16,7 @@ import javax.mail.internet.MimeMultipart;
 
 /**
  * 说明：邮件发送器
- * 作者：FH Admin Q 313596790
- * 官网：www.fhadmin.org
+ * 作者：FH Admin 
  */
 public class SimpleMailSender {
 

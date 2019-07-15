@@ -17,7 +17,7 @@ import org.quartz.impl.StdSchedulerFactory;
 /**
  * 说明：定时任务管理类 
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class QuartzManager {  
     private static SchedulerFactory gSchedulerFactory = new StdSchedulerFactory();  //创建一个SchedulerFactory工厂实例

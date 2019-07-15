@@ -34,8 +34,7 @@ import org.fh.entity.PageData;
 
 /**
  * 说明：用于备份、还原数据库、在线编辑SQL
- * 作者：FH Admin QQ 313596790
- * 官网：www.fhadmin.org
+ * 作者：FH Admin 
  */
 public class DbFH{
 	private static Properties pros = getPprVue();

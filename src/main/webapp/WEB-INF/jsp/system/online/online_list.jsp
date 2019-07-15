@@ -25,7 +25,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="FH Admin QQ313596790" />
+    <meta name="author" content="FH Admin  " />
 
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
@@ -134,7 +134,7 @@
 		if (window.WebSocket) {
 			websocketonline = new WebSocket(encodeURI('ws://'+top.onlineAdress)); //oladress在main.jsp页面定义
 			websocketonline.onopen = function() {
-				websocketonline.send('[QQ313596790]fhadmin');//连接成功
+				websocketonline.send('[ ]fhadmin');//连接成功
 			};
 			websocketonline.onerror = function() {
 				//连接失败

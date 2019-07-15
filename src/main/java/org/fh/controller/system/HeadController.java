@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 说明：系统设置、初始信息等
  * 作者：FH Admin 
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping("/head")

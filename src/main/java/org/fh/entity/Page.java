@@ -10,7 +10,7 @@ import org.fh.util.Jurisdiction;
 /**
  * 说明：分页类
  * 作者：
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class Page implements Serializable {
 	

@@ -4,9 +4,7 @@ import java.util.List;
 
  /** 
  * 说明：${TITLE}实体类
- * 作者：FH Admin QQ313596790
  * 时间：${nowDate?string("yyyy-MM-dd")}
- * 官网：www.fhadmin.org
  */
 public class ${objectName}{ 
 	

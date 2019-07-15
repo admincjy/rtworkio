@@ -140,5 +140,5 @@
 			DICTIONARIES_ID = #{DICTIONARIES_ID}
 	</delete>
 	
-	<!-- fh3135-96790qq(青苔) -->
+	
 </mapper>

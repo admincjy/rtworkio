@@ -14,8 +14,7 @@ import org.java_websocket.server.WebSocketServer;
 
 /**
  * 说明：在线管理
- * 作者：FH Admin  3 13 596790
- * 官网：www.fhadmin.org
+ * 作者：FH Admin  
  */
 public class OnlineChatServer extends WebSocketServer{
 

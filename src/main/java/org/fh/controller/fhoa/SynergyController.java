@@ -36,7 +36,7 @@ import org.fh.service.fhoa.SynergyMxService;
  * 说明：synergy
  * 作者：FH Admin 
  * 时间：2019-04-27
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping("/synergy")

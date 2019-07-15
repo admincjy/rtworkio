@@ -14,7 +14,7 @@ import org.fh.service.${packageName}.${objectName}Service;
  * 说明： ${TITLE}接口实现类
  * 作者：FH Admin Q313596790
  * 时间：${nowDate?string("yyyy-MM-dd")}
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  * @version
  */
 @Service

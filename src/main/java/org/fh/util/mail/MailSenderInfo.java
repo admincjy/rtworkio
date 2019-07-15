@@ -3,7 +3,7 @@ package org.fh.util.mail;
 /**
  * 说明：发送邮件需要使用的基本信息 
  * 作者：FH Admin Q 31 3596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 import java.util.Properties;    
 public class MailSenderInfo {    

@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 /** 
  * 说明： 请假申请服务接口实现类
  * 创建人：FH Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 @Service(value="myleaveServiceImpl")
 @Transactional //开启事物

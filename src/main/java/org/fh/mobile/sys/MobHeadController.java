@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 说明：手机获取基础信息
  * 作者：FH Admin Q313596790
- * 官网：www. fhadmin.org
+ *  ：www. fhadmin.org
  */
 @Controller
 @RequestMapping("/mobilehead")

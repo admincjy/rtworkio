@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 说明：状态(在线or隐身以及签名)
  * 作者：FH 
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping("/imstate")

@@ -3,7 +3,7 @@ package org.fh.entity.system;
 /**
  * 说明：角色实体类
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class Role {
 	private String ROLE_ID;		//ID

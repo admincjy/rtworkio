@@ -6,9 +6,7 @@ import org.fh.entity.PageData;
 
 /** 
  * 说明： 角色表接口
- * 作者：FH Admin QQ313596790
- * 时间：2019-04-18
- * 官网：www.fhadmin.org
+ * 作者：FH Admin 
  * @version
  */
 public interface RolesService{

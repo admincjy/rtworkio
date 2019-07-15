@@ -13,7 +13,7 @@ import org.fh.service.fhoa.DistributedMxService;
  * 说明： 工作派发流程(明细)接口实现类
  * 作者：FH Admin Q313596790
  * 时间：2019-04-28
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  * @version
  */
 @Service

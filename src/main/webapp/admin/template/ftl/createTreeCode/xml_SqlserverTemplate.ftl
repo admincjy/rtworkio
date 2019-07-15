@@ -150,6 +150,5 @@
 		<include refid="tableName"></include> f
 	</select>
 	
-	
-	<!-- fh 3 1 3 59 67 90 qq(青苔) -->
+
 </mapper>

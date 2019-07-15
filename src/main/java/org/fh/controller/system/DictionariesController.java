@@ -24,7 +24,7 @@ import net.sf.json.JSONArray;
 /**
  * 说明：数据字典处理类
  * 作者：FH Admin 
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping("/dictionaries")

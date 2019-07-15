@@ -39,7 +39,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 说明：登录成功访问后台的处理类(手机端)
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 @Controller
 @RequestMapping("/mobmain")

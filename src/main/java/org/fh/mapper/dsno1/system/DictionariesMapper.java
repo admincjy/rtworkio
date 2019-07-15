@@ -9,7 +9,7 @@ import org.fh.entity.system.Dictionaries;
 /**
  * 说明：数据字典Mapper
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public interface DictionariesMapper {
 

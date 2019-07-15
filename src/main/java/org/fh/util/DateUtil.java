@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * 说明：日期处理
  * 作者：FH Admin Q313596790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class DateUtil {
 	

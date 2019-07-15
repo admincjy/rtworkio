@@ -6,9 +6,7 @@ import org.fh.entity.PageData;
 
 /** 
  * 说明： 工作计划流程(明细)接口
- * 作者：FH Admin QQ313596790
- * 时间：2019-05-05
- * 官网：www.fhadmin.org
+ * 作者：FH Admin 
  * @version
  */
 public interface WorkplanMxService{

@@ -13,7 +13,7 @@ import org.fh.service.fhoa.SynergyService;
  * 说明： synergy接口实现类
  * 作者：FH Admin Q313596790
  * 时间：2019-04-27
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  * @version
  */
 @Service

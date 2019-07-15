@@ -1,7 +1,7 @@
 ﻿	window.onload = function () {
 			var paper = Raphael("holder");
 
-			//var curve = paper.ellipse(100, 100, 1, 1).attr({"stroke-width": 0, fill: Color.red});//FHqq-3-1-3-5-9-6-7-9-0
+			//var curve = paper.ellipse(100, 100, 1, 1).attr({"stroke-width": 0, fill: Color.red});//
 			
 			var text = "Betty Botter bought some butter but, she said, the butter's bitter. If I put it in my batter, it will make my batter bitter. But a bit of better butter will make my batter better. So, she bought a bit of butter, better than her bitter butter, and she put it in her batter, and the batter was not bitter. It was better Betty Botter bought a bit better butter.";
 			var font = {font: "11px Arial", "font-style":"italic", opacity: 1, "fill": LABEL_COLOR, stroke: LABEL_COLOR, "stroke-width":.3};

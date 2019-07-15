@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 说明：下载文件
  * 作者：FH Admin Q 313-596-790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class FileDownload {
 

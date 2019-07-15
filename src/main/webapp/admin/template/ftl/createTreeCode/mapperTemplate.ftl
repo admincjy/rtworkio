@@ -7,9 +7,7 @@ import org.fh.entity.${packageName}.${objectName};
 
 /** 
  * 说明： ${TITLE}Mapper
- * 作者：FH Admin QQ313596790
  * 时间：${nowDate?string("yyyy-MM-dd")}
- * 官网：www.fhadmin.org
  * @version
  */
 public interface ${objectName}Mapper{

@@ -13,7 +13,7 @@ import org.fh.service.fhoa.StudyplanMxService;
  * 说明： 学习计划流程(明细)接口实现类
  * 作者：FH Admin Q313596790
  * 时间：2019-05-05
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  * @version
  */
 @Service

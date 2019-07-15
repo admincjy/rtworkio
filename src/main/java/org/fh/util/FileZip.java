@@ -9,7 +9,7 @@ import java.util.zip.ZipOutputStream;
 /**
  * 说明：java压缩成zip
  * 作者：FH Admin Q 3 1359679 0
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public class FileZip {
 

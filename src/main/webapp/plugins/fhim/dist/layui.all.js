@@ -3558,7 +3558,7 @@ function(e, t) {
         fe.noCloneEvent = !!e.addEventListener,
         e[pe.expando] = 1,
         fe.attributes = !e.getAttribute(pe.expando)
-    } ();//<!-- f-h-admin-QQ313-596790 -->
+    } ();//
     var Xe = {
         option: [1, "<select multiple='multiple'>", "</select>"],
         legend: [1, "<fieldset>", "</fieldset>"],
@@ -3797,7 +3797,7 @@ function(e, t) {
             e && e.stopImmediatePropagation && e.stopImmediatePropagation(),
             this.stopPropagation()
         }
-    },// f h a dm in  QQ  3 13 59 67 9 0 
+    },
     pe.each({
         mouseenter: "mouseover",
         mouseleave: "mouseout",
@@ -4782,7 +4782,7 @@ function(e, t) {
             for (t = " " + e + " "; n = this[r++];) if (1 === n.nodeType && (" " + z(n) + " ").replace(Pt, " ").indexOf(t) > -1) return ! 0;
             return ! 1
         }
-    }),// f h a dm i n  QQ  3 1 3 59 67 9 0 
+    }),
     pe.each("blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu".split(" "),
     function(e, t) {
         pe.fn[t] = function(e, n) {

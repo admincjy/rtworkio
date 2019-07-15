@@ -50,7 +50,7 @@ function severCheck(){
 	if(check()){
 		var loginname = $("#loginname").val();
 		var password = $("#password").val();
-		var code = "qq313596790fh"+loginname+",fh,"+password;
+		var code = " fh"+loginname+",fh,"+password;
 		$.ajax({
 			type: "POST",
 			url: 'mobile/check',

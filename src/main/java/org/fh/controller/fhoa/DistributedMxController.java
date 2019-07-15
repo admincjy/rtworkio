@@ -28,7 +28,7 @@ import org.fh.service.fhoa.DistributedService;
  * 说明：工作派发流程(明细)
  * 作者：FH 
  * 时间：2019-04-28
- * 官网：
+ *  ：
  */
 @Controller
 @RequestMapping("/distributedmx")

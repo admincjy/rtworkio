@@ -8,7 +8,7 @@ import org.fh.entity.PageData;
 /**
  * 说明：操作日志记录Mapper
  * 作者：FH Admin Q313 596-790
- * 官网：www.fhadmin.org
+ *  ：www.fhadmin.org
  */
 public interface FHlogMapper {
 	
