@@ -56,5 +56,7 @@ public interface ConclusionMapper{
 	void deleteAll(String[] ArrayDATA_IDS);
 	
 	List<PageData> reportPage(Page page);
+
+	PageData findByProcInstId(String PROC_INST_ID_);
 }
 

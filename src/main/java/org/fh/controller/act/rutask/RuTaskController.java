@@ -66,7 +66,8 @@ public class RuTaskController extends AcBusinessController {
 	private WorkplanMxService workplanMxService;;
 	@Autowired
 	private HistoryService historyService;
-	
+
+
 	/**待办任务列表
 	 * @param page
 	 * @throws Exception
@@ -174,10 +175,13 @@ public class RuTaskController extends AcBusinessController {
               if(qj.equals("QJ2")) {
 					model.addAttribute("isToName", "yes");
 			  }
+			return "fhoa/study/stduy_rutask_handle";
 	    }else if (key.indexOf("key_work_conclusion")!=-1) {
             if(qj.equals("QJ2")) {
 				model.addAttribute("isToName", "yes");
 			}
+			PageData pageData=conclusionService.findByProcInstId(pd.getString("PROC_INST_ID_"));
+			model.addAttribute("pageData", pageData);
 			return "fhoa/conclusion/conclusion_rutask_handle";
 		}else if (key.indexOf("key_study_plan")!=-1) {
             if(qj.equals("QJ2")) {

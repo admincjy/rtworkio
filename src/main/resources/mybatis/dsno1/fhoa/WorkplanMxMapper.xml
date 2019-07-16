@@ -150,7 +150,7 @@
 				-->
 				)
 		</if>
-		order by f.TITLE,f.PLANTIME
+		order by f.TITLE,f.CREATETIME
 	</select>
 	
 	<!-- 列表(全部) -->

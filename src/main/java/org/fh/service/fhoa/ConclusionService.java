@@ -57,6 +57,8 @@ public interface ConclusionService{
 	public void editbyPIID(PageData pd)throws Exception;
 	
 	public List<PageData> listReportPage(Page page)throws Exception;
+
+	public PageData findByProcInstId(String PROC_INST_ID_);
 	
 }
 

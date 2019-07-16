@@ -69,39 +69,20 @@
 								        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 								            <p class="mb-0">
 								            	<table id="table_report" class="table table-striped table-bordered table-hover" style="margin-top: 10px;">
+												<c:forEach items="${varList}" var="var" varStatus="vs">
+													<tr>
+														<c:if test="${var.NAME_ != 'RESULT'}">
+															<td style="width:75px;text-align: right;padding-top: 10px;">${var.NAME_ == 'USERNAME'?'提交户名':var.NAME_}</td>
+															<td style="padding-top: 10px;">${var.TEXT_}</td>
+														</c:if>
+													</tr>
+												</c:forEach>
 												<tr>
-													<td style="width:75px;text-align: right;padding-top: 10px;">提交人员</td>
-													<td style="padding-top: 10px;">${pageData.NAME}</td>
-												</tr>
-												<tr>
-													<td style="width:75px;text-align: right;padding-top: 10px;">接收人员</td>
-													<td style="padding-top: 10px;">${pageData.TONAME}</td>
-												</tr>
-												<tr>
-													<td style="width:75px;text-align: right;padding-top: 10px;">抄送人员</td>
-													<td style="padding-top: 10px;">${pageData.COPE_NAME}</td>
-												</tr>
-												<tr>
-													<td style="width:75px;text-align: right;padding-top: 10px;">提交时间</td>
-													<td style="padding-top: 10px;">${pageData.STARTTIME}</td>
-												</tr>
-												<tr>
-													<td style="width:75px;text-align: right;padding-top: 10px;">总结评分</td>
+													<td style="width:75px;text-align: right;padding-top: 10px;">提交内容</td>
 													<td style="padding-top: 10px;">
-														<input type="number" name="SCORE" id="SCORE" value="${SCORE}" maxlength="255" placeholder="请对工作总结进行评分" title="评分">
-                                                    </td>
+														<a onclick="contentmx('${pd.PROC_INST_ID_}')" style="cursor:pointer;" title="详情">&nbsp;<i style="margin-top:-3px;margin-left: -6px;"  class="feather icon-search"></i></a>
+													</td>
 												</tr>
-												</table>
-													<table>
-														<tr>
-															<td><h6>总结内容:</h6></td>
-														</tr>
-														<tr>
-															<td colspan="10" id="omsg" style="padding-bottom: 15px;">
-																<textarea  name="OPINION" id="OPINION" maxlength="4000" style="display:none" ></textarea>
-																<script id="editor" type="text/plain" style="width:100%;height:130px;">${pageData.CONTENT}</script>
-															</td>
-														</tr>
 												</table>
 												<c:if test="${null == pd.msg or pd.msg != 'admin' }">
 												<form action="rutask/handle" name="Form" id="Form" method="post">
@@ -110,6 +91,17 @@
 													<input type="hidden" name="PROC_INST_ID_" id="PROC_INST_ID_" value="${pd.PROC_INST_ID_}"/>
 													<input type="hidden" name="msg" id="msg" value="yes"/>
 													<div id="showform" style="padding-top: 0px;">
+													<table>
+														<tr>
+															<td><h6>备注意见22222222222:</h6></td>
+														</tr>
+														<tr>
+															<td colspan="10" id="omsg" style="padding-bottom: 15px;">
+																<textarea  name="OPINION" id="OPINION" maxlength="4000" style="display:none" ></textarea>
+																<script id="editor" type="text/plain" style="width:100%;height:130px;">${pd.DESCRIPTION}</script>
+															</td>
+														</tr>
+													</table>
 													<table id="table_report" class="table table-striped table-bordered table-hover">
 														<tr>
 															<td style="text-align: center;" colspan="10">
@@ -124,6 +116,21 @@
 																</shiro:hasPermission>
 																<a class="btn btn-light btn-sm" onclick="top.Dialog.close();" style="margin-left: -8px;"><i class="feather icon-corner-right-down"></i>取消</a>
 															</td>
+															<shiro:hasPermission name="NextASSIGNEE_">
+															<c:if test="${isToName != 'yes'}">	
+															<td width="320">
+																指定下一办理对象：
+																<input type="text" name="ASSIGNEE_2" id="ASSIGNEE_2" placeholder="请指定下一办理对象" value=""  title="指定下一办理对象" style="width:150px;" readonly="readonly"/>
+																<a class="btn btn-light btn-sm" onclick="clean();" title="清空" style="width: 23px;height:30px;margin-top:1px;cursor:pointer;"><div style="margin-top:0px;margin-left: -6px;">清</div></a>
+																<a class="btn btn-light btn-sm" title="选择办理人(单人)" onclick="getUser();" style="width: 23px;height:30px;margin-top:1px;cursor:pointer;">
+																	<i class="feather icon-user" style="margin-top:-6px;margin-left: -6px;"></i>
+																</a>
+																<a class="btn btn-light btn-sm" title="选择办理角色(此角色下所有人都可以办理)" onclick="getRole();" style="width: 23px;height:30px;margin-top:1px;cursor:pointer;margin-left:-8px;">
+																	<i class="feather icon-users" style="margin-top:-6px;margin-left: -6px;"></i>
+																</a>
+															</td>
+															</c:if>
+															</shiro:hasPermission>
 														</tr>
 													</table>
 													</div>
@@ -302,8 +309,6 @@ function contentmx(id){
 
 //选择办理人
 function getUser(){
-	 console.log(6666)
-	 
 	 var diag = new top.Dialog();
 	 diag.Drag=true;
 	 diag.Title ="选择办理人";
@@ -357,7 +362,29 @@ function clean(){
 
 //办理任务
 function handle(msg){
+	console.log(666,$("#ID_").val())
 	$("#msg").val(msg);
+	$("#OPINION").val(getContent());
+//	if($("#OPINION").val()==""){
+//		$("#omsg").tips({
+//			side:3,
+//          msg:'请输入意见',
+//          bg:'#AE81FF',
+//          time:2
+//      });
+//		$("#OPINION").focus();
+//	return false;
+//	}
+	if($("#ASSIGNEE_2").val()==""){
+		$("#omsg").tips({
+			side:3,
+            msg:'请选择下一个办理对象',
+            bg:'#AE81FF',
+            time:2
+        });
+		$("#ASSIGNEE_2").focus();
+	return false;
+	}
 	$("#Form").submit();
 	$("#showform").hide();
 	$("#jiazai").show();

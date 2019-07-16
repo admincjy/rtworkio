@@ -86,6 +86,10 @@ public class ConclusionServiceImpl implements ConclusionService{
 	public List<PageData> listReportPage(Page page)throws Exception{
 		return conclusionMapper.reportPage(page);
 	}
+
+	public PageData findByProcInstId(String PROC_INST_ID_){
+		return conclusionMapper.findByProcInstId(PROC_INST_ID_);
+	}
 	
 }
 

@@ -224,6 +224,14 @@
 		
 		ORDER BY r.DEPARTMENT
 	</select>
-	
-	
+
+	<!-- 通过流程ID获取数据 -->
+	<select id="findByProcInstId" parameterType="String" resultType="pd">
+		select
+		<include refid="Field"></include>
+		from
+		<include refid="tableName"></include> f
+		where
+		f.PROC_INST_ID_ = #{PROC_INST_ID_}
+	</select>
 </mapper>
