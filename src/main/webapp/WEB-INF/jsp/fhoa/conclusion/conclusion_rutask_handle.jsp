@@ -99,7 +99,7 @@
 														<tr>
 															<td colspan="10" id="omsg" style="padding-bottom: 15px;">
 																<textarea  name="OPINION" id="OPINION" maxlength="4000" style="display:none" ></textarea>
-																<script id="editor" type="text/plain" style="width:100%;height:130px;">${pageData.CONTENT}</script>
+																<script id="editor" type="text/plain" style="width:990px;height:130px;">${pageData.CONTENT}</script>
 															</td>
 														</tr>
 												</table>
