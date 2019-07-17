@@ -105,7 +105,7 @@
 															<c:when test="${not empty varList}">
 																<c:forEach items="${varList}" var="var" varStatus="vs">
 																	<c:if test="${'0' == var.ISCC }">	
-																	<tr onclick="edit('${var.WORKPLAN_ID}');">
+																	<tr ondblclick="edit('${var.WORKPLAN_ID}');">
 									                 				</c:if>	
 																		<td>${page.showCount*(page.currentPage-1)+vs.index+1}</td>
 																		<td>${var.NAME}</td>
