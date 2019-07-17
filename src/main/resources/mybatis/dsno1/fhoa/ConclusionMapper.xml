@@ -103,6 +103,7 @@
 		set 
 		<if test="SCORE != null and SCORE != ''">
 		    SCORE = #{SCORE},
+			ENDTIME = now(),
 		</if>
 			CONCLUSION_ID = CONCLUSION_ID
 		where 

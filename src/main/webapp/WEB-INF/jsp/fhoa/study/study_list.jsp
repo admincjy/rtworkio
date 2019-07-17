@@ -310,8 +310,8 @@
 			 diag. ShowMaxButton = true;	//最大化按钮
 		     diag.ShowMinButton = true;		//最小化按钮
 			 diag.URL = '<%=basePath%>rutask/contentDetails?PROC_INST_ID_='+id+'&isRun=3';
-			 diag.Width = 760;
-			 diag.Height = 500;
+			 diag.Width = 1600;
+			 diag.Height = 1550;
 			 diag.CancelEvent = function(){ //关闭事件
 				diag.close();
 			 };

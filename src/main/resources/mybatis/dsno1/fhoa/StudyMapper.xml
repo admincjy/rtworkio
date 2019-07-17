@@ -99,6 +99,7 @@
 		</if>
 		<if test="SCORE != null and SCORE != ''">
 		    SCORE = #{SCORE},
+			ENDTIME = now(),
 		</if>
 			STUDY_ID = STUDY_ID
 		where 

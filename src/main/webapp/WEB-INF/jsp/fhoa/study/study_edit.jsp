@@ -65,7 +65,7 @@
 											<tr>
 												<td colspan="10" id="omsg" style="padding-bottom: 15px;">
 													<textarea  name="CONTENT" id="CONTENT" maxlength="10000" style="display:none" ></textarea>
-													<script id="editor" type="text/plain" style="width:100%;height:350px;">${pd.CONTENT}</script>
+													<script id="editor" type="text/plain" style="width:1450px;height:350px;">${pd.CONTENT}</script>
 												</td>
 											</tr>
 										</table>
