@@ -198,7 +198,7 @@ public class RuTaskController extends AcBusinessController {
 			pd.put("PROC_INST_ID_", pd.getString("PROC_INST_ID_"));
 			List<PageData> pageDatas=ruprocdefService.selectByPIId(pd);
 			model.addAttribute("pageDatas", pageDatas);
-			return "fhoa/studyplan/workplan_rutask_handle";
+			return "fhoa/workplan/workplan_rutask_handle";
 		}
 		return "act/rutask/rutask_handle";
 	}
