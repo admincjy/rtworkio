@@ -22,10 +22,7 @@ import org.fh.entity.Page;
 import org.fh.entity.PageData;
 import org.fh.service.act.HiprocdefService;
 import org.fh.service.act.RuprocdefService;
-import org.fh.service.fhoa.ConclusionService;
-import org.fh.service.fhoa.StudyService;
-import org.fh.service.fhoa.StudyplanMxService;
-import org.fh.service.fhoa.WorkplanMxService;
+import org.fh.service.fhoa.*;
 import org.fh.service.system.FhsmsService;
 import org.fh.util.Const;
 import org.fh.util.DateUtil;
@@ -62,6 +59,10 @@ public class RuTaskController extends AcBusinessController {
 	private ConclusionService conclusionService;
 	@Autowired
 	private StudyplanMxService studyplanMxService;
+	@Autowired
+	private StudyplanService studyplanService;
+	@Autowired
+	private WorkplanService workplanService;
 	@Autowired
 	private WorkplanMxService workplanMxService;;
 	@Autowired
@@ -484,6 +485,7 @@ public class RuTaskController extends AcBusinessController {
 				pageDatas.get(i).put("SCORE", strArray[i]);
 			}
             studyplanMxService.batchUpdate(pageDatas);
+			studyplanService.editbyPIID(pd);
 			map.put("result","success");
 		}else if(key.indexOf("key_work_conclusion")!=-1){
 			conclusionService.editbyPIID(pd);
@@ -497,6 +499,7 @@ public class RuTaskController extends AcBusinessController {
 				pageDatas.get(i).put("SCORE", strArray[i]);
 			}
 			workplanMxService.batchUpdate(pageDatas);
+			workplanService.editbyPIID(pd);
 			map.put("result","success");
 		}
         return "transferPage";
