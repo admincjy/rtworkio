@@ -357,6 +357,34 @@ function clean(){
 
 //办理任务
 function handle(msg){
+if($("#SCORE").val()==""){
+	$("#SCORE").tips({
+			side:3,
+            msg:'请对上文进行评分',
+            bg:'#AE81FF',
+            time:2
+        });
+		$("#SCORE").focus();
+	return false;
+	}else if($("#SCORE").val()<0||$("#SCORE").val()>100){
+		$("#SCORE").tips({
+			side:3,
+            msg:'请输入0到100的分数',
+            bg:'#AE81FF',
+            time:2
+        });
+		$("#SCORE").focus();
+	return false;
+	}
+    $.ajax({
+		type: "POST",
+		url: '<%=basePath%>rutask/putScore?PROC_INST_ID_='+$("#PROC_INST_ID_").val()+'&SCORE='+$("#SCORE").val(),
+	    data: {},
+			dataType:'json',
+			cache: false,
+			success: function(data){
+			}
+	});
 	$("#msg").val(msg);
 	$("#Form").submit();
 	$("#showform").hide();
