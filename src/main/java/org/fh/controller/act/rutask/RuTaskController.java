@@ -172,9 +172,13 @@ public class RuTaskController extends AcBusinessController {
 					model.addAttribute("isToName", "yes");
 			  }
 		}else if (key.indexOf("key_study")!=-1&&key.indexOf("key_study_plan")==-1) {
-              if(qj.equals("QJ2")) {
-					model.addAttribute("isToName", "yes");
-			  }
+		    if(qj.equals("QJ2")) {
+                model.addAttribute("isToName", "yes");
+            }
+            pd.put("key", "study");
+            pd.put("PROC_INST_ID_", pd.getString("PROC_INST_ID_"));
+            List<PageData> pageDatas=ruprocdefService.selectByPIId(pd);
+            model.addAttribute("pageData", pageDatas.get(0));
 			return "fhoa/study/stduy_rutask_handle";
 	    }else if (key.indexOf("key_work_conclusion")!=-1) {
             if(qj.equals("QJ2")) {
@@ -205,6 +209,7 @@ public class RuTaskController extends AcBusinessController {
 		Session session = Jurisdiction.getSession();
 		PageData pd = new PageData();
 		pd = this.getPageData();
+
 		String taskId = pd.getString("ID_");	//任务ID
 		String sfrom = "";
 		Object ofrom = getVariablesByTaskIdAsMap(taskId,"审批结果");
