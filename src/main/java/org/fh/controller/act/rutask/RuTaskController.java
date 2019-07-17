@@ -185,10 +185,20 @@ public class RuTaskController extends AcBusinessController {
             if(qj.equals("QJ2")) {
 					model.addAttribute("isToName", "yes");
 			  }
+			pd.put("key", "studyplan");
+			pd.put("PROC_INST_ID_", pd.getString("PROC_INST_ID_"));
+			List<PageData> pageDatas=ruprocdefService.selectByPIId(pd);
+			model.addAttribute("pageDatas", pageDatas);
+			return "fhoa/studyplan/studyplan_rutask_handle";
 		}else if (key.indexOf("key_work_plan")!=-1) {
             if(qj.equals("QJ2")) {
 					model.addAttribute("isToName", "yes");
 			  }
+			pd.put("key", "workplan");
+			pd.put("PROC_INST_ID_", pd.getString("PROC_INST_ID_"));
+			List<PageData> pageDatas=ruprocdefService.selectByPIId(pd);
+			model.addAttribute("pageDatas", pageDatas);
+			return "fhoa/studyplan/workplan_rutask_handle";
 		}
 		return "act/rutask/rutask_handle";
 	}
