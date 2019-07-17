@@ -58,7 +58,7 @@
                             <!-- [ Main Content ] start -->
                             <div class="row">
 					
-								<form action="conclusion/${msg}" name="Form" id="Form" method="post" style="width: 100%;">
+								<form action="conclusion/${msg}" name="Form" id="Form" method="post" style="width: 1500px">
 									<input type="hidden" name="CONCLUSION_ID" id="CONCLUSION_ID" value="${pd.CONCLUSION_ID}"/>
 									<div id="showform">
 										<div class="input-group input-group-sm mb-3" id="types">
@@ -74,7 +74,7 @@
 											<tr>
 												<td colspan="10" id="omsg" style="padding-bottom: 15px;">
 													<textarea  name="CONTENT" id="CONTENT" maxlength="10000" style="display:none" ></textarea>
-													<script id="editor" type="text/plain" style="width:100%;height:350px;">${pd.CONTENT}</script>
+													<script id="editor" type="text/plain" style="width:1500px;height:350px;">${pd.CONTENT}</script>
 												</td>
 											</tr>
 										</table>
