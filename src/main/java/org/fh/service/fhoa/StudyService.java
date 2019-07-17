@@ -56,6 +56,7 @@ public interface StudyService{
 	public void deleteAll(String[] ArrayDATA_IDS)throws Exception;
 	
 	public List<PageData> listReportPage(Page page)throws Exception;
-	
+
+
 }
 

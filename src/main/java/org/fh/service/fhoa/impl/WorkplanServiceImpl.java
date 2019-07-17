@@ -82,6 +82,9 @@ public class WorkplanServiceImpl implements WorkplanService{
 	public void deleteAll(String[] ArrayDATA_IDS)throws Exception{
 		workplanMapper.deleteAll(ArrayDATA_IDS);
 	}
-	
+
+	public void editbyPIID(PageData pd)throws Exception{
+		workplanMapper.editbyPIID(pd);
+	}
 }
 

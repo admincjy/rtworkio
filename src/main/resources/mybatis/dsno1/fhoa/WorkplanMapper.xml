@@ -84,6 +84,19 @@
 		where 
 			WORKPLAN_ID = #{WORKPLAN_ID}
 	</update>
+
+	<!-- 通过PROC_INST_ID_修改 -->
+	<update id="editbyPIID" parameterType="pd">
+		update
+		<include refid="tableName"></include>
+		set
+		<if test="SCORE != null and SCORE != ''">
+			ENDTIME = now(),
+		</if>
+		WORKPLAN_ID = WORKPLAN_ID
+		where
+		PROC_INST_ID_ = #{PROC_INST_ID_}
+	</update>
 	
 	<!-- 通过ID获取数据 -->
 	<select id="findById" parameterType="pd" resultType="pd">

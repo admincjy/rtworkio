@@ -57,6 +57,7 @@ public interface WorkplanService{
 	
 	
 	public List<PageData> listReportPage(Page page)throws Exception;
-	
+
+	public void editbyPIID(PageData pd)throws Exception;
 }
 

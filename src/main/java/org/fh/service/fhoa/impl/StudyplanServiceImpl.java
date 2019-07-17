@@ -82,6 +82,11 @@ public class StudyplanServiceImpl implements StudyplanService{
 	public List<PageData> listReportPage(Page page)throws Exception{
 		return studyplanMapper.reportPage(page);
 	}
-	
+
+	public void editbyPIID(PageData pd)throws Exception{
+		studyplanMapper.editbyPIID(pd);
+	}
+
+
 }
 

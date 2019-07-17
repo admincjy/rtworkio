@@ -54,6 +54,8 @@ public interface WorkplanMapper{
 	 * @throws Exception
 	 */
 	void deleteAll(String[] ArrayDATA_IDS);
+
+	void editbyPIID(PageData pd);
 	
 }
 
