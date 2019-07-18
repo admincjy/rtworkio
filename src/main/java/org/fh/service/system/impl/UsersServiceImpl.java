@@ -152,7 +152,7 @@ public class UsersServiceImpl implements UsersService {
 	}
 	
 	/**批量删除用户
-	 * @param pd
+	 * @param
 	 * @throws Exception
 	 */
 	public void deleteAllUser(String[] USER_IDS)throws Exception{

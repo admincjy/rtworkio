@@ -252,5 +252,26 @@
 	      #{item.TITLE}
 	      )
 	    </foreach>
-    </insert> 
+    </insert>
+
+
+	<!-- 查询未完成明细总数 -->
+	<select id="finddelNoEnd"  parameterType="String" resultType="String">
+		SELECT
+			t.WORKPLANMX_ID
+		FROM
+			oa_workplanmx t
+		WHERE
+			t.BASE_WORKPLAN_ID IN (
+				SELECT
+					t1.BASE_WORKPLAN_ID
+				FROM
+					oa_workplanmx t1
+				WHERE
+					t1.WORKPLANMX_ID in
+					<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+						#{item}
+					</foreach>
+			)
+	</select>
 </mapper>

@@ -230,4 +230,31 @@ public class WorkplanMxController extends BaseController {
 		model.addAttribute("pd", pd);
 		return "fhoa/workplanmx/workplanmx_list";
 	}
+
+	/**删除未完成的历史计划
+	 * @param page
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/delNoEnd")
+	public String delNoEnd(Page page, Model model) throws Exception{
+		PageData pd = new PageData();
+		pd = this.getPageData();
+		String errInfo = "success";
+		String DATA_IDS = pd.getString("DATA_IDS");
+		try{
+			if(Tools.notEmpty(DATA_IDS)){
+				String ArrayDATA_IDS[] = DATA_IDS.split(",");
+				String workMIds[]=workplanmxService.finddelNoEnd(ArrayDATA_IDS);
+				workplanmxService.deleteAll(workMIds);
+				errInfo = "success";
+			}else{
+				errInfo = "error";
+			}
+		}catch(Exception e){
+			errInfo = "error";
+		}
+		model.addAttribute("result",errInfo);
+		return "fhoa/workplan/workplan_edit";
+	}
+
 }

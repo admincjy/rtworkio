@@ -175,6 +175,7 @@
 									<div style="width: 100%;padding-bottom: 2px;margin-top: 10px;" class="center" id="buta">
 										<a class="btn btn-light btn-sm" onclick="save('no');">新增</a>
 										<a class="btn btn-light btn-sm" onclick="save('yes');">修改</a>
+										<a class="btn btn-light btn-sm" onclick="del();">删除</a>
 									</div>
 								</c:if>
 								<c:if test="${'yes' == isEdit || 'edit' == msg }">
@@ -195,6 +196,7 @@
     
 <script type="text/javascript" src="assets/js/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="assets/js/pre-loader.js"></script>
+<script src="assets/plugins/sweetalert/js/sweetalert.min.js"></script>
 
 <!-- 日期插件 -->
 <script src="assets/js/pages/moment-with-locales.min.js"></script>
@@ -334,6 +336,48 @@
 		function cleanCC(){
 		 	$("#ASSIGNEE_").val("");
 		 	$("#ASSIGNEE_3").val("");
+		}
+		//删除未完成得计划
+		function del(){
+			if (document.getElementsByName('ids').length>0){
+				var str = '';
+    			for(var i=0;i < document.getElementsByName('ids').length;i++){
+    				  if(document.getElementsByName('ids')[i].checked){
+    				  	if(str=='') str += document.getElementsByName('ids')[i].value;
+    				  	else str += ',' + document.getElementsByName('ids')[i].value;
+    				  }
+    			}
+    			if(str==''){
+    				$("#cts").tips({
+    					side:2,
+    		            msg:'您没有选择任何内容!',
+    		            bg:'#AE81FF',
+    		            time:3
+    		      });
+			      return false;
+    			}
+				$.ajax({
+					type: "POST",
+					url: '<%=basePath%>workplanmx/delNoEnd',
+			    	data: {DATA_IDS:str},
+					dataType:'json',
+					cache: false,
+					success: function(data){
+        				
+					}
+				});
+				swal({
+	                title: '',
+		            text: "确定要删除后重新新增吗?",
+		            icon: "warning",
+		            buttons: true,
+		            dangerMode: true,
+	            }).then((willDelete) => {
+	            	if (willDelete) {
+				       top.Dialog.close();
+	            	}
+		        });
+			}
 		}
 		
 		$(function() {

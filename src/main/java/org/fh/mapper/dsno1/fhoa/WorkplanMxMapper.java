@@ -79,5 +79,7 @@ public interface WorkplanMxMapper{
 	List<PageData> selectIds(String[] ids);
 	
 	int insertBatch(List<PageData> pageDatas);
+
+	String[] finddelNoEnd(String[] ids);
 }
 

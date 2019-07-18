@@ -118,7 +118,7 @@ public class WorkplanController extends AcStartController {
 	}
 	
 	/**删除
-	 * @param out
+	 * @param
 	 * @throws Exception
 	 */
 	@RequestMapping(value="/delete")
@@ -203,7 +203,23 @@ public class WorkplanController extends AcStartController {
 		model.addAttribute("pd", pd);
 		return "fhoa/workplan/workplan_edit";
 	}
-	
+
+
+	/**去新增页面
+	 * @param
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/search")
+	public String search(Page page,Model model)throws Exception{
+		PageData pd = new PageData();
+		pd.put("NAME", Jurisdiction.getName());
+		page.setPd(pd);
+		List<PageData>	varList = workplanmxService.listNoEnd(page);	//列出未完成完成WorkplanMx列表
+		model.addAttribute("varList", varList);
+		model.addAttribute("msg", "save");
+		model.addAttribute("pd", pd);
+		return "fhoa/workplan/workplan_edit";
+	}
 	
 	/**去新增页面
 	 * @param

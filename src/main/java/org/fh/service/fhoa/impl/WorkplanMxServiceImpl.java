@@ -123,6 +123,10 @@ public class WorkplanMxServiceImpl implements WorkplanMxService{
 	public int insertBatch(List<PageData> pageDatas)throws Exception{
 		return workplanmxMapper.insertBatch(pageDatas);
 	}
-	
+
+
+	public String[] finddelNoEnd(String[] ids)throws Exception{
+		return workplanmxMapper.finddelNoEnd(ids);
+	}
 }
 

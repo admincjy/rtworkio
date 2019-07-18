@@ -75,6 +75,8 @@ public interface WorkplanMxService{
 	public  List<PageData> selectIds(String[] ids)throws Exception;
 	
 	public  int insertBatch(List<PageData> pageDatas)throws Exception;
+
+	public  String[] finddelNoEnd(String[] ids)throws Exception;
 	
 }
 
