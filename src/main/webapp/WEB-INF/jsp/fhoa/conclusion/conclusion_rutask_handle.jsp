@@ -70,25 +70,20 @@
 								            <p class="mb-0">
 								            	<table id="table_report" class="table table-striped table-bordered table-hover" style="margin-top: 10px;">
 												<tr>
-													<td style="width:75px;text-align: right;padding-top: 10px;">提交人员</td>
-													<td style="padding-top: 10px;">${pageData.NAME}</td>
+													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">提交人员</td>
+													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">接收人员</td>
+													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">抄送人员</td>
+													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">提交时间</td>
+													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">总结评分</td>
+													
 												</tr>
 												<tr>
-													<td style="width:75px;text-align: right;padding-top: 10px;">接收人员</td>
-													<td style="padding-top: 10px;">${pageData.TONAME}</td>
-												</tr>
-												<tr>
-													<td style="width:75px;text-align: right;padding-top: 10px;">抄送人员</td>
-													<td style="padding-top: 10px;">${pageData.COPE_NAME}</td>
-												</tr>
-												<tr>
-													<td style="width:75px;text-align: right;padding-top: 10px;">提交时间</td>
-													<td style="padding-top: 10px;">${pageData.STARTTIME}</td>
-												</tr>
-												<tr>
-													<td style="width:75px;text-align: right;padding-top: 10px;">总结评分</td>
-													<td style="padding-top: 10px;">
-														<input type="number" name="SCORE" id="SCORE" value="${SCORE}" maxlength="255" placeholder="请对工作总结进行评分" title="评分">
+													<td style="padding-top: 10px;text-align: center;">${pageData.NAME}</td>
+													<td style="padding-top: 10px;text-align: center;">${pageData.TONAME}</td>
+													<td style="padding-top: 10px;text-align: center;">${pageData.CCNAME}</td>
+													<td style="padding-top: 10px;text-align: center;">${pageData.STARTTIME}</td>
+													<td style="padding-top: 10px;text-align: center;">
+														<input type="text" id="SCORE" onKeyUp="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
                                                     </td>
 												</tr>
 												</table>
