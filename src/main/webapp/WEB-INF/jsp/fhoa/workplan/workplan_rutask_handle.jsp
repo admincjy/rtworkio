@@ -69,19 +69,10 @@
 								        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 								            <p class="mb-0">
 								            	<table id="table_report" class="table table-striped table-bordered table-hover" style="margin-top: 10px;">
-												<c:forEach items="${varList}" var="var" varStatus="vs">
-													<tr>
-														<c:if test="${var.NAME_ != 'RESULT'}">
-															<td style="width:75px;text-align: right;padding-top: 10px;">${var.NAME_ == 'USERNAME'?'提交户名':var.NAME_}</td>
-															<td style="padding-top: 10px;">${var.TEXT_}</td>
-														</c:if>
-													</tr>
-												</c:forEach>
 												<tr>
-													<td style="width:75px;text-align: right;padding-top: 10px;">提交内容</td>
-													<td style="padding-top: 10px;">
-														<a onclick="contentmx('${pd.PROC_INST_ID_}')" style="cursor:pointer;" title="详情">&nbsp;<i style="margin-top:-3px;margin-left: -6px;"  class="feather icon-search"></i></a>
-													</td>
+													<td style="width:25%;text-align: left;padding-top: 10px;">提交人员:&nbsp;&nbsp;${pageDatas[0].NAME}</td>
+													<td style="width:25%;text-align: left;padding-top: 10px;">抄送人员:&nbsp;&nbsp;${pageDatas[0].COPYNAME}</td>
+													<td style="width:50%;text-align: left;padding-top: 10px;"">提交时间:&nbsp;&nbsp;${pageDatas[0].STARTTIME}</td>
 												</tr>
 												</table>
 												<c:if test="${null == pd.msg or pd.msg != 'admin' }">
@@ -91,46 +82,49 @@
 													<input type="hidden" name="PROC_INST_ID_" id="PROC_INST_ID_" value="${pd.PROC_INST_ID_}"/>
 													<input type="hidden" name="msg" id="msg" value="yes"/>
 													<div id="showform" style="padding-top: 0px;">
-													<table>
-														<tr>
-															<td><h6>备注意见:</h6></td>
-														</tr>
-														<tr>
-															<td colspan="10" id="omsg" style="padding-bottom: 15px;">
-																<textarea  name="OPINION" id="OPINION" maxlength="4000" style="display:none" ></textarea>
-																<script id="editor" type="text/plain" style="width:100%;height:130px;">${pd.DESCRIPTION}</script>
-															</td>
-														</tr>
+													<table class="table table-hover">
+														<thead>
+															<tr>
+																<th style="width:50px;">NO</th>
+																<th>标题</th>
+																<th>计划明细</th>
+																<th>完成时间</th>
+																<th>完成进度</th>
+																<th>评分</th>
+															</tr>
+														</thead>
+														<tbody id="tablboy">
+														<!-- 开始循环 -->	
+														<c:choose>
+															<c:when test="${not empty pageDatas}">
+																<c:forEach items="${pageDatas}" var="var" varStatus="vs">
+																	<tr>
+																		<td scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
+																		<td>${var.TITLE}</td>
+																		<td>${var.CONTENTDETAIL}</td>
+																		<td>${var.PLANTIME}</td>
+																		<td>${var.PROGRESS}</td>
+																		<td>
+																			<input type="number" name="SCORE" id="SCORE" value="${var.SCORE}" maxlength="255" style="width: 65px;" placeholder="" title="评分">
+																		</td>
+																	</tr>
+																</c:forEach>
+															</c:when>
+															<c:otherwise>
+																<tr>
+																	<td colspan="100">没有相关数据</td>
+																</tr>
+															</c:otherwise>
+														</c:choose>
+														</tbody>
 													</table>
 													<table id="table_report" class="table table-striped table-bordered table-hover">
 														<tr>
 															<td style="text-align: center;" colspan="10">
 																<a class="btn btn-light btn-sm" onclick="handle('yes');"><i class="feather icon-check"></i>通过</a>
-																<c:if test="${isgateway == 'yes' }">
-																<shiro:hasPermission name="Reject">
-																<a class="btn btn-light btn-sm" onclick="handle('no');" style="margin-left: -8px;"><i class="feather icon-x"></i>驳回</a>
-																</shiro:hasPermission>
-																</c:if>
-																<shiro:hasPermission name="Abolish">
 																<a class="btn btn-light btn-sm" onclick="isDel('${pd.PROC_INST_ID_}');" style="margin-left: -8px;" data-toggle="modal" data-target="#exampleModal"><i class="feather icon-trash-2"></i>终止</a>
-																</shiro:hasPermission>
 																<a class="btn btn-light btn-sm" onclick="top.Dialog.close();" style="margin-left: -8px;"><i class="feather icon-corner-right-down"></i>取消</a>
 															</td>
-															<shiro:hasPermission name="NextASSIGNEE_">
-															<c:if test="${isToName != 'yes'}">	
-															<td width="320">
-																指定下一办理对象：
-																<input type="text" name="ASSIGNEE_2" id="ASSIGNEE_2" placeholder="请指定下一办理对象" value=""  title="指定下一办理对象" style="width:150px;" readonly="readonly"/>
-																<a class="btn btn-light btn-sm" onclick="clean();" title="清空" style="width: 23px;height:30px;margin-top:1px;cursor:pointer;"><div style="margin-top:0px;margin-left: -6px;">清</div></a>
-																<a class="btn btn-light btn-sm" title="选择办理人(单人)" onclick="getUser();" style="width: 23px;height:30px;margin-top:1px;cursor:pointer;">
-																	<i class="feather icon-user" style="margin-top:-6px;margin-left: -6px;"></i>
-																</a>
-																<a class="btn btn-light btn-sm" title="选择办理角色(此角色下所有人都可以办理)" onclick="getRole();" style="width: 23px;height:30px;margin-top:1px;cursor:pointer;margin-left:-8px;">
-																	<i class="feather icon-users" style="margin-top:-6px;margin-left: -6px;"></i>
-																</a>
-															</td>
-															</c:if>
-															</shiro:hasPermission>
 														</tr>
 													</table>
 													</div>
