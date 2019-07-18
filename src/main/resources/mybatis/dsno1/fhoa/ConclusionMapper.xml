@@ -22,7 +22,7 @@
 		f.SCORE,	
 		f.ENDTIME,	
 		f.TYPE,	
-		f.TYPE,
+		f.CCNAME,
 		f.PROC_INST_ID_,
 		f.CONCLUSION_ID
 	</sql>

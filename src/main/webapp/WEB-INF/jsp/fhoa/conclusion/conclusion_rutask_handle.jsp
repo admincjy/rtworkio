@@ -73,6 +73,7 @@
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">提交人员</td>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">接收人员</td>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">抄送人员</td>
+													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">总结类型</td>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">提交时间</td>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">总结评分</td>
 													
@@ -81,6 +82,7 @@
 													<td style="padding-top: 10px;text-align: center;">${pageData.NAME}</td>
 													<td style="padding-top: 10px;text-align: center;">${pageData.TONAME}</td>
 													<td style="padding-top: 10px;text-align: center;">${pageData.CCNAME}</td>
+													<td style="padding-top: 10px;text-align: center;">${pageData.TYPE}</td>
 													<td style="padding-top: 10px;text-align: center;">${pageData.STARTTIME}</td>
 													<td style="padding-top: 10px;text-align: center;">
 														<input type="text" id="SCORE" onKeyUp="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
