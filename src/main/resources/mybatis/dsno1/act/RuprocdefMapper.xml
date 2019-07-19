@@ -198,7 +198,7 @@
 		</if>
 		where t1.PROC_INST_ID_=#{PROC_INST_ID_}
 		<if test="key == 'workplan' ">
-			ORDER BY t2.TITLE
+			ORDER BY t2.TITLE,t2.CREATETIME
 		</if> 
 	</select>
 	
