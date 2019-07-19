@@ -89,7 +89,7 @@
 													<tr>
 														<td style="padding-top: 10px;text-align: center;">${pageDatas[0].NAME}</td>
 														<td style="padding-top: 10px;text-align: center;">${pageDatas[0].TONAME}</td>
-														<td style="padding-top: 10px;text-align: center;">${pageDatas[0].CCNAME}</td>
+														<td style="padding-top: 10px;text-align: center;">${pageDatas[0].COPE_NAME}</td>
 														<td style="padding-top: 10px;text-align: center;">${pageDatas[0].STARTTIME}</td>
 														
 													</tr>
@@ -104,7 +104,7 @@
 															<table class="table table-hover">
 																<thead>
 																	<tr>
-																		<th style="width:50px;border: 1px solid #ebeef5;">NO</th>
+																		<th style="width:50px;">NO</th>
 																		<th style="border: 1px solid #ebeef5;">标题</th>
 																		<th style="border: 1px solid #ebeef5;">计划明细</th>
 																		<th style="border: 1px solid #ebeef5;">完成时间</th>
@@ -118,8 +118,8 @@
 																		<c:when test="${not empty pageDatas}">
 																			<c:forEach items="${pageDatas}" var="var" varStatus="vs">
 																				<tr>
-																					<td style="border: 1px solid #ebeef5;" scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
-																					<td class="title" style="border: 1px solid #ebeef5;vertical-align: middle;text-align: center;">${var.TITLE==null?'无':var.TITLE}</td>
+																					<td scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
+																					<td class="title" style="border: 1px solid #ebeef5;vertical-align: middle;text-align: center;">${var.TITLE}</td>
 																					<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap;border: 1px solid #ebeef5; ">${var.CONTENTDETAIL}</td>
 																					<td style="border: 1px solid #ebeef5;">${var.PLANTIME}</td>
 																					<td style="border: 1px solid #ebeef5;">${var.PROGRESS}</td>
