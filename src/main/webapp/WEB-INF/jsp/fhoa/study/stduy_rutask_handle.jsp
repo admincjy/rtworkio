@@ -99,7 +99,7 @@
 												<tr>
 													<td style="padding-top: 10px;text-align: center;">${pageData.NAME}</td>
 													<td style="padding-top: 10px;text-align: center;">${pageData.TONAME}</td>
-													<td style="padding-top: 10px;text-align: center;">${pageData.COPE_NAME}</td>
+													<td style="padding-top: 10px;text-align: center;">${pageData.CCNAME}</td>
 													<td style="padding-top: 10px;text-align: center;">${pageData.STARTTIME}</td>
 													<td style="padding-top: 10px;text-align: center;">
 														<input type="text" id="SCORE" onKeyUp="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />

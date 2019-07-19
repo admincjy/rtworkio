@@ -95,7 +95,7 @@
 													<tr>
 														<td style="padding-top: 10px;text-align: center;">${pageDatas[0].NAME}</td>
 														<td style="padding-top: 10px;text-align: center;">${pageDatas[0].TONAME}</td>
-														<td style="padding-top: 10px;text-align: center;">${pageDatas[0].COPE_NAME}</td>
+														<td style="padding-top: 10px;text-align: center;">${pageDatas[0].CCNAME}</td>
 														<td style="padding-top: 10px;text-align: center;">${pageDatas[0].STARTTIME}</td>
 
 													</tr>
