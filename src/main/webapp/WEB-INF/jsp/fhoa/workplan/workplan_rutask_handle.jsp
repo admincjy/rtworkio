@@ -360,26 +360,26 @@
 			}
 
 			//选择角色
-			function getRole() {
-				var diag = new top.Dialog();
-				diag.Drag = true;
-				diag.Title = "选择角色";
-				diag.URL = '<%=basePath%>role/roleListWindow?ROLE_ID=1';
-				diag.Width = 700;
-				diag.Height = 545;
-				diag.Modal = true; //有无遮罩窗口
-				diag.ShowMaxButton = true; //最大化按钮
-				diag.ShowMinButton = true; //最小化按钮
-				diag.CancelEvent = function() { //关闭事件
-					var RNUMBER = diag.innerFrame.contentWindow.document.getElementById('RNUMBER').value;
-					if("" != RNUMBER) {
-						$("#ASSIGNEE_").val(RNUMBER);
-						$("#ASSIGNEE_2").val(RNUMBER);
-					}
-					diag.close();
-				};
-				diag.show();
-			}
+//			function getRole() {
+//				var diag = new top.Dialog();
+//				diag.Drag = true;
+//				diag.Title = "选择角色";
+//				diag.URL = '<%=basePath%>role/roleListWindow?ROLE_ID=1';
+//				diag.Width = 700;
+//				diag.Height = 545;
+//				diag.Modal = true; //有无遮罩窗口
+//				diag.ShowMaxButton = true; //最大化按钮
+//				diag.ShowMinButton = true; //最小化按钮
+//				diag.CancelEvent = function() { //关闭事件
+//					var RNUMBER = diag.innerFrame.contentWindow.document.getElementById('RNUMBER').value;
+//					if("" != RNUMBER) {
+//						$("#ASSIGNEE_").val(RNUMBER);
+//						$("#ASSIGNEE_2").val(RNUMBER);
+//					}
+//					diag.close();
+//				};
+//				diag.show();
+//			}
 
 			//清空下一任务对象
 			function clean() {
