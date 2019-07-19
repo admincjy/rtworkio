@@ -363,7 +363,7 @@
 			function getRole() {
 				var diag = new top.Dialog();
 				diag.Drag = true;
-				diag.Title = "选择1111角色";
+				diag.Title = "选择角色";
 				diag.URL = '<%=basePath%>role/roleListWindow?ROLE_ID=1';
 				diag.Width = 700;
 				diag.Height = 545;
