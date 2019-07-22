@@ -86,17 +86,17 @@
 														<thead>
 															<tr>
 																<th style="width:50px;">NO</th>
-																<th>提交人</th>
-																<th>接收人</th>
+																<th style="text-align: center;">提交人</th>
+																<th style="text-align: center;">接收人</th>
 																<!--<th>抄送人</th>-->
 																<!--<th>工作内容</th>-->
-																<th>标题</th>
-																<th>开始时间</th>
-																<th>结束时间</th>
+																<th style="text-align: center;">标题</th>
+																<th style="text-align: center;">开始时间</th>
+																<th style="text-align: center;">结束时间</th>
 															<!--	<th>流程ID</th>-->
-																<th>流程进度</th>
-																<th>抄送人</th>
-																<th>操作</th>
+																<th style="text-align: center;">流程进度</th>
+																<th style="text-align: center;">抄送人</th>
+																<th style="text-align: center;">操作</th>
 															</tr>
 														</thead>
 														<tbody>
@@ -107,17 +107,17 @@
 																	<c:if test="${'0' == var.ISCC }">	
 																	<tr ondblclick="edit('${var.WORKPLAN_ID}');">
 									                 				</c:if>	
-																		<td>${page.showCount*(page.currentPage-1)+vs.index+1}</td>
-																		<td>${var.NAME}</td>
-																		<td>${var.TONAME}</td>
+																		<td style="text-align: center;">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
+																		<td style="text-align: center;">${var.NAME}</td>
+																		<td style="text-align: center;">${var.TONAME}</td>
 																		<!--<td>${var.COPYNAME}</td>-->
 																		<!--<td>${var.CONTENET}</td>-->
-																		<td>${var.TITLE}</td>
-																		<td>${var.STARTTIME}</td>
-																		<td>${var.ENDTIME}</td>
+																		<td style="text-align: center;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.TITLE}</td>
+																		<td style="text-align: center;">${var.STARTTIME}</td>
+																		<td style="text-align: center;">${var.ENDTIME}</td>
 																		<!--<td>${var.PROC_INST_ID_}</td>-->
-																		<td>${var.STATE}</td>
-																		<td>${var.CCNAME}</td>
+																		<td style="text-align: center;">${var.STATE}</td>
+																		<td style="text-align: center;">${var.CCNAME}</td>
 																		<td>
 																			<c:if test="${'0' == var.ISCC}">
 																			<shiro:hasPermission name="workplan:edit"><a title="修改" onclick="edit('${var.WORKPLAN_ID}');" style="cursor:pointer;"><i class="feather icon-edit-2"></i></a></shiro:hasPermission>

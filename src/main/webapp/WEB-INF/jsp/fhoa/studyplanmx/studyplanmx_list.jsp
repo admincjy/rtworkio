@@ -84,13 +84,13 @@
                                                 </div>
 											</th>
 											<th style="width:50px;">NO</th>
-											<th>学习书目</th>
-											<th>书本信息</th>
-											<th>学习情况</th>
-											<th>开始学习时间</th>
-											<th>完成学习时间</th>
-											<th>上级评分</th>
-											<th>操作</th>
+											<th style="text-align: center;">学习书目</th>
+											<th style="text-align: center;">书本信息</th>
+											<th style="text-align: center;">学习情况</th>
+											<th style="text-align: center;">开始学习时间</th>
+											<th style="text-align: center;">完成学习时间</th>
+											<th style="text-align: center;">上级评分</th>
+											<th style="text-align: center;">操作</th>
 										</tr>
 									</thead>
 															
@@ -109,12 +109,12 @@
                                                     	</div>
 													</td>
 													<td scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
-													<td>${var.BOOKNAME}</td>
-													<td>${var.BOOKCONTET}</td>
-													<td>${var.COUNT}</td>
-													<td>${var.STUDYSTARTTIME}</td>
-													<td>${var.STUDYENDTIME}</td>
-													<td>${var.SCORE}</td>
+													<td style="text-align: center;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.BOOKNAME}</td>
+													<td style="text-align: center;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.BOOKCONTET}</td>
+													<td style="text-align: center;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.COUNT}</td>
+													<td style="text-align: center;">${var.STUDYSTARTTIME}</td>
+													<td style="text-align: center;">${var.STUDYENDTIME}</td>
+													<td style="text-align: center;">${var.SCORE}</td>
 													<td>
 														<c:if test="${'no' == isEnd }">
 														   <a title="修改" onclick="edit('${var.STUDYPLANMX_ID}');" style="cursor:pointer;"><i class="feather icon-edit-2"></i></a>

@@ -86,15 +86,15 @@
 														<thead>
 															<tr>
 																<th style="width:50px;">NO</th>
-																<th>提交人</th>
-																<th>接收人</th>
+																<th style="text-align: center;">提交人</th>
+																<th style="text-align: center;">接收人</th>
 																<!--<th>抄送人</th>-->
-																<th>开始时间</th>
-																<th>结束时间</th>
-																<th>流程进度</th>
+																<th style="text-align: center;">开始时间</th>
+																<th style="text-align: center;">结束时间</th>
+																<th style="text-align: center;">流程进度</th>
 																<!--<th>流程ID</th>-->
-														        <th>抄送人</th>
-																<th>操作</th>
+														        <th style="text-align: center;">抄送人</th>
+																<th style="text-align: center;">操作</th>
 															</tr>
 														</thead>
 														<tbody>
@@ -106,13 +106,13 @@
 																	<tr ondblclick="edit('${var.STUDYPLAN_ID}');">
 									                 				</c:if>	
 																		<td>${page.showCount*(page.currentPage-1)+vs.index+1}</td>
-																		<td>${var.NAME}</td>
-																		<td>${var.TONAME}</td>
+																		<td style="text-align: center;">${var.NAME}</td>
+																		<td style="text-align: center;">${var.TONAME}</td>
 																		<!--<td>${var.COPYNAME}</td>-->
-																		<td>${var.STARTTIME}</td>
-																		<td>${var.ENDTIME}</td>
-																		<td>${var.STATE}</td>
-																        <td>${var.CCNAME}</td>
+																		<td style="text-align: center;">${var.STARTTIME}</td>
+																		<td style="text-align: center;">${var.ENDTIME}</td>
+																		<td style="text-align: center;">${var.STATE}</td>
+																        <td style="text-align: center;">${var.CCNAME}</td>
 																		<!--<td>${var.PROC_INST_ID_}</td>-->
 																		<td>
 																			<c:if test="${'0' == var.ISCC}">	

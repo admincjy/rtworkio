@@ -84,12 +84,12 @@
                                                 </div>
 											</th>
 											<th style="width:50px;border: 1px solid #ebeef5;">NO</th>
-											<th style="border: 1px solid #ebeef5;">标题</th>
-											<th style="border: 1px solid #ebeef5;">工作计划明细</th>
-											<th style="border: 1px solid #ebeef5;">计划完成时间</th>
-											<th style="border: 1px solid #ebeef5;">完成进度百分比</th>
-											<th style="border: 1px solid #ebeef5;">考核评分</th>
-											<th style="border: 1px solid #ebeef5;">操作</th>
+											<th style="border: 1px solid #ebeef5;text-align: center;">标题</th>
+											<th style="border: 1px solid #ebeef5;text-align: center;">工作计划明细</th>
+											<th style="border: 1px solid #ebeef5;text-align: center;">计划完成时间</th>
+											<th style="border: 1px solid #ebeef5;text-align: center;">完成进度百分比</th>
+											<th style="border: 1px solid #ebeef5;text-align: center;">考核评分</th>
+											<th style="border: 1px solid #ebeef5;text-align: center;">操作</th>
 										</tr>
 									</thead>
 															
@@ -108,8 +108,8 @@
                                                     	</div>
 													</td>
 													<td style="border: 1px solid #ebeef5;" scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
-													<td class="title" style="border: 1px solid #ebeef5;" valign="middle">${var.TITLE==null?'无':var.TITLE}</td>
-													<td style="border: 1px solid #ebeef5;">${var.CONTENTDETAIL}</td>
+													<td class="title" style="border: 1px solid #ebeef5;word-break: break-all; word-wrap: normal;white-space:pre-wrap;" valign="middle">${var.TITLE==null?'无':var.TITLE}</td>
+													<td style="border: 1px solid #ebeef5;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.CONTENTDETAIL}</td>
 													<td style="border: 1px solid #ebeef5;">${var.PLANTIME}</td>
 													<td style="border: 1px solid #ebeef5;">${var.PROGRESS}</td>
 													<td style="border: 1px solid #ebeef5;">${var.SCORE}</td>

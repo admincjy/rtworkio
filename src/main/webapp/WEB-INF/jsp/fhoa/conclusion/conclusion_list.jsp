@@ -32,6 +32,11 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style type="text/css">
+    	th,td{
+    		text-align: center;
+    	}
+    </style>
 
 </head>
 
@@ -154,7 +159,7 @@
 											</table>
 											<table style="width:100%;margin-top:15px;">
 												<tr>
-													<td style="vertical-align:top;">
+													<td style="vertical-align:top;text-align: left;">
 														<shiro:hasPermission name="conclusion:add"><a class="btn btn-light btn-sm" onclick="add();">新增</a></shiro:hasPermission>
 														<shiro:hasPermission name="conclusion:del"><a class="btn btn-light btn-sm" onclick="makeAll('确定要删除选中的数据吗?');">删除</a></shiro:hasPermission>
 													</td>
