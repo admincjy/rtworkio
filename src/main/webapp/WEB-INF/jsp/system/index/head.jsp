@@ -69,8 +69,8 @@
      function callMeal(){
          var date=new Date();
          var isDate=date.getHours()+(date.getMinutes()/60);
-				 if(isDate>10.5){
-				   swal("订餐失败", "请在当日10时30分之前订餐!", "success");
+				 if(isDate>11){
+				   swal("订餐失败", "请在当日11时之前订餐!", "success");
 				   return;
 				 }
          $.ajax({
