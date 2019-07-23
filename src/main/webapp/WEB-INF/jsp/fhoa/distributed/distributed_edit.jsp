@@ -133,7 +133,7 @@
 
 								<c:if test="${'edit' == msg }">
 									<div style="margin-top: 10px;width: 100%;"">
-										<iframe name="treeFrame" id="treeFrame" frameborder="0" src="<%=basePath%>/distributedmx/list?DISTRIBUTED_ID=${pd.DISTRIBUTED_ID}" style="margin:0 auto;width:100%;height:500px;;"></iframe>
+										<iframe  name="treeFrame" id="treeFrame" frameborder="0" src="<%=basePath%>/distributedmx/list?DISTRIBUTED_ID=${pd.DISTRIBUTED_ID}" style="margin:0 auto;width:100%;height:500px;"></iframe>
 									</div>
 								</c:if>
 								

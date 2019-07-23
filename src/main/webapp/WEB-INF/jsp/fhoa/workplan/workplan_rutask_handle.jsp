@@ -33,10 +33,17 @@
 		<link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
 		<style type="text/css">
-			.title {
-				border: 1px solid #ebeef5;
-				valign=middle；
+			th{
+				background:#455661;
+				color: white;
+				
 			}
+		th,td {
+				text-align: center;
+				word-break: break-all;
+				word-wrap: normal;
+				
+		}
 		</style>
 	</head>
 
@@ -74,13 +81,13 @@
 									<div class="tab-content" id="myTabContent">
 										<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 											<p class="mb-0">
-												<table id="table_report" class="table table-striped table-bordered table-hover" style="margin-top: 10px;">
+												<!--<table id="table_report" class="table table-striped table-bordered table-hover" style="margin-top: 10px;">-->
 													<!--<tr>
 													<td style="width:25%;text-align: left;padding-top: 10px;">提交人员:&nbsp;&nbsp;${pageDatas[0].NAME}</td>
 													<td style="width:25%;text-align: left;padding-top: 10px;">抄送人员:&nbsp;&nbsp;${pageDatas[0].COPYNAME}</td>
 													<td style="width:50%;text-align: left;padding-top: 10px;"">提交时间:&nbsp;&nbsp;${pageDatas[0].STARTTIME}</td>
 												</tr>-->
-													<tr>
+													<!--<tr>
 														<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">提交人员</td>
 														<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">接收人员</td>
 														<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">抄送人员</td>
@@ -93,7 +100,13 @@
 														<td style="padding-top: 10px;text-align: center;">${pageDatas[0].STARTTIME}</td>
 														
 													</tr>
-												</table>
+												</table>-->
+												 <ul style="list-style: none;">
+										         	<li style="float: left;">提交人员:&nbsp;&nbsp;<span>${pageDatas[0].NAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										         	<li style="float: left;">接收人员:&nbsp;&nbsp;<span>${pageDatas[0].TONAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										         	<li style="float: left;">抄送人员:&nbsp;&nbsp;<span>${pageDatas[0].CCNAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										         	<li>提交时间:&nbsp;&nbsp;<span>${pageDatas[0].STARTTIME};</span></li>
+										         </ul>
 												<c:if test="${null == pd.msg or pd.msg != 'admin' }">
 													<form action="rutask/handle" name="Form" id="Form" method="post">
 														<input type="hidden" name="ID_" id="ID_" value="${pd.ID_}" />
@@ -119,12 +132,12 @@
 																			<c:forEach items="${pageDatas}" var="var" varStatus="vs">
 																				<tr>
 																					<td scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
-																					<td class="title" style="border: 1px solid #ebeef5;vertical-align: middle;text-align: center;">${var.TITLE}</td>
+																					<td class="title" style="border: 1px solid #ebeef5;vertical-align: middle;text-align: center;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.TITLE}</td>
 																					<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap;border: 1px solid #ebeef5; ">${var.CONTENTDETAIL}</td>
-																					<td style="border: 1px solid #ebeef5;">${var.PLANTIME}</td>
-																					<td style="border: 1px solid #ebeef5;">${var.PROGRESS}</td>
+																					<td style="border: 1px solid #ebeef5;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.PLANTIME}</td>
+																					<td style="border: 1px solid #ebeef5;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.PROGRESS}</td>
 																					<td style="border: 1px solid #ebeef5;">
-																						<input id="SCORE" style="width: 50px;" type="text" onKeyUp="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+																						<input id="SCORE" style="width: 60px;height:28px;border:1px #F2F2F2 solid;border-radius: 5px;" type="text" onKeyUp="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
 																					</td>
 																				</tr>
 																			</c:forEach>
@@ -137,15 +150,17 @@
 																	</c:choose>
 																</tbody>
 															</table>
-															<table id="table_report" class="table table-striped table-bordered table-hover">
+															<!--<table id="table_report" class="table table-striped table-bordered table-hover">
 																<tr>
-																	<td style="text-align: center;" colspan="10">
+																	<td style="text-align: center;" colspan="10">-->
+																		<div style="text-align: center;margin-top: 30px;">
 																		<a class="btn btn-light btn-sm" onclick="handle('yes');"><i class="feather icon-check"></i>通过</a>
 																		<a class="btn btn-light btn-sm" onclick="isDel('${pd.PROC_INST_ID_}');" style="margin-left: -8px;" data-toggle="modal" data-target="#exampleModal"><i class="feather icon-trash-2"></i>终止</a>
 																		<a class="btn btn-light btn-sm" onclick="top.Dialog.close();" style="margin-left: -8px;"><i class="feather icon-corner-right-down"></i>取消</a>
-																	</td>
+																	    </div>
+																	<!--</td>
 																</tr>
-															</table>
+															</table>-->
 														</div>
 
 														<!-- [加载状态 ] start -->
