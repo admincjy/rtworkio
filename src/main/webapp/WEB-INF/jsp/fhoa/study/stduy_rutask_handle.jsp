@@ -79,7 +79,7 @@
 									<div class="tab-content" id="myTabContent">
 										<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 											<p class="mb-0">
-												<table id="table_report" class="table table-striped table-bordered table-hover" style="margin-top: 10px;">
+												<!--<table id="table_report" class="table table-striped table-bordered table-hover" style="margin-top: 10px;">-->
 													<!--<c:forEach items="${varList}" var="var" varStatus="vs">
 														<tr>
 															<c:if test="${var.NAME_ != 'RESULT'}">
@@ -88,23 +88,22 @@
 															</c:if>
 														</tr>
 													</c:forEach>-->
-													<tr>
+													<!--<tr>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">提交人员</td>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">接收人员</td>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">抄送人员</td>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">提交时间</td>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">总结评分</td>
 													
-												</tr>
-												<tr>
-													<td style="padding-top: 10px;text-align: center;">${pageData.NAME}</td>
-													<td style="padding-top: 10px;text-align: center;">${pageData.TONAME}</td>
-													<td style="padding-top: 10px;text-align: center;">${pageData.CCNAME}</td>
-													<td style="padding-top: 10px;text-align: center;">${pageData.STARTTIME}</td>
-													<td style="padding-top: 10px;text-align: center;">
-														<input type="text" id="SCORE" onKeyUp="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
-                                                    </td>
-												</tr>
+												</tr>-->
+												<ul style="list-style: none;">
+										         	<li style="float: left;">提交人员:&nbsp;&nbsp;<span>${pageData.NAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										         	<li style="float: left;">接收人员:&nbsp;&nbsp;<span>${pageData.TONAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										         	<li style="float: left;">抄送人员:&nbsp;&nbsp;<span>${pageData.CCNAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										            <li>提交时间:&nbsp;&nbsp;<span>${pageData.STARTTIME};</span></li>
+										         </ul>
+												<!--<input type="text" id="SCORE" onKeyUp="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />-->
+                                                  
 													<!--删除部分-->
 													<!--<tr>
 														<td style="width:75px;text-align: right;padding-top: 10px;">提交内容</td>
@@ -121,10 +120,7 @@
 														<input type="hidden" name="msg" id="msg" value="yes" />
 														<div id="showform" style="padding-top: 0px;">
 															<table>
-																<tr>
-																	<td>
-																		<h6>总结内容:</h6></td>
-																</tr>
+																
 																<tr>
 																	<td colspan="10" id="omsg" style="padding-bottom: 15px;">
 																		<textarea name="OPINION" id="OPINION" maxlength="4000" style="display:none"></textarea>
@@ -132,9 +128,14 @@
 																	</td>
 																</tr>
 															</table>
-															<table id="table_report" class="table table-striped table-bordered table-hover">
+															<div>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请对上文进行评分：
+													<input type="text" style="width: 60px;height:28px;border:1px #F2F2F2 solid;border-radius: 5px;" id="SCORE" onKeyUp="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+												</div>
+															<!--<table id="table_report" class="table table-striped table-bordered table-hover">
 																<tr>
-																	<td style="text-align: center;" colspan="10">
+																	<td style="text-align: center;" colspan="10">-->
+																		<div style="text-align: center;margin-top: 30px;">
 																		<a class="btn btn-light btn-sm" onclick="handle('yes');"><i class="feather icon-check"></i>通过</a>
 																		<c:if test="${isgateway == 'yes' }">
 																			<shiro:hasPermission name="Reject">
@@ -145,7 +146,9 @@
 																			<a class="btn btn-light btn-sm" onclick="isDel('${pd.PROC_INST_ID_}');" style="margin-left: -8px;" data-toggle="modal" data-target="#exampleModal"><i class="feather icon-trash-2"></i>终止</a>
 																		</shiro:hasPermission>
 																		<a class="btn btn-light btn-sm" onclick="top.Dialog.close();" style="margin-left: -8px;"><i class="feather icon-corner-right-down"></i>取消</a>
-																	</td>
+																	</div>
+																		
+																	<!--</td>-->
 																	<!--<shiro:hasPermission name="NextASSIGNEE_">
 																		<c:if test="${isToName != 'yes'}">
 																			<td width="320">
@@ -163,8 +166,8 @@
 																			</td>
 																		</c:if>
 																	</shiro:hasPermission>-->
-																</tr>
-															</table>
+																<!--</tr>
+															</table>-->
 														</div>
 
 														<!-- [加载状态 ] start -->

@@ -69,7 +69,7 @@
 								        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 								            <p class="mb-0">
 								            	<table id="table_report" class="table table-striped table-bordered table-hover" style="margin-top: 10px;">
-												<tr>
+												<!--<tr>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">提交人员</td>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">接收人员</td>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">抄送人员</td>
@@ -77,29 +77,42 @@
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">提交时间</td>
 													<td style="width:75px;text-align: right;padding-top: 10px;text-align: center;">总结评分</td>
 													
-												</tr>
-												<tr>
+												</tr>-->
+												 <ul style="list-style: none;">
+										         	<li style="float: left;">提交人员:&nbsp;&nbsp;<span>${pageData.NAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										         	<li style="float: left;">接收人员:&nbsp;&nbsp;<span>${pageData.TONAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										         	<li style="float: left;">抄送人员:&nbsp;&nbsp;<span>${pageData.CCNAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										         	<li style="float: left;">总结类型:&nbsp;&nbsp;<span>${pageData.TYPE};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										         	<li>提交时间:&nbsp;&nbsp;<span>${pageData.STARTTIME};</span></li>
+										         </ul>
+												<!--<tr>
 													<td style="padding-top: 10px;text-align: center;">${pageData.NAME}</td>
 													<td style="padding-top: 10px;text-align: center;">${pageData.TONAME}</td>
 													<td style="padding-top: 10px;text-align: center;">${pageData.CCNAME}</td>
 													<td style="padding-top: 10px;text-align: center;">${pageData.TYPE}</td>
 													<td style="padding-top: 10px;text-align: center;">${pageData.STARTTIME}</td>
-													<td style="padding-top: 10px;text-align: center;">
-														<input type="text" id="SCORE" onKeyUp="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
-                                                    </td>
+													<td style="padding-top: 10px;text-align: center;">-->
+														
+                                                    <!--</td>
 												</tr>
-												</table>
+												</table>-->
 													<table>
-														<tr>
+														<!--<tr>
 															<td><h6>总结内容:</h6></td>
-														</tr>
+														</tr>-->
 														<tr>
 															<td colspan="10" id="omsg" style="padding-bottom: 15px;">
 																<textarea  name="OPINION" id="OPINION" maxlength="4000" style="display:none" ></textarea>
 																<script id="editor" type="text/plain" style="width:990px;height:130px;">${pageData.CONTENT}</script>
 															</td>
 														</tr>
+
 												</table>
+												<div>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请对上文进行评分：
+													<input type="text" style="width: 60px;height:28px;border:1px #F2F2F2 solid;border-radius: 5px;" id="SCORE" onKeyUp="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+												</div>
+												
 												<c:if test="${null == pd.msg or pd.msg != 'admin' }">
 												<form action="rutask/handle" name="Form" id="Form" method="post">
 													<input type="hidden" name="ID_" id="ID_" value="${pd.ID_}"/>
@@ -107,10 +120,14 @@
 													<input type="hidden" name="PROC_INST_ID_" id="PROC_INST_ID_" value="${pd.PROC_INST_ID_}"/>
 													<input type="hidden" name="msg" id="msg" value="yes"/>
 													<div id="showform" style="padding-top: 0px;">
-													<table id="table_report" class="table table-striped table-bordered table-hover">
+													<!--<table id="table_report" class="table table-striped table-bordered table-hover">
 														<tr>
 															<td style="text-align: center;" colspan="10">
-																<a class="btn btn-light btn-sm" onclick="handle('yes');"><i class="feather icon-check"></i>通过</a>
+														
+														
+																-->
+																<div style="text-align: center;margin-top: 30px;">
+																	<a class="btn btn-light btn-sm" onclick="handle('yes');"><i class="feather icon-check"></i>通过</a>
 																<c:if test="${isgateway == 'yes' }">
 																<shiro:hasPermission name="Reject">
 																<a class="btn btn-light btn-sm" onclick="handle('no');" style="margin-left: -8px;"><i class="feather icon-x"></i>驳回</a>
@@ -120,9 +137,11 @@
 																<a class="btn btn-light btn-sm" onclick="isDel('${pd.PROC_INST_ID_}');" style="margin-left: -8px;" data-toggle="modal" data-target="#exampleModal"><i class="feather icon-trash-2"></i>终止</a>
 																</shiro:hasPermission>
 																<a class="btn btn-light btn-sm" onclick="top.Dialog.close();" style="margin-left: -8px;"><i class="feather icon-corner-right-down"></i>取消</a>
-															</td>
+																</div>
+																
+															<!--</td>
 														</tr>
-													</table>
+													</table>-->
 													</div>
 
 													<!-- [加载状态 ] start -->
