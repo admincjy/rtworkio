@@ -32,11 +32,19 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <style type="text/css">
-    	th,td{
-    		text-align: center;
-    	}
-    </style>
+   <style type="text/css">
+			th{
+				background:#455661;
+				color: white;
+				
+			}
+		th,td {
+				text-align: center;
+				word-break: break-all;
+				word-wrap: normal;
+				
+		}
+		</style>
 
 </head>
 
@@ -90,12 +98,12 @@
                                         	<table class="table table-hover">
 												<thead>
 													<tr>
-														<th style="width: 50px;" id="cts">
-								                            <div class="checkbox d-inline">
+														<!--<th style="width: 50px;" id="cts">-->
+								                            <!--<div class="checkbox d-inline">
 	                                                            <input type="checkbox" name="fhcheckbox" id="zcheckbox">
 	                                                            <label  style="max-height: 12px;" for="zcheckbox" class="cr"></label>
-	                                                        </div>
-														</th>
+	                                                        </div>-->
+														<!--</th>-->
 														<th style="width:50px;">NO</th>
 														<th>汇报时间</th>
 														<th>汇报人</th>
@@ -118,12 +126,12 @@
 															<c:if test="${'no' == var.isEnd && '0' == var.ISCC}">	
 															<tr  ondblclick="edit('${var.CONCLUSION_ID}');">
 							                 				</c:if>	
-																<td>
-																  	<div class="checkbox d-inline">
+																<!--<td>-->
+																  	<!--<div class="checkbox d-inline">
 		                                                            	<input type="checkbox" id="zcheckbox${vs.index }" name='ids' value="${var.CONCLUSION_ID}">
 		                                                            	<label  style="max-height: 12px;" for="zcheckbox${vs.index }" class="cr"></label>
-		                                                        	</div>
-																</td>
+		                                                        	</div>-->
+																<!--</td>-->
 																<td scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
 																<td>${var.STARTTIME}</td>
 																<td>${var.NAME}</td>

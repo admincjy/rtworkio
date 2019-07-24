@@ -32,7 +32,19 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
+<style type="text/css">
+			th{
+				background:#455661;
+				color: white;
+				
+			}
+		th,td {
+				text-align: center;
+				word-break: break-all;
+				word-wrap: normal;
+				
+		}
+		</style>
 </head>
 
 <body>
@@ -131,14 +143,14 @@
 														</c:choose>
 														</tbody>
 													</table>
-													<table style="width:100%;margin-top:15px;">
+													<!--<table style="width:100%;margin-top:15px;">
 														<tr>
-															<td style="vertical-align:top;">
+															<td style="vertical-align:top;">-->
 																<shiro:hasPermission name="studyplan:add"><a class="btn btn-light btn-sm" onclick="add();">新增</a></shiro:hasPermission>
-															</td>
-															<td style="vertical-align:top;"><div style="float: right;padding-top: 0px;margin-top: 0px;">${page.pageStr}</div></td>
-														</tr>
-													</table>
+															<!--</td>-->
+															<!--<td style="vertical-align:top;">--><div style="float: right;padding-top: 0px;margin-top: 0px;">${page.pageStr}</div><!--</td>-->
+														<!--</tr>
+													</table>-->
 												</div>
                                     		</div>
 										</form>

@@ -33,7 +33,7 @@
 		<link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
 		<link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
-		<style type="text/css">
+		<!--<style type="text/css">
 			th{
 				background:#323437 ;
 				color: white;
@@ -43,6 +43,19 @@
 				word-break: break-all;
 				word-wrap: normal;
 				white-space: pre-wrap;
+				
+		}
+		</style>-->
+		<style type="text/css">
+			th{
+				background:#455661;
+				color: white;
+				
+			}
+		th,td {
+				text-align: center;
+				word-break: break-all;
+				word-wrap: normal;
 				
 		}
 		</style>

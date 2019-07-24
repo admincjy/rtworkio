@@ -33,10 +33,18 @@
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <style type="text/css">
-    	th,td{
-    		text-align: center;
-    	}
-    </style>
+			th{
+				background:#455661;
+				color: white;
+				
+			}
+		th,td {
+				text-align: center;
+				word-break: break-all;
+				word-wrap: normal;
+				
+		}
+		</style>
 
 </head>
 
@@ -90,12 +98,12 @@
                                         	<table class="table table-hover">
 												<thead>
 													<tr>
-														<th style="width: 50px;" id="cts">
+														<!--<th style="width: 50px;" id="cts">
 								                            <div class="checkbox d-inline">
 	                                                            <input type="checkbox" name="fhcheckbox" id="zcheckbox">
 	                                                            <label  style="max-height: 12px;" for="zcheckbox" class="cr"></label>
 	                                                        </div>
-														</th>
+														</th>-->
 														<th style="width:50px;">NO</th>
 														<th>汇报时间</th>
 														<th>汇报人</th>
@@ -117,12 +125,12 @@
 															<c:if test="${'no' == var.isEnd && '0' == var.ISCC }">
 							                 			    <tr ondblclick="edit('${var.STUDY_ID}');">
 													        </c:if>
-																<td>
+																<!--<td>
 																  	<div class="checkbox d-inline">
 		                                                            	<input type="checkbox" id="zcheckbox${vs.index }" name='ids' value="${var.STUDY_ID}">
 		                                                            	<label  style="max-height: 12px;" for="zcheckbox${vs.index }" class="cr"></label>
 		                                                        	</div>
-																</td>
+																</td>-->
 																<td scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
 																<td>${var.STARTTIME}</td>
 																<td>${var.NAME}</td>
@@ -155,15 +163,15 @@
 												</c:choose>
 												</tbody>
 											</table>
-											<table style="width:100%;margin-top:15px;">
+											<!--<table style="width:100%;margin-top:15px;">
 												<tr>
-													<td style="vertical-align:top;text-align: left;">
+													<td style="vertical-align:top;text-align: left;">-->
 														<shiro:hasPermission name="study:add"><a class="btn btn-light btn-sm" onclick="add();">新增</a></shiro:hasPermission>
 														<shiro:hasPermission name="study:del"><a class="btn btn-light btn-sm" onclick="makeAll('确定要删除选中的数据吗?');">删除</a></shiro:hasPermission>
-													</td>
-													<td style="vertical-align:top;"><div style="float: right;padding-top: 0px;margin-top: 0px;">${page.pageStr}</div></td>
-												</tr>
-											</table>
+													<!--</td>-->
+													<!--<td style="vertical-align:top;">--><div style="float: right;padding-top: 0px;margin-top: 0px;">${page.pageStr}</div><!--</td>-->
+												<!--</tr>
+											</table>-->
 										</div>
                                     </div>
 									</form>

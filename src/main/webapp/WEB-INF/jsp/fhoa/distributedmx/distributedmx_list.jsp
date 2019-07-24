@@ -34,12 +34,17 @@
 		<link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
 		<style type="text/css">
-			th,
-			td {
-				vertical-align: middle;
-				text-align: center;
-				border: 1px #F2F2F2 solid;
+			th{
+				background:#455661;
+				color: white;
+				
 			}
+		th,td {
+				text-align: center;
+				word-break: break-all;
+				word-wrap: normal;
+				
+		}
 		</style>
 	</head>
 

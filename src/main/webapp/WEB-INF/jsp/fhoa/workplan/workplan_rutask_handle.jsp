@@ -114,15 +114,15 @@
 														<input type="hidden" name="PROC_INST_ID_" id="PROC_INST_ID_" value="${pd.PROC_INST_ID_}" />
 														<input type="hidden" name="msg" id="msg" value="yes" />
 														<div id="showform" style="padding-top: 0px;">
-															<table class="table table-hover">
+															<table class="table table-hover" >
 																<thead>
 																	<tr>
 																		<th style="width:50px;">NO</th>
-																		<th style="border: 1px solid #ebeef5;">标题</th>
-																		<th style="border: 1px solid #ebeef5;">计划明细</th>
-																		<th style="border: 1px solid #ebeef5;">完成时间</th>
-																		<th style="border: 1px solid #ebeef5;">完成进度</th>
-																		<th style="border: 1px solid #ebeef5;">评分</th>
+																		<th >标题</th>
+																		<th >计划明细</th>
+																		<th >完成时间</th>
+																		<th >完成进度</th>
+																		<th >评分</th>
 																	</tr>
 																</thead>
 																<tbody id="tablboy">
@@ -132,11 +132,11 @@
 																			<c:forEach items="${pageDatas}" var="var" varStatus="vs">
 																				<tr>
 																					<td scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
-																					<td class="title" style="border: 1px solid #ebeef5;vertical-align: middle;text-align: center;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.TITLE}</td>
-																					<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap;border: 1px solid #ebeef5; ">${var.CONTENTDETAIL}</td>
-																					<td style="border: 1px solid #ebeef5;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.PLANTIME}</td>
-																					<td style="border: 1px solid #ebeef5;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.PROGRESS}</td>
-																					<td style="border: 1px solid #ebeef5;">
+																					<td class="title" style="vertical-align: middle;text-align: center;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.TITLE}</td>
+																					<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap; ">${var.CONTENTDETAIL}</td>
+																					<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.PLANTIME}</td>
+																					<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.PROGRESS}</td>
+																					<td >
 																						<input id="SCORE" style="width: 60px;height:28px;border:1px #F2F2F2 solid;border-radius: 5px;" type="text" onKeyUp="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
 																					</td>
 																				</tr>
