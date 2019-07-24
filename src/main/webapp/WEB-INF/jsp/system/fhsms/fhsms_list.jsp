@@ -35,7 +35,19 @@
     
     <!-- 日期插件 -->
     <link rel="stylesheet" href="assets/plugins/material-datetimepicker/css/bootstrap-material-datetimepicker.css">
-
+<style type="text/css">
+			th{
+				background:#455661;
+				color: white;
+				
+			}
+		th,td {
+				text-align: center;
+				word-break: break-all;
+				word-wrap: normal;
+				
+		}
+</style>
 </head>
 
 <body>
@@ -65,7 +77,7 @@
 										<form action="fhsms/list" method="post" name="Form" id="Form">
 										<input type="hidden" name="TYPE" value="${pd.TYPE}" />
 										<div style="padding-left: 8px;padding-top: 8px;">
-											<table>
+											<table >
 												<tr>
 													<td>
 								                        <div class="input-group input-group-sm mb-3">
@@ -101,7 +113,7 @@
 									
 										<div class="card-block table-border-style" style="margin-top: -15px">
                                        					<div class="table-responsive">
-												<table class="table table-hover">
+												<table class="table table-hover" >
 													<thead>
 														<tr>
 															<th style="width: 50px;" id="cts">
@@ -112,9 +124,9 @@
 															</th>
 															<th style="width:50px;">NO</th>
 															<th>发信人</th>
-															<th>收信人</th>
 															<th>发信时间</th>
-															<th>状态</th>
+															<th>内容</th>
+															<!--<th>状态</th>-->
 															<th>操作</th>
 														</tr>
 													</thead>
@@ -133,19 +145,24 @@
 																	 </td>
 																	<td style="width: 30px;" scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
 																	<c:if test="${pd.TYPE != '2' }">
-																	<td><a onclick="viewUser('${var.TO_USERNAME}')" style="cursor:pointer;">${var.TO_USERNAME}</a></td>
-																	<td><a onclick="viewUser('${var.FROM_USERNAME}')" style="cursor:pointer;">${var.FROM_USERNAME}</a></td>
+																	<td ><a onclick="viewUser('${var.TO_USERNAME}')" style="cursor:pointer;">${var.TO_USERNAME}</a></td>
+																	<!--<td><a onclick="viewUser('${var.FROM_USERNAME}')" style="cursor:pointer;">${var.FROM_USERNAME}</a></td>-->
 																	</c:if>
 																	<c:if test="${pd.TYPE == '2' }">
-																	<td><a onclick="viewUser('${var.FROM_USERNAME}')" style="cursor:pointer;">${var.FROM_USERNAME}</a></td>
-																	<td><a onclick="viewUser('${var.TO_USERNAME}')" style="cursor:pointer;">${var.TO_USERNAME}</a></td>
+																	<td > <a onclick="viewUser('${var.FROM_USERNAME}')" style="cursor:pointer;">${var.FROM_USERNAME}</a></td>
+																	<!--<td><a onclick="viewUser('${var.TO_USERNAME}')" style="cursor:pointer;">${var.TO_USERNAME}</a></td>-->
 																	</c:if>
-																	<td>${var.SEND_TIME}</td>
-																	<td id="STATUS${vs.index+1}"><c:if test="${var.STATUS == '2' }"><span class="badge badge-warning">未读</span></c:if><c:if test="${var.STATUS == '1' }"><span class="badge badge-success">已读</span></c:if></td>
-																	<td>
-																		<a title="查看" onclick="viewx('STATUS${vs.index+1}','${var.STATUS}','${pd.TYPE == '2'?'2':'1' }','${var.FHSMS_ID}','${var.SANME_ID}');" style="cursor:pointer;">
+																	<td >${var.SEND_TIME}</td>
+																	<!--<td id="STATUS${vs.index+1}"><c:if test="${var.STATUS == '2' }"><span class="badge badge-warning">未读</span></c:if><c:if test="${var.STATUS == '1' }"><span class="badge badge-success">已读</span></c:if></td>-->
+																	<td style="width: 300px;"> 
+																	<div style="cursor:pointer;height:20px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width:300px" onclick="viewx('STATUS${vs.index+1}','${var.STATUS}','${pd.TYPE == '2'?'2':'1' }','${var.FHSMS_ID}','${var.SANME_ID}');" >
+																	${var.CONTENT}
+																	</div>
+																	</td>
+										                                <td>
+																		<!--<a title="查看" onclick="viewx('STATUS${vs.index+1}','${var.STATUS}','${pd.TYPE == '2'?'2':'1' }','${var.FHSMS_ID}','${var.SANME_ID}');" style="cursor:pointer;">
 																			<i class="feather icon-search"></i>
-																		</a>
+																		</a>-->
 																		<shiro:hasPermission name="fhSms">
 																		<a title='发送站内信' onclick="sendFhsms('${var.TO_USERNAME=='系统消息'?'admin':var.TO_USERNAME}');" style="cursor:pointer;">
 																			<i class="mdi mdi-email-plus-outline"></i>
@@ -168,15 +185,15 @@
 													</tbody>
 												</table>
 												
-												<table style="width:100%;margin-top:15px;">
+												<!--<table style="width:100%;margin-top:15px;">
 													<tr>
-														<td style="vertical-align:top;">
+														<td style="vertical-align:top;">-->
 															<shiro:hasPermission name="fhSms"><a title="批量发送站内信" class="btn btn-light btn-sm" onclick="makeAll('确定要发站内信吗?');">发信</a></shiro:hasPermission>
 															<a class="btn btn-light btn-sm" onclick="makeAll('确定要删除选中的数据吗?');" title="批量删除" >删除</a>
-														</td>
-														<td style="vertical-align:top;"><div style="float: right;padding-top: 0px;margin-top: 0px;">${page.pageStr}</div></td>
-													</tr>
-												</table>
+														<!--</td>-->
+														<!--<td style="vertical-align:top;">--><div style="float: right;padding-top: 0px;margin-top: 0px;">${page.pageStr}</div><!--</td>-->
+													<!--</tr>
+												</table>-->
 											</div>
 										</div>
 										</form>
