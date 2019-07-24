@@ -36,7 +36,17 @@
     <!-- select插件 -->
     <link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="assets/plugins/multi-select/css/multi-select.css">
-
+<style type="text/css">
+			th{
+				background:#455661;
+				color: white;
+			}
+		th,td {
+				text-align: center;
+				word-break: break-all;
+				word-wrap: normal;
+		}
+		</style>
 </head>
 
 <body style="background-color: white">
@@ -95,8 +105,8 @@
 				                                                    	</div>
 																	</td>
 																	<!--<td scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>-->
-																	<td>${var.TITLE}</td>
-																	<td>${var.CONTENTDETAIL}</td>
+																	<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap; ">${var.TITLE}</td>
+																	<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap; ">${var.CONTENTDETAIL}</td>
 																	<td>${var.PLANTIME}</td>
 																	<td>${var.PROGRESS}</td>
 																	<td>${var.SCORE}</td>
