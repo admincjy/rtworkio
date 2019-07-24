@@ -1,15 +1,15 @@
-package org.fh.mapper.dsno1.library;
+package org.fh.mapper.dsno1.financial;
 
 import java.util.List;
 import org.fh.entity.Page;
 import org.fh.entity.PageData;
 
 /** 
- * 说明： 朗威图书馆Mapper
- * 作者：FH Admin 
+ * 说明： 金融模型 Mapper
+ * 时间：2019-07-24
  * @version
  */
-public interface ManagementSystemMapper{
+public interface FinancialModelMapper{
 
 	/**新增
 	 * @param pd

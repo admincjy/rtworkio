@@ -1,15 +1,15 @@
-package org.fh.service.library;
+package org.fh.service.financial;
 
 import java.util.List;
 import org.fh.entity.Page;
 import org.fh.entity.PageData;
 
 /** 
- * 说明： 朗威图书馆接口
- * 作者：FH Admin 
+ * 说明： 金融模型 接口
+ * 时间：2019-07-24
  * @version
  */
-public interface ManagementSystemService{
+public interface FinancialModelService{
 
 	/**新增
 	 * @param pd

@@ -1,55 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.fh.mapper.dsno1.library.ManagementSystemMapper">
+<mapper namespace="org.fh.mapper.dsno1.financial.FinancialModelMapper">
 	
 	<!--表名 -->
 	<sql id="tableName">
-		"SYS_MANAGEMENTSYSTEM"
+		FIN_FINANCIALMODEL
 	</sql>
 	
 	<!--数据字典表名 -->
 	<sql id="dicTableName">
-		"SYS_DICTIONARIES"
+		SYS_DICTIONARIES
 	</sql>
 	
 	<!-- 字段 -->
 	<sql id="Field">
-		f."NAME",	
-		f."PATH",	
-		f."CLASSIFICATION",	
-		f."SUFFIX",	
-		f."ISDOWM",	
-		f."MANAGEMENTSYSTEM_ID"
+		f.NAME,	
+		f.CREATETIME,	
+		f.REMARK,	
+		f.FINANCIALMODEL_ID
 	</sql>
 	
 	<!-- 字段用于新增 -->
 	<sql id="Field2">
-		"NAME",	
-		"PATH",	
-		"CLASSIFICATION",	
-		"SUFFIX",	
-		"ISDOWM",	
-		"MANAGEMENTSYSTEM_ID"
+		NAME,	
+		CREATETIME,	
+		REMARK,	
+		FINANCIALMODEL_ID
 	</sql>
 	
 	<!-- 字段值 -->
 	<sql id="FieldValue">
 		#{NAME},	
-		#{PATH},	
-		#{CLASSIFICATION},	
-		#{SUFFIX},	
-		#{ISDOWM},	
-		#{MANAGEMENTSYSTEM_ID}
+		now(),
+		#{REMARK},	
+		#{FINANCIALMODEL_ID}
 	</sql>
 	
 	<!-- 新增-->
 	<insert id="save" parameterType="pd">
-		insert into
-		<include refid="tableName"></include>
+		insert into 
+	<include refid="tableName"></include>
 		(
-		<include refid="Field2"></include>
+	<include refid="Field2"></include>
 		) values (
-		<include refid="FieldValue"></include>
+	<include refid="FieldValue"></include>
 		)
 	</insert>
 	
@@ -58,32 +52,29 @@
 		delete from
 		<include refid="tableName"></include>
 		where 
-			"MANAGEMENTSYSTEM_ID" = #{MANAGEMENTSYSTEM_ID}
+			FINANCIALMODEL_ID = #{FINANCIALMODEL_ID}
 	</delete>
 	
 	<!-- 修改 -->
 	<update id="edit" parameterType="pd">
 		update
 		<include refid="tableName"></include>
-			set 
-				"NAME" = #{NAME},	
-				"PATH" = #{PATH},	
-				"CLASSIFICATION" = #{CLASSIFICATION},	
-				"SUFFIX" = #{SUFFIX},	
-				"ISDOWM" = #{ISDOWM},	
-				"MANAGEMENTSYSTEM_ID" = "MANAGEMENTSYSTEM_ID"
-			where 
-				"MANAGEMENTSYSTEM_ID" = #{MANAGEMENTSYSTEM_ID}
+		set 
+			NAME = #{NAME},
+			REMARK = #{REMARK},
+			FINANCIALMODEL_ID = FINANCIALMODEL_ID
+		where 
+			FINANCIALMODEL_ID = #{FINANCIALMODEL_ID}
 	</update>
 	
 	<!-- 通过ID获取数据 -->
 	<select id="findById" parameterType="pd" resultType="pd">
-		select
+		select 
 		<include refid="Field"></include>
 		from 
 		<include refid="tableName"></include> f
 		where 
-			f."MANAGEMENTSYSTEM_ID" = #{MANAGEMENTSYSTEM_ID}
+			f.FINANCIALMODEL_ID = #{FINANCIALMODEL_ID}
 	</select>
 	
 	<!-- 列表 -->
@@ -118,7 +109,7 @@
 		delete from
 		<include refid="tableName"></include>
 		where 
-			"MANAGEMENTSYSTEM_ID" in
+			FINANCIALMODEL_ID in
 		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
                  #{item}
 		</foreach>

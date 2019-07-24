@@ -1,4 +1,4 @@
-package org.fh.service.library.impl;
+package org.fh.service.financial.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,29 +6,29 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.fh.entity.Page;
 import org.fh.entity.PageData;
-import org.fh.mapper.dsno1.library.ManagementSystemMapper;
-import org.fh.service.library.ManagementSystemService;
+import org.fh.mapper.dsno1.financial.FinancialModelMapper;
+import org.fh.service.financial.FinancialModelService;
 
 /** 
- * 说明： 朗威图书馆接口实现类
- * 作者：FH Admin Q313596790
- * 时间：2019-05-21
+ * 说明： 金融模型 接口实现类
+ * 作者：FH Admin
+ * 时间：2019-07-24
  *  ：www.fhadmin.org
  * @version
  */
 @Service
 @Transactional //开启事物
-public class ManagementSystemServiceImpl implements ManagementSystemService{
+public class FinancialModelServiceImpl implements FinancialModelService{
 
 	@Autowired
-	private ManagementSystemMapper managementsystemMapper;
+	private FinancialModelMapper financialmodelMapper;
 	
 	/**新增
 	 * @param pd
 	 * @throws Exception
 	 */
 	public void save(PageData pd)throws Exception{
-		managementsystemMapper.save(pd);
+		financialmodelMapper.save(pd);
 	}
 	
 	/**删除
@@ -36,7 +36,7 @@ public class ManagementSystemServiceImpl implements ManagementSystemService{
 	 * @throws Exception
 	 */
 	public void delete(PageData pd)throws Exception{
-		managementsystemMapper.delete(pd);
+		financialmodelMapper.delete(pd);
 	}
 	
 	/**修改
@@ -44,7 +44,7 @@ public class ManagementSystemServiceImpl implements ManagementSystemService{
 	 * @throws Exception
 	 */
 	public void edit(PageData pd)throws Exception{
-		managementsystemMapper.edit(pd);
+		financialmodelMapper.edit(pd);
 	}
 	
 	/**列表
@@ -52,7 +52,7 @@ public class ManagementSystemServiceImpl implements ManagementSystemService{
 	 * @throws Exception
 	 */
 	public List<PageData> list(Page page)throws Exception{
-		return managementsystemMapper.datalistPage(page);
+		return financialmodelMapper.datalistPage(page);
 	}
 	
 	/**列表(全部)
@@ -60,7 +60,7 @@ public class ManagementSystemServiceImpl implements ManagementSystemService{
 	 * @throws Exception
 	 */
 	public List<PageData> listAll(PageData pd)throws Exception{
-		return managementsystemMapper.listAll(pd);
+		return financialmodelMapper.listAll(pd);
 	}
 	
 	/**通过id获取数据
@@ -68,7 +68,7 @@ public class ManagementSystemServiceImpl implements ManagementSystemService{
 	 * @throws Exception
 	 */
 	public PageData findById(PageData pd)throws Exception{
-		return managementsystemMapper.findById(pd);
+		return financialmodelMapper.findById(pd);
 	}
 	
 	/**批量删除
@@ -76,7 +76,7 @@ public class ManagementSystemServiceImpl implements ManagementSystemService{
 	 * @throws Exception
 	 */
 	public void deleteAll(String[] ArrayDATA_IDS)throws Exception{
-		managementsystemMapper.deleteAll(ArrayDATA_IDS);
+		financialmodelMapper.deleteAll(ArrayDATA_IDS);
 	}
 	
 }
