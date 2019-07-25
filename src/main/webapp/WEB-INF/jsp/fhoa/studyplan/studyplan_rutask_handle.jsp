@@ -36,13 +36,11 @@
 			th{
 				background:#455661;
 				color: white;
-				
 			}
 		th,td {
 				text-align: center;
 				word-break: break-all;
 				word-wrap: normal;
-				
 		}
 		</style>
 	</head>
