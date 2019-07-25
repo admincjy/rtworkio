@@ -30,6 +30,10 @@ public class FinancialModelServiceImpl implements FinancialModelService{
 	public void save(PageData pd)throws Exception{
 		financialmodelMapper.save(pd);
 	}
+
+	public void savedataf(PageData pd)throws Exception{
+		financialmodelMapper.savedataf(pd);
+	}
 	
 	/**删除
 	 * @param pd

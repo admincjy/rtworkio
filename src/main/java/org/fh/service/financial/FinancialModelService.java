@@ -16,6 +16,7 @@ public interface FinancialModelService{
 	 * @throws Exception
 	 */
 	public void save(PageData pd)throws Exception;
+	public void savedataf(PageData pd)throws Exception;
 	
 	/**删除
 	 * @param pd

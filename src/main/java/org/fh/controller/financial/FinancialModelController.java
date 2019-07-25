@@ -6,21 +6,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.fh.controller.base.BaseController;
+import org.fh.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 
 
 import org.fh.entity.Page;
-import org.fh.util.ObjectExcelView;
-import org.fh.util.Tools;
 import org.fh.entity.PageData;
 import org.fh.service.financial.FinancialModelService;
+
+import javax.servlet.http.HttpServletResponse;
 
 /** 
  * 说明：金融模型 
@@ -49,7 +53,7 @@ public class FinancialModelController extends BaseController {
 	}
 	
 	/**删除
-	 * @param out
+	 * @param
 	 * @throws Exception
 	 */
 	@RequestMapping(value="/delete")
@@ -187,6 +191,64 @@ public class FinancialModelController extends BaseController {
 		ObjectExcelView erv = new ObjectExcelView();
 		mv = new ModelAndView(erv,dataMap);
 		return mv;
+	}
+
+	/**打开上传EXCEL页面
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/goUploadExcel")
+	public String goUploadExcel()throws Exception{
+		return"financial/financialmodel/uploadexcel";
+	}
+
+	/**下载模版
+	 * @param response
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/downExcel")
+	public void downExcel(HttpServletResponse response)throws Exception{
+		FileDownload.fileDownload(response, PathUtil.getProjectpath() + Const.FILEPATHFILE + "Users.xls", "Users.xls");
+	}
+
+	/**从EXCEL导入到数据库
+	 * @param file
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/readExcel")
+	@RequiresPermissions("fromExcel")
+	@SuppressWarnings("unchecked")
+	public String readExcel(@RequestParam(value="excel",required=false) MultipartFile file, Model model) throws Exception{
+		PageData pd = new PageData();
+		if (null != file && !file.isEmpty()) {
+			String filePath = PathUtil.getProjectpath() + Const.FILEPATHFILE;								//文件上传路径
+			String fileName =  FileUpload.fileUp(file, filePath, "datafexcel");								//执行上传
+			List<PageData> listPd = (List)ObjectExcelRead.readExcel(filePath, fileName, 2, 0, 0);			//执行读EXCEL操作,读出的数据导入List 2:从第3行开始；0:从第A列开始；0:第0个sheet
+			/**
+			 *
+			 */
+			for(int i=0;i<listPd.size();i++){
+				pd.put("MODELDATA_ID", this.get32UUID());
+				pd.put("DATE", listPd.get(i).getString("var0"));
+				pd.put("DATE_NUMBER", listPd.get(i).getString("var1"));
+				pd.put("EP", listPd.get(i).getString("var2"));
+				pd.put("EPCUT", listPd.get(i).getString("var3"));
+				pd.put("BP", listPd.get(i).getString("var4"));
+				pd.put("SP", listPd.get(i).getString("var5"));
+				pd.put("NCFP", listPd.get(i).getString("var6"));
+				pd.put("OCFP", listPd.get(i).getString("var7"));
+				pd.put("DP", listPd.get(i).getString("var8"));
+				pd.put("FCFP", listPd.get(i).getString("var9"));
+				pd.put("MACD", listPd.get(i).getString("var10"));
+				pd.put("BIAS", listPd.get(i).getString("var11"));
+				pd.put("MARKET_VALUE", listPd.get(i).getString("var12"));
+				pd.put("MONTH_UP_DOWM", listPd.get(i).getString("var13"));
+				financialmodelService.savedataf(pd);
+			}
+		}
+		model.addAttribute("msg","success");
+		return "transferPage";
 	}
 	
 }

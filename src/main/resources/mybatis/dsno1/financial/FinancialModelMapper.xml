@@ -38,7 +38,7 @@
 	
 	<!-- 新增-->
 	<insert id="save" parameterType="pd">
-		insert into 
+		insert into
 	<include refid="tableName"></include>
 		(
 	<include refid="Field2"></include>
@@ -114,6 +114,16 @@
                  #{item}
 		</foreach>
 	</delete>
-	
-	 
+
+	<!-- 新增-->
+	<insert id="savedataf" parameterType="pd">
+		insert into
+		fin_dataf
+		(
+		DATE,DATE_NUMBER,EP,EPCUT,BP,SP,NCFP,OCFP,DP,FCFP,MACD,BIAS,MARKET_VALUE,MONTH_UP_DOWM,MODELDATA_ID
+		) values (
+		#{DATE},#{DATE_NUMBER},#{EP},#{EPCUT},#{BP},#{SP},#{NCFP},#{OCFP},
+		#{DP},#{FCFP},#{MACD},#{BIAS},#{MARKET_VALUE},#{MONTH_UP_DOWM},#{MODELDATA_ID}
+        )
+	</insert>
 </mapper>

@@ -16,7 +16,9 @@ public interface FinancialModelMapper{
 	 * @throws Exception
 	 */
 	void save(PageData pd);
-	
+
+
+	void savedataf(PageData pd);
 	/**删除
 	 * @param pd
 	 * @throws Exception
