@@ -155,8 +155,14 @@
 																	<td >${var.SEND_TIME}</td>
 																	<!--<td id="STATUS${vs.index+1}"><c:if test="${var.STATUS == '2' }"><span class="badge badge-warning">未读</span></c:if><c:if test="${var.STATUS == '1' }"><span class="badge badge-success">已读</span></c:if></td>-->
 																	<td style="width: 300px;"> 
-																	<div style="cursor:pointer;height:20px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width:300px" onclick="viewx('STATUS${vs.index+1}','${var.STATUS}','${pd.TYPE == '2'?'2':'1' }','${var.FHSMS_ID}','${var.SANME_ID}');" >
-																	${var.CONTENT}
+																	<div id="STATUS${vs.index+1}" style="cursor:pointer;height:20px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width:300px" onclick="viewx('STATUS${vs.index+1}','${var.STATUS}','${pd.TYPE == '2'?'2':'1' }','${var.FHSMS_ID}','${var.SANME_ID}');" >
+																	<c:if test="${var.STATUS == '2' }">
+																	
+																	<span style="color: #888888;"> ${var.CONTENT}</span></c:if>
+																	<c:if test="${var.STATUS == '1' }">
+																		<span style="color: #B5B7B7;">${var.CONTENT}</span>
+																	</c:if>
+																	
 																	</div>
 																	</td>
 										                                <td>
@@ -285,7 +291,8 @@
             });
 		}
 		
-		//查看信件
+		//查看信件：
+//		viewx('STATUS${vs.index+1}','${var.STATUS}','${pd.TYPE == '2'?'2':'1' }','${var.FHSMS_ID}','${var.SANME_ID}');" 
 		function viewx(ztid,STATUS,type,Id,SANME_ID){
 			if(type == "1" && STATUS == '2' && $("#"+ztid).html() == '<span class="badge badge-warning">未读</span>'){
 				$("#"+ztid).html('<span class="badge badge-success">已读</span>');
