@@ -157,12 +157,10 @@
 																	<td style="width: 300px;"> 
 																	<div id="STATUS${vs.index+1}" style="cursor:pointer;height:20px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width:300px" onclick="viewx('STATUS${vs.index+1}','${var.STATUS}','${pd.TYPE == '2'?'2':'1' }','${var.FHSMS_ID}','${var.SANME_ID}');" >
 																	<c:if test="${var.STATUS == '2' }">
-																	
 																	<span style="color: #888888;"> ${var.CONTENT}</span></c:if>
 																	<c:if test="${var.STATUS == '1' }">
-																		<span style="color: #B5B7B7;">${var.CONTENT}</span>
+																	<span style="color: #B5B7B7;">${var.CONTENT}</span>
 																	</c:if>
-																	
 																	</div>
 																	</td>
 										                                <td>

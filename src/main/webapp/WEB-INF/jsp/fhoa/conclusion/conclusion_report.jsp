@@ -34,7 +34,18 @@
     <link rel="stylesheet" href="assets/css/style.css">
     
      <!-- 日期插件 -->
-    <link rel="stylesheet" href="assets/date/css/bootstrap-datetimepicker.min.css">    
+    <link rel="stylesheet" href="assets/date/css/bootstrap-datetimepicker.min.css">  
+    <style type="text/css">
+			th{
+				background:#455661;
+				color: white;
+			}
+		th,td {
+				text-align: center;
+				word-break: break-all;
+				word-wrap: normal;
+		}
+		</style>
 
 </head>
 
