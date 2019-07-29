@@ -123,6 +123,7 @@
 																<td>
 																	<shiro:hasPermission name="financialmodel:edit"><a title="修改" onclick="edit('${var.FINANCIALMODEL_ID}');" style="cursor:pointer;"><i class="feather icon-edit-2"></i></a></shiro:hasPermission>
 								                 					<shiro:hasPermission name="financialmodel:del"><a title="删除" onclick="del('${var.FINANCIALMODEL_ID}');" style="cursor:pointer;"><i class="feather icon-x"></i></a></shiro:hasPermission>
+																	<shiro:hasPermission name="financialmodel:edit"><a title="数据查看" onclick="find();" style="cursor:pointer;"><i class="feather icon-chevrons-right"></i></a></shiro:hasPermission>
 																</td>
 															</tr>
 														
@@ -239,6 +240,19 @@
 				diag.close();
 			 };
 			 diag.show();
+		}
+		
+		//数据查看
+		function find(){
+		  console.log(666)
+			 $.ajax({
+    			type: "POST",
+    			url: '<%=basePath%>financialmodel/findDatabyDay',
+    			dataType:'json',
+    			cache: false,
+    			success: function(data){
+    			}
+    		});
 		}
 		
 		//批量操作
