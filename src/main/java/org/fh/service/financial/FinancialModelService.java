@@ -53,6 +53,8 @@ public interface FinancialModelService{
 	 * @throws Exception
 	 */
 	public void deleteAll(String[] ArrayDATA_IDS)throws Exception;
+
+	public PageData findDatabyDay(PageData pd)throws Exception;
 	
 }
 

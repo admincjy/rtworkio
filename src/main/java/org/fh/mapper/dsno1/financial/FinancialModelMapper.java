@@ -54,6 +54,8 @@ public interface FinancialModelMapper{
 	 * @throws Exception
 	 */
 	void deleteAll(String[] ArrayDATA_IDS);
-	
+
+
+	PageData findDatabyDay(PageData pd);
 }
 

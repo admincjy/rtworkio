@@ -82,6 +82,10 @@ public class FinancialModelServiceImpl implements FinancialModelService{
 	public void deleteAll(String[] ArrayDATA_IDS)throws Exception{
 		financialmodelMapper.deleteAll(ArrayDATA_IDS);
 	}
-	
+
+
+	public PageData findDatabyDay(PageData pd)throws Exception{
+		return financialmodelMapper.findDatabyDay(pd);
+	}
 }
 

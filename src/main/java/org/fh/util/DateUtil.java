@@ -3,8 +3,10 @@ package org.fh.util;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 说明：日期处理
@@ -268,4 +270,36 @@ public class DateUtil {
         String dateStr = sdfd.format(date);
         return dateStr;
     }
+
+
+
+    /**
+			*
+			* @param minDate 最小时间  2015-01
+			* @param maxDate 最大时间 2015-10
+			* @return 日期集合 格式为 年-月
+	 * @throws Exception
+	 */
+	public static List<String> getMonthBetween(String minDate, String maxDate) throws Exception {
+		ArrayList<String> result = new ArrayList<String>();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");//格式化为年月
+
+		Calendar min = Calendar.getInstance();
+		Calendar max = Calendar.getInstance();
+
+		min.setTime(sdf.parse(minDate));
+		min.set(min.get(Calendar.YEAR), min.get(Calendar.MONTH), 1);
+
+		max.setTime(sdf.parse(maxDate));
+		max.set(max.get(Calendar.YEAR), max.get(Calendar.MONTH), 2);
+
+		Calendar curr = min;
+		while (curr.before(max)) {
+			String date=sdf.format(curr.getTime());
+			result.add(date.substring(0,4)+date.substring(5,7));
+			curr.add(Calendar.MONTH, 1);
+		}
+
+		return result;
+	}
 }

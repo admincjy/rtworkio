@@ -1,5 +1,6 @@
 package org.fh.controller.financial;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -250,5 +251,105 @@ public class FinancialModelController extends BaseController {
 		model.addAttribute("msg","success");
 		return "transferPage";
 	}
-	
+
+
+
+	@RequestMapping(value="/findDatabyDay")
+	public String findDatabyDay(Page page, Model model) throws Exception{
+		List<String> result = DateUtil.getMonthBetween("2017-01","2018-12");
+		List<PageData>  PageDatas=new ArrayList<>();
+		PageData pDate = new PageData();
+		BigDecimal EP = new BigDecimal("1");
+		BigDecimal EPCUT = new BigDecimal("1");
+		BigDecimal BP = new BigDecimal("1");
+		BigDecimal SP = new BigDecimal("1");
+		BigDecimal NCFP = new BigDecimal("1");
+		BigDecimal OCFP = new BigDecimal("1");
+		BigDecimal DP = new BigDecimal("1");
+		BigDecimal FCFP = new BigDecimal("1");
+		BigDecimal MACD = new BigDecimal("1");
+		BigDecimal BIAS = new BigDecimal("1");
+		BigDecimal ROE_DATA = new BigDecimal("1");
+		BigDecimal ROE = new BigDecimal("1");
+		BigDecimal ROA = new BigDecimal("1");
+		BigDecimal AOR = new BigDecimal("1");
+		BigDecimal GROSS = new BigDecimal("1");
+		BigDecimal GROSS_TTM = new BigDecimal("1");
+		BigDecimal YIE = new BigDecimal("1");
+		BigDecimal ROE_DEL = new BigDecimal("1");
+		BigDecimal TTM = new BigDecimal("1");
+		BigDecimal TOTAL_VALUE = new BigDecimal("1");
+		for (int i=0;i<result.size();i++){
+			PageData pd = new PageData();
+			pd.put("DATE",result.get(i));
+			PageData pageData = financialmodelService.findDatabyDay(pd);
+			pd.put("EP",(BigDecimal) pageData.get("EP"));
+			pd.put("EPCUT",(BigDecimal) pageData.get("EPCUT"));
+			pd.put("BP",(BigDecimal) pageData.get("BP"));
+			pd.put("SP",(BigDecimal) pageData.get("SP"));
+			pd.put("NCFP",(BigDecimal) pageData.get("NCFP"));
+			pd.put("OCFP",(BigDecimal) pageData.get("OCFP"));
+			pd.put("DP",(BigDecimal) pageData.get("DP"));
+			pd.put("FCFP",(BigDecimal) pageData.get("FCFP"));
+			pd.put("MACD",(BigDecimal) pageData.get("MACD"));
+			pd.put("BIAS",(BigDecimal) pageData.get("BIAS"));
+			pd.put("ROE_DATA",(BigDecimal) pageData.get("ROE_DATA"));
+			pd.put("ROE",(BigDecimal) pageData.get("ROE"));
+			pd.put("ROA",(BigDecimal) pageData.get("ROA"));
+			pd.put("AOR",(BigDecimal) pageData.get("AOR"));
+			pd.put("GROSS",(BigDecimal) pageData.get("GROSS"));
+			pd.put("GROSS_TTM",(BigDecimal) pageData.get("GROSS_TTM"));
+			pd.put("YIE",(BigDecimal) pageData.get("YIE"));
+			pd.put("ROE_DEL",(BigDecimal) pageData.get("ROE_DEL"));
+			pd.put("TTM",(BigDecimal) pageData.get("TTM"));
+			pd.put("TOTAL_VALUE",(BigDecimal) pageData.get("TOTAL_VALUE"));
+			EP=EP.multiply((BigDecimal) pageData.get("EP"));
+			EPCUT=EPCUT.multiply((BigDecimal) pageData.get("EPCUT"));
+			BP=BP.multiply((BigDecimal) pageData.get("BP"));
+			SP=SP.multiply((BigDecimal) pageData.get("SP"));
+			NCFP=NCFP.multiply((BigDecimal) pageData.get("NCFP"));
+			OCFP=OCFP.multiply((BigDecimal) pageData.get("OCFP"));
+			DP=DP.multiply((BigDecimal) pageData.get("DP"));
+			FCFP=FCFP.multiply((BigDecimal) pageData.get("FCFP"));
+			MACD=MACD.multiply((BigDecimal) pageData.get("MACD"));
+			BIAS=BIAS.multiply((BigDecimal) pageData.get("BIAS"));
+			ROE_DATA=ROE_DATA.multiply((BigDecimal) pageData.get("ROE_DATA"));
+			ROE=ROE.multiply((BigDecimal) pageData.get("ROE"));
+			ROA=ROA.multiply((BigDecimal) pageData.get("ROA"));
+			AOR=AOR.multiply((BigDecimal) pageData.get("AOR"));
+			GROSS=GROSS.multiply((BigDecimal) pageData.get("GROSS"));
+			GROSS_TTM=GROSS_TTM.multiply((BigDecimal) pageData.get("GROSS_TTM"));
+			YIE=YIE.multiply((BigDecimal) pageData.get("YIE"));
+			ROE_DEL=ROE_DEL.multiply((BigDecimal) pageData.get("ROE_DEL"));
+			TTM=TTM.multiply((BigDecimal) pageData.get("TTM"));
+			TOTAL_VALUE=TOTAL_VALUE.multiply((BigDecimal) pageData.get("TOTAL_VALUE"));
+			PageDatas.add(pd);
+		}
+		pDate.put("DATE","累乘合计");
+		pDate.put("EP",EP.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("EPCUT",EPCUT.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("BP",BP.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("SP",SP.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("NCFP",NCFP.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("OCFP",OCFP.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("DP",DP.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("FCFP",FCFP.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("MACD",MACD.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("BIAS",BIAS.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("ROE_DATA",ROE_DATA.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("ROE",ROE.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("ROA",ROA.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("AOR",AOR.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("GROSS",GROSS.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("GROSS_TTM",GROSS_TTM.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("YIE",YIE.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("ROE_DEL",ROE_DEL.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("TTM",TTM.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		pDate.put("TOTAL_VALUE",TOTAL_VALUE.setScale(30,   BigDecimal.ROUND_HALF_UP));
+		PageDatas.add(pDate);
+        model.addAttribute("PageDatas", PageDatas);
+		return "financial/financialmodel/model_list";
+	}
+
+
 }
