@@ -66,7 +66,7 @@
 											&nbsp;&nbsp;发信时间：${pd.SEND_TIME}
 										</tr>
 										<tr>
-											<td>${pd.CONTENT}</td>
+											<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap; ">${pd.CONTENT}</td>
 										</tr>
 									</table>
 								</div>
