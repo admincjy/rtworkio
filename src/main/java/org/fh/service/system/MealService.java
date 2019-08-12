@@ -35,7 +35,7 @@ public interface MealService{
 	 */
 	public List<PageData> list(Page page)throws Exception;
 	
-	/**列表(全部)
+	/**列表(当日全部)
 	 * @param pd
 	 * @throws Exception
 	 */

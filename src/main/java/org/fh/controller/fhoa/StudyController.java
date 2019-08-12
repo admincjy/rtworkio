@@ -109,7 +109,7 @@ public class StudyController extends AcStartController {
 	}
 	
 	/**删除
-	 * @param out
+	 * @param
 	 * @throws Exception
 	 */
 	@RequestMapping(value="/delete")
@@ -308,9 +308,33 @@ public class StudyController extends AcStartController {
 		}
 		if(Tools.notEmpty(KEYWORDS))pd.put("KEYWORDS", KEYWORDS.trim());
 		page.setPd(pd);
-		List<PageData> varList = studyService.listReportPage(page);	//列出Workplan列表
+		List<PageData> varList = studyService.listReportPage(page);	//列出studyplan列表
 		model.addAttribute("varList", varList);
 		model.addAttribute("pd", pd);
 		return "fhoa/study/study_report";
 	}
+
+    /**列表
+     * @param page
+     * @throws Exception
+     */
+    @RequestMapping(value="/year")
+    @RequiresPermissions("study:year")
+    public String year(Page page, Model model) throws Exception{
+        PageData pd = new PageData();
+        pd = this.getPageData();
+        String KEYWORDS = pd.getString("KEYWORDS");						//关键词检索条件
+        if (Tools.isEmpty(pd.getString("STARTCOMMITTIME"))) {
+            String STARTCOMMITTIME=DateUtil.getBeforeDayDate("6");
+            String ENDTCOMMITIME=DateUtil.getDay();
+            pd.put("STARTCOMMITTIME", STARTCOMMITTIME);
+            pd.put("ENDTCOMMITIME", ENDTCOMMITIME);
+        }
+        if(Tools.notEmpty(KEYWORDS))pd.put("KEYWORDS", KEYWORDS.trim());
+        page.setPd(pd);
+        List<PageData> varList = studyService.listReportPage(page);	//列出studyplan列表
+        model.addAttribute("varList", varList);
+        model.addAttribute("pd", pd);
+        return "fhoa/study/studyplan_year_report";
+    }
 }

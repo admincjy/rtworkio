@@ -104,7 +104,7 @@
 												 <ul style="list-style: none;">
 										         	<li style="float: left;">提交人员:&nbsp;&nbsp;<span>${pageDatas[0].NAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 										         	<li style="float: left;">接收人员:&nbsp;&nbsp;<span>${pageDatas[0].TONAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-										         	<li style="float: left;">抄送人员:&nbsp;&nbsp;<span>${pageDatas[0].CCNAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										         	<li style="float: left;">抄送人员:&nbsp;&nbsp;<span>${pageDatas[0].CCNAME==''?'无':pageDatas[0].CCNAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 										         	<li>提交时间:&nbsp;&nbsp;<span>${pageDatas[0].STARTTIME};</span></li>
 										         </ul>
 												<c:if test="${null == pd.msg or pd.msg != 'admin' }">

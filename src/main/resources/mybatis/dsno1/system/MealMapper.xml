@@ -116,12 +116,13 @@
 		ORDER BY f.CREATETIME DESC
 	</select>
 	
-	<!-- 列表(全部) -->
+	<!-- 列表(当日全部) -->
 	<select id="listAll" parameterType="pd" resultType="pd">
 		select
 		<include refid="Field"></include>
 		from 
 		<include refid="tableName"></include> f
+        WHERE  to_days(CREATETIME) = to_days(now());
 	</select>
 	
 	<!-- 批量删除 -->

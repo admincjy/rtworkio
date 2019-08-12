@@ -81,7 +81,7 @@
 												 <ul style="list-style: none;">
 										         	<li style="float: left;">提交人员:&nbsp;&nbsp;<span>${pageData.NAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 										         	<li style="float: left;">接收人员:&nbsp;&nbsp;<span>${pageData.TONAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-										         	<li style="float: left;">抄送人员:&nbsp;&nbsp;<span>${pageData.CCNAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										         	<li style="float: left;">抄送人员:&nbsp;&nbsp;<span>${pageData.CCNAME==''?'无':pageData.CCNAME};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 										         	<li style="float: left;">总结类型:&nbsp;&nbsp;<span>${pageData.TYPE};</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 										         	<li>提交时间:&nbsp;&nbsp;<span>${pageData.STARTTIME};</span></li>
 										         </ul>

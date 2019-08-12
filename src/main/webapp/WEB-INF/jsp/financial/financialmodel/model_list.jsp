@@ -81,13 +81,13 @@
 														<th>EP</th>
 														<th>EPCUT</th>
 														<th>BP</th>
-														<!--<th>SP</th>-->
+														<th>SP</th>
 														<th>NCFP</th>
 														<th>OCFP</th>
-														<!--<th>DP</th>-->
+														<th>DP</th>
 														<th>FCFP</th>
 														<th>MACD指数平滑移动平均</th>
-														<!--<th>BIAS乖离率</th>-->
+														<th>BIAS乖离率</th>
 														<th>单季度净资产收益率ROE</th>
 														<th>净资产收益率ROE</th>
 														<th>单季度总资产净利率ROA</th>
@@ -111,13 +111,13 @@
 																<td>${var.EP}</td>
 																<td>${var.EPCUT}</td>
 																<td>${var.BP}</td>
-																<!--<td>${var.SP}</td>-->
+																<td>${var.SP}</td>
 																<td>${var.NCFP}</td>
 																<td>${var.OCFP}</td>
-																<!--<td>${var.DP}</td>-->
+																<td>${var.DP}</td>
 																<td>${var.FCFP}</td>
 																<td>${var.MACD}</td>
-																<!--<td>${var.BIAS}</td>-->
+																<td>${var.BIAS}</td>
 																<td>${var.ROE_DATA}</td>
 																<td>${var.ROE}</td>
 																<td>${var.ROA}</td>
