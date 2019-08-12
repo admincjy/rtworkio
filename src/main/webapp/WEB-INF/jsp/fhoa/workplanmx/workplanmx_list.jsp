@@ -142,15 +142,15 @@
 									</tbody>
 								</table>
 								
-								<table style="width:100%;margin-top:15px;">
+								<!--<table style="width:100%;margin-top:15px;">
 									<tr>
-										<td style="vertical-align:top;">
-											<a class="btn btn-light btn-sm" onclick="add();">新增</a>
-											<a class="btn btn-light btn-sm" onclick="makeAll('确定要删除选中的数据吗?');">删除</a>
-										</td>
-										<td style="vertical-align:top;"><div style="float: right;padding-top: 0px;margin-top: 0px;">${page.pageStr}</div></td>
-									</tr>
-								</table>
+										<td style="vertical-align:top;">-->
+											<a style="margin-top:15px;" class="btn btn-light btn-sm" onclick="add();">新增</a>
+											<a style="margin-top:15px;" class="btn btn-light btn-sm" onclick="makeAll('确定要删除选中的数据吗?');">删除</a>
+										<!--</td>-->
+										<!--<td style="vertical-align:top;">--><div style="float: right;padding-top: 0px;margin-top: 0px;">${page.pageStr}</div><!--</td>-->
+									<!--</tr>-->
+								<!--</table>-->
 							</div>
 						</div>	
 					</form>

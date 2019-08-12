@@ -409,7 +409,7 @@
 				$("#ASSIGNEE_2").val("");
 			}
 
-			//办理任务
+				//办理任务
 			function handle(msg) {
 				$("#msg").val(msg);
 				var scores = [];
@@ -421,7 +421,7 @@
 						isNUll = true;
 					}
 					scores.push(score)
-				});
+		});
 				if(isNUll == true) {
 					$("#SCORE").tips({
 						side: 3,
@@ -429,7 +429,7 @@
 						bg: '#AE81FF',
 						time: 2
 					});
-					$("#SCORE").focus();
+					$(".InputA").focus();
 					return false;
 				}
 				$("#PROC_INST_ID_").val()
