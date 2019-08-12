@@ -289,6 +289,6 @@ public class StudyplanController extends AcStartController {
         List<PageData> varList = studyplanService.listReportPage(page);	//列出Workplan列表
         model.addAttribute("varList", varList);
         model.addAttribute("pd", pd);
-        return "fhoa/study/studyplan_year_report";
+        return "fhoa/studyplan/studyplan_year_report";
     }
 }
