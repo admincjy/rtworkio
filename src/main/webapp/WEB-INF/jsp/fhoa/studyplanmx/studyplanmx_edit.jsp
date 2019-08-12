@@ -87,9 +87,15 @@
 	                                </div>
 						            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
 	                                    <div class="input-group-prepend">
-	                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">学习情况</span></span>
+	                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">学习页码</span></span>
 	                                    </div>
-	                                    <input type="text" class="form-control" name="COUNT" id="COUNT" value="${pd.COUNT}" maxlength="255" placeholder="这里输入学习情况" title="学习情况">
+	                                   <span style="line-height: 30px;padding: 0 5px;font-size: 18px;">P</span>
+	                                    <!--<input type="text" class="form-control" name="COUNT" id="COUNT" value="${pd.COUNT}" maxlength="255" placeholder="这里输入学习情况" title="学习情况">-->
+	                                    	<input  style="background:#F4F7FA;width: 60px;height:30px;border:1px #AAAEB3 solid;border-radius: 5px;" type="text" onKeyUp="value=value.replace(/[^\d]/g,'')" 
+																								onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+										<span style="line-height: 30px;padding: 0 5px;font-size: 18px;">-&nbsp;P</span>
+	                                    <input  style="background:#F4F7FA;width: 60px;height:30px;border:1px #AAAEB3 solid;border-radius: 5px;" type="text" onKeyUp="value=value.replace(/[^\d]/g,'')" 
+																								onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
 	                                </div>
 						            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
 	                                    <div class="input-group-prepend">
