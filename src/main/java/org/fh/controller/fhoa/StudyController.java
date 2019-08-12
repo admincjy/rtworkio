@@ -314,7 +314,7 @@ public class StudyController extends AcStartController {
 		return "fhoa/study/study_report";
 	}
 
-    /**列表
+    /**年度统计列表
      * @param page
      * @throws Exception
      */
