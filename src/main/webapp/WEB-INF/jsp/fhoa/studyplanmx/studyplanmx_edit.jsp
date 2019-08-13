@@ -185,6 +185,7 @@
 				$("#BOOKNAME").focus();
 			return false;
 			}
+			
 			if($("#AUTHOR").val()==""){
 				$("#AUTHOR").tips({
 					side:3,

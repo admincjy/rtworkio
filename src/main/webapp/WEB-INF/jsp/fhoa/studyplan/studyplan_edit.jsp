@@ -201,6 +201,8 @@
 		    }
 	    	$("#MONTH").val(y+'-'+m)
 	    }
+	    
+	    
         $(".form_datetime").datetimepicker({
     		 format: 'yyyy-mm',
 			 weekStart: 1,
