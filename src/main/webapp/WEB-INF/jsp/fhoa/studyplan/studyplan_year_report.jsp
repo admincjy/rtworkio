@@ -134,14 +134,14 @@
 																			<c:forEach items="${varList}" var="var" varStatus="vs">
 																				<tr ondblclick="contentmx('${var.PROC_INST_ID_}')">
 																					<td id="name" style="vertical-align: middle;text-align: center;">${var.NAME}</td>
-																					<td id="month" style="vertical-align: middle;text-align: center;">${var.MONTH}</td>
+																					<td class="month" style="vertical-align: middle;text-align: center;">${var.MONTH}</td>
 																					<td>${var.BOOKNAME}</td>
 																					<td>${var.AUTHOR}</td>
 																					<td>${var.BOOKCONTET}</td>
 																					<td>${var.SCORE}</td>
 																					<td>${var.COUNT}</td>
 																					<td>${var.TOTAL_PAGE}</td>
-																					<td id="sum"  style="vertical-align: middle;text-align: center;">${var.TOTAL_MONTH_PAGE}</td>
+																					<td class="sum"  style="vertical-align: middle;text-align: center;">${var.TOTAL_MONTH_PAGE}</td>
 																					<!--<td>${var.PROC_INST_ID_}</td>-->
 																				</tr>
 																			</c:forEach>
@@ -200,29 +200,29 @@
 				});
 			});
 			$(function() {
-				$('#month').each(function(index, element) {
+				$('.month').each(function(index, element) {
 					if(!$(this).hasClass('hide')) {
-						var next = $(this).parent('tr').next('tr').children('#month'); //下一个合并的对象
+						var next = $(this).parent('tr').next('tr').children('.month'); //下一个合并的对象
 						$(this).attr('rowspan', 1);
 						while($(this).text() == next.text()) {
 							$(this).attr('rowspan', parseInt($(this).attr('rowspan')) + 1);
 							next.hide();
 							next.addClass('hide');
-							next = next.parent('tr').next('tr').children('#month'); //下一个合并的对象
+							next = next.parent('tr').next('tr').children('.month'); //下一个合并的对象
 						}
 					}
 				});
 			});
 			$(function() {
-				$('#sum').each(function(index, element) {
+				$('.sum').each(function(index, element) {
 					if(!$(this).hasClass('hide')) {
-						var next = $(this).parent('tr').next('tr').children('#sum'); //下一个合并的对象
+						var next = $(this).parent('tr').next('tr').children('.sum'); //下一个合并的对象
 						$(this).attr('rowspan', 1);
 						while($(this).text() == next.text()) {
 							$(this).attr('rowspan', parseInt($(this).attr('rowspan')) + 1);
 							next.hide();
 							next.addClass('hide');
-							next = next.parent('tr').next('tr').children('#sum'); //下一个合并的对象
+							next = next.parent('tr').next('tr').children('.sum'); //下一个合并的对象
 						}
 					}
 				});
