@@ -31,7 +31,8 @@
 		COPYNAME,	
 		STARTTIME,	
 		ENDTIME,	
-		STATE,	
+		STATE,
+		MONTH,
 		PROC_INST_ID_,	
 		STUDYPLAN_ID,
 		CCNAME
@@ -44,7 +45,8 @@
 		#{COPYNAME},	
 		#{STARTTIME},	
 		#{ENDTIME},	
-		#{STATE},	
+		#{STATE},
+		#{MONTH},
 		#{PROC_INST_ID_},	
 		#{STUDYPLAN_ID},	
 		#{CCNAME}
@@ -74,9 +76,12 @@
 		update
 		<include refid="tableName"></include>
 		set 
-		<if test="PROC_INST_ID_ != null and PROC_INST_ID_ != ''">
-		    PROC_INST_ID_ = #{PROC_INST_ID_},
+		<if test="TOTAL_MONTH_PAGE != null and TOTAL_MONTH_PAGE != ''">
+            TOTAL_MONTH_PAGE = #{TOTAL_MONTH_PAGE},
 		</if>
+        <if test="PROC_INST_ID_ != null and PROC_INST_ID_ != ''">
+            PROC_INST_ID_ = #{PROC_INST_ID_},
+        </if>
 			STUDYPLAN_ID = STUDYPLAN_ID
 		where 
 			STUDYPLAN_ID = #{STUDYPLAN_ID}

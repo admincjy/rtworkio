@@ -19,7 +19,9 @@
 		f.COUNT,	
 		f.STUDYSTARTTIME,	
 		f.STUDYENDTIME,	
-		f.SCORE,	
+		f.TOTAL_PAGE,
+		f.AUTHOR,
+		f.SCORE,
 		f.STUDYPLANMX_ID,
 		f.STUDYPLAN_ID
 	</sql>
@@ -30,7 +32,9 @@
 		BOOKCONTET,	
 		COUNT,	
 		STUDYSTARTTIME,	
-		STUDYENDTIME,	
+		STUDYENDTIME,
+		TOTAL_PAGE,
+		AUTHOR,
 		SCORE,	
 		STUDYPLANMX_ID,
 		STUDYPLAN_ID
@@ -42,7 +46,9 @@
 		#{BOOKCONTET},	
 		#{COUNT},	
 		#{STUDYSTARTTIME},	
-		#{STUDYENDTIME},	
+		#{STUDYENDTIME},
+		#{TOTAL_PAGE},
+		#{AUTHOR},
 		#{SCORE},	
 		#{STUDYPLANMX_ID},
 		#{STUDYPLAN_ID}
@@ -105,6 +111,16 @@
 		where 
 			f.STUDYPLANMX_ID = #{STUDYPLANMX_ID}
 	</select>
+
+    <!-- 通过主表ID获取总页书 -->
+    <select id="sumByMId" parameterType="pd" resultType="int">
+        SELECT
+            SUM(TOTAL_PAGE) AS TOTAL_MONTH_PAGE
+            FROM
+                oa_studyplanmx
+            where
+            STUDYPLAN_ID = #{STUDYPLAN_ID}
+    </select>
 	
 	<!-- 列表 -->
 	<select id="datalistPage" parameterType="page" resultType="pd">
@@ -154,6 +170,41 @@
 		where
 			STUDYPLAN_ID = #{STUDYPLAN_ID}
 	</select>
+
+
+    <!-- 根据个人查询年度列表(全部) -->
+    <select id="findByName" parameterType="pd" resultType="pd">
+        SELECT
+            t2.STUDYPLANMX_ID,
+            t2.BOOKNAME,
+            t2.BOOKCONTET,
+            t2.COUNT,
+            t2.STUDYSTARTTIME,
+            t2.STUDYENDTIME,
+            t2.SCORE,
+            t2.AUTHOR,
+            t2.TOTAL_PAGE,
+            t2.PROGRESS,
+            t1.`NAME`,
+            t1.TONAME,
+            t1.COPYNAME,
+            t1.STARTTIME,
+            t1.ENDTIME,
+            t1.STATE,
+            t1.PROC_INST_ID_,
+            t1.CCNAME,
+            t1.`MONTH`,
+            t1.TOTAL_MONTH_PAGE,
+            t2.STUDYPLAN_ID
+            FROM
+            oa_studyplan AS t1
+            LEFT JOIN oa_studyplanmx AS t2 ON t1.STUDYPLAN_ID = t2.STUDYPLAN_ID
+            WHERE
+            t1.`NAME` = #{NAME}
+            AND left(t1.`MONTH`, 4)=#{YEAR}
+            ORDER BY
+            t1.`MONTH` ASC
+    </select>
 	
 	 
 </mapper>
