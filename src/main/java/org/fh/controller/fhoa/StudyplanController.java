@@ -277,6 +277,9 @@ public class StudyplanController extends AcStartController {
         }
         if(Tools.isEmpty(pd.getString("NAME"))){
                 pd.put("NAME", Jurisdiction.getName());
+        }else {
+            PageData pageData= usersService.findByUsername(pd);
+                pd.put("NAME", pageData.getString("NAME"));
         }
         List<PageData> varList = studyplanmxService.findByName(pd);	//列出Workplan列表
         model.addAttribute("varList", varList);
