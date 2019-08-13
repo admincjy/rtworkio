@@ -19,7 +19,8 @@
 		f.COPYNAME,	
 		f.STARTTIME,	
 		f.ENDTIME,	
-		f.STATE,	
+		f.STATE,
+		f.MONTH,
 		f.PROC_INST_ID_,	
 		f.STUDYPLAN_ID
 	</sql>

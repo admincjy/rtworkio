@@ -203,7 +203,7 @@
             t1.`NAME` = #{NAME}
             AND left(t1.`MONTH`, 4)=#{YEAR}
             ORDER BY
-            t1.`MONTH` ASC
+            t1.`MONTH` ASC,t2.STUDYPLAN_ID ASC
     </select>
 	
 	 

@@ -58,8 +58,9 @@ public class StudyplanMxController extends BaseController {
         pd.put("TOTAL_PAGE", TOTAL_PAGE);
 		studyplanmxService.save(pd);
 		int TOTAL_MONTH_PAGE=studyplanmxService.sumByMId(pd);
+        PageData pdM=studyplanService.findById(pd);
         PageData pd1 = new PageData();
-        pd1.put("TOTAL_MONTH_PAGE", TOTAL_MONTH_PAGE);
+        pd1.put("TOTAL_MONTH_PAGE", String.valueOf(TOTAL_MONTH_PAGE)+"("+pdM.getString("MONTH")+")");
         pd1.put("STUDYPLAN_ID", pd.getString("STUDYPLAN_ID"));
         studyplanService.edit(pd1);
         model.addAttribute("msg","success");
