@@ -188,13 +188,13 @@
 			$(function() {
 				$('.name').each(function(index, element) {
 					if(!$(this).hasClass('hide')) {
-						var next = $(this).parent('tr').next('tr').children('#name'); //下一个合并的对象
+						var next = $(this).parent('tr').next('tr').children('.name'); //下一个合并的对象
 						$(this).attr('rowspan', 1);
 						while($(this).text() == next.text()) {
 							$(this).attr('rowspan', parseInt($(this).attr('rowspan')) + 1);
 							next.hide();
 							next.addClass('hide');
-							next = next.parent('tr').next('tr').children('#name'); //下一个合并的对象
+							next = next.parent('tr').next('tr').children('.name'); //下一个合并的对象
 						}
 					}
 				});
