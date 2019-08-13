@@ -106,12 +106,12 @@
 														<input type="hidden" name="PROC_INST_ID_" id="PROC_INST_ID_" value="${pd.PROC_INST_ID_}" />
 														<input type="hidden" name="msg" id="msg" value="yes" />
 														<div id="showform" style="padding-top: 0px;">
-															<table style="margin-top: 10px;">
+															<table style="margin-top: 10px;" border="1">
 																<tr>
 																	<!--<td>
 																		<h6>计划内容:</h6></td>
 																</tr>-->
-																<table class="table table-hover">
+																<table class="table table-hover" style="border: 1px solid #EAEDF4;;">
 																	<thead >
 																		<tr>
 																			<th style="width:50px;height: 20px;">NO</th>

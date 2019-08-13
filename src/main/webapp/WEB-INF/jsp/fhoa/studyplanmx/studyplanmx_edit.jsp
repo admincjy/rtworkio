@@ -105,17 +105,17 @@
 	                                </div>
 						            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
 	                                    <div class="input-group-prepend">
-	                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">开始时间</span></span>
+	                                        <span class="input-group-text" ><span style="width: 100%;">开始时间</span></span>
 	                                    </div>
 	                                    <!--<input type="text" class="form-control date" name="STUDYSTARTTIME" id="STUDYSTARTTIME" value="${pd.STUDYSTARTTIME}" maxlength="32" placeholder="这里输入开始学习时间" title="开始学习时间">-->
-                                        <input size="90" type="text"  readonly  class="form_datetime" name="STUDYSTARTTIME" id="STUDYSTARTTIME" value="${pd.STUDYSTARTTIME}"  maxlength="32" placeholder="这里输入开始学习时间" title="开始学习时间">
+                                        <input size="89" style="border:border: 1px solid #CED4DA;" type="text"  readonly  class="form_datetime" name="STUDYSTARTTIME" id="STUDYSTARTTIME" value="${pd.STUDYSTARTTIME}"  maxlength="32" placeholder="这里输入开始学习时间" title="开始学习时间">
 	                                </div>
 						            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
 	                                    <div class="input-group-prepend">
-	                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">完成时间</span></span>
+	                                        <span class="input-group-text" ><span style="width: 100%;">完成时间</span></span>
 	                                    </div>
 	                                    <!--<input type="text" class="form-control date" name="STUDYENDTIME" id="STUDYENDTIME" value="${pd.STUDYENDTIME}" maxlength="32" placeholder="这里输入完成学习时间" title="完成学习时间">-->
-                                        <input size="90" type="text"  readonly class="form_datetime" name="STUDYENDTIME" id="STUDYENDTIME" value="${pd.STUDYENDTIME}"  maxlength="32" placeholder="这里输入完成学习时间" title="完成学习时间">
+                                        <input size="89" style="border: border: 1px solid #CED4DA;" type="text"  readonly class="form_datetime" name="STUDYENDTIME" id="STUDYENDTIME" value="${pd.STUDYENDTIME}"  maxlength="32" placeholder="这里输入完成学习时间" title="完成学习时间">
 	                                </div>
 						            <!--<div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
 	                                    <div class="input-group-prepend">
@@ -166,6 +166,7 @@
 <!-- 表单验证提示 -->
 <script src="assets/js/jquery.tips.js"></script>
 <script type="text/javascript">
+
         $(".form_datetime").datetimepicker({
 		    minView: "month", //选择日期后，不会再跳转去选择时分秒 
 		    language:  'zh-CN',
@@ -250,11 +251,9 @@
 			$("#showform").hide();
 			$("#jiazai").show();
 		}
+			
 		
-		$(function() {
-
-
-		});
+	
 </script>
 
 </body>
