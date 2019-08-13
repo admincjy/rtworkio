@@ -61,6 +61,11 @@ public interface StudyplanMxMapper{
 	PageData findCount(PageData pd);
 	
 	void batchUpdate(List<PageData> pageDatas);
+
+
+    int sumByMId(PageData pd);
+
+    List<PageData> findByName(PageData pd);
 	
 }
 

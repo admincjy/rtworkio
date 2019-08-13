@@ -1,12 +1,7 @@
 package org.fh.controller.fhoa;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -269,24 +264,21 @@ public class StudyplanController extends AcStartController {
 	}
 
     /**年度统计列表
-     * @param page
+     * @param
      * @throws Exception
      */
     @RequestMapping(value="/year")
     @RequiresPermissions("studyplan:year")
-    public String year(Page page, Model model) throws Exception{
+    public String year(Model model) throws Exception{
         PageData pd = new PageData();
         pd = this.getPageData();
-        String KEYWORDS = pd.getString("KEYWORDS");						//关键词检索条件
-        if (Tools.isEmpty(pd.getString("STARTCOMMITTIME"))) {
-            String STARTCOMMITTIME=DateUtil.getBeforeDayDate("6");
-            String ENDTCOMMITIME=DateUtil.getDay();
-            pd.put("STARTCOMMITTIME", STARTCOMMITTIME);
-            pd.put("ENDTCOMMITIME", ENDTCOMMITIME);
+        if (Tools.isEmpty(pd.getString("YEAR"))){
+            pd.put("YEAR",String.valueOf( Calendar.getInstance().get(Calendar.YEAR)));
         }
-        if(Tools.notEmpty(KEYWORDS))pd.put("KEYWORDS", KEYWORDS.trim());
-        page.setPd(pd);
-        List<PageData> varList = studyplanService.listReportPage(page);	//列出Workplan列表
+        if(Tools.isEmpty(pd.getString("NAME"))){
+                pd.put("NAME", Jurisdiction.getName());
+        }
+        List<PageData> varList = studyplanmxService.findByName(pd);	//列出Workplan列表
         model.addAttribute("varList", varList);
         model.addAttribute("pd", pd);
         return "fhoa/studyplan/studyplan_year_report";

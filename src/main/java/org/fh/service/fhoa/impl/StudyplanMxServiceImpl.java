@@ -91,5 +91,13 @@ public class StudyplanMxServiceImpl implements StudyplanMxService{
 	public void batchUpdate(List<PageData> pageDatas)throws Exception{
 		studyplanmxMapper.batchUpdate(pageDatas);
 	}
+
+    public int sumByMId(PageData pd)throws Exception{
+        return studyplanmxMapper.sumByMId(pd);
+    }
+
+    public List<PageData> findByName(PageData pd)throws Exception{
+        return studyplanmxMapper.findByName(pd);
+    }
 }
 

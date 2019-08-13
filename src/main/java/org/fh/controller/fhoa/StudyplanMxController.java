@@ -52,13 +52,22 @@ public class StudyplanMxController extends BaseController {
 		PageData pd = new PageData();
 		pd = this.getPageData();
 		pd.put("STUDYPLANMX_ID", this.get32UUID());	//主键
+        String count="p"+pd.get("COUNTS")+"-"+"p"+pd.get("COUNTE");
+        int TOTAL_PAGE= Integer.parseInt(pd.get("COUNTE").toString())- Integer.parseInt(pd.get("COUNTS").toString());
+        pd.put("COUNT", count);
+        pd.put("TOTAL_PAGE", TOTAL_PAGE);
 		studyplanmxService.save(pd);
-		model.addAttribute("msg","success");
+		int TOTAL_MONTH_PAGE=studyplanmxService.sumByMId(pd);
+        PageData pd1 = new PageData();
+        pd1.put("TOTAL_MONTH_PAGE", TOTAL_MONTH_PAGE);
+        pd1.put("STUDYPLAN_ID", pd.getString("STUDYPLAN_ID"));
+        studyplanService.edit(pd1);
+        model.addAttribute("msg","success");
 		return "transferPage";
 	}
 	
 	/**删除
-	 * @param out
+	 * @param
 	 * @throws Exception
 	 */
 	@RequestMapping(value="/delete")

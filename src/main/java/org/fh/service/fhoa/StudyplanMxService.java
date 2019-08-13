@@ -60,6 +60,10 @@ public interface StudyplanMxService{
 	public PageData findCount(PageData pd)throws Exception;
 	
 	public  void batchUpdate(List<PageData> pageDatas)throws Exception;
-	
+
+
+    public int sumByMId(PageData pd)throws Exception;
+
+    public List<PageData> findByName(PageData pd)throws Exception;
 }
 
