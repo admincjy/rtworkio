@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     
     <!-- 日期插件 -->
-    <link rel="stylesheet" href="assets/plugins/material-datetimepicker/css/bootstrap-material-datetimepicker.css">
+    <link rel="stylesheet" href="assets/date/css/bootstrap-datetimepicker.min.css">    
     
     <!-- select插件 -->
     <link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
@@ -103,6 +103,12 @@
 		                                    </div>
 		                                    <input type="text" class="form-control" name="PROC_INST_ID_" id="PROC_INST_ID_" value="${pd.PROC_INST_ID_}" maxlength="255" placeholder="这里输入流程ID" title="流程ID">
 		                                </div>-->
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 100%;"><span style="width: 100%;">学习月份</span></span>
+		                                    </div>
+	                                        <input size="120" type="text"  readonly  class="form_datetime" name="MONTH" id="MONTH" value="${pd.MONTH}"  maxlength="32" placeholder="学习月份" title="学习月份">
+		                                </div>
 										<c:if test="${'save' == msg }">
 										<div>
 											<shiro:hasPermission name="NextASSIGNEE_">
@@ -118,7 +124,7 @@
 													</a>
 												</td>
 												<td width="320">
-													<input  style="width:40%;visibility: hidden;" />
+													<input  style="width:15%;visibility: hidden;" />
 												</td>
 												<td width="320">
 													指定下一抄送对象(选填)：
@@ -171,10 +177,10 @@
 <script type="text/javascript" src="assets/js/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="assets/js/pre-loader.js"></script>
 
+
 <!-- 日期插件 -->
-<script src="assets/js/pages/moment-with-locales.min.js"></script>
-<script src="assets/plugins/material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
-<script src="assets/js/pages/form-picker-custom.js"></script>
+<script src="assets/date/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/date/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 
 <!-- select插件 -->
 <script src="assets/plugins/select2/js/select2.full.min.js"></script>
@@ -185,6 +191,25 @@
 <!-- 表单验证提示 -->
 <script src="assets/js/jquery.tips.js"></script>
 <script type="text/javascript">
+	    if($("#MONTH").val()==""){
+	        var nowdate = new Date();
+		    nowdate.setMonth(nowdate.getMonth()-1);
+		    var y = nowdate.getFullYear();
+		    var m = nowdate.getMonth()+1;
+		    if(Number(m)<10){
+		    	m="0"+m;
+		    }
+	    	$("#MONTH").val(y+'-'+m)
+	    }
+        $(".form_datetime").datetimepicker({
+    		 format: 'yyyy-mm',
+			 weekStart: 1,
+	         autoclose: true,
+	         startView: 3,
+	         minView: 3,
+	         forceParse: false,
+	         language: 'zh-CN'
+        	});
 		//保存
 		function save(){
 			if($("#ASSIGNEE_2").val()==""){
@@ -279,6 +304,11 @@
 		$(function() {
 		});
 </script>
+<style>
+	.datetimepicker table tr td span {
+	    width: 30%!important;
+	}
+</style>
 
 </body>
 </html>

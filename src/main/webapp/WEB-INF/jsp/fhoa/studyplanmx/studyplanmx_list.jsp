@@ -95,10 +95,11 @@
 											</th>
 											<th style="width:50px;">NO</th>
 											<th style="text-align: center;">学习书目</th>
+											<th style="text-align: center;">书本作者</th>
 											<th style="text-align: center;">书本信息</th>
 											<th style="text-align: center;">学习情况</th>
-											<!--<th style="text-align: center;">开始学习时间</th>
-											<th style="text-align: center;">完成学习时间</th>-->
+											<th style="text-align: center;">开始学习时间</th>
+											<th style="text-align: center;">完成学习时间</th>
 											<th style="text-align: center;">上级评分</th>
 											<th style="text-align: center;">操作</th>
 										</tr>
@@ -120,6 +121,7 @@
 													</td>
 													<td scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
 													<td style="text-align: center;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.BOOKNAME}</td>
+													<td style="text-align: center;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.AUTHOR}</td>
 													<td style="text-align: center;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.BOOKCONTET}</td>
 													<td style="text-align: center;word-break: break-all; word-wrap: normal;white-space:pre-wrap;">${var.COUNT}</td>
 													<td style="text-align: center;">${var.STUDYSTARTTIME}</td>

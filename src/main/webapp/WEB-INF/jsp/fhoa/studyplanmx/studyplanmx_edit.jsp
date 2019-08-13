@@ -81,6 +81,12 @@
 	                                </div>
 						            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
 	                                    <div class="input-group-prepend">
+	                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">书目作者</span></span>
+	                                    </div>
+	                                    <input type="text" class="form-control" name="AUTHOR" id="AUTHOR" value="${pd.AUTHOR}" maxlength="255" placeholder="这里输入书目作者" title="书目作者">
+	                                </div>
+						            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+	                                    <div class="input-group-prepend">
 	                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">书本信息</span></span>
 	                                    </div>
 	                                    <input type="text" class="form-control" name="BOOKCONTET" id="BOOKCONTET" value="${pd.BOOKCONTET}" maxlength="255" placeholder="这里输入书本信息" title="书本信息">
@@ -91,10 +97,10 @@
 	                                    </div>
 	                                   <span style="line-height: 30px;padding: 0 5px;font-size: 18px;">P</span>
 	                                    <!--<input type="text" class="form-control" name="COUNT" id="COUNT" value="${pd.COUNT}" maxlength="255" placeholder="这里输入学习情况" title="学习情况">-->
-	                                    	<input  style="background:#F4F7FA;width: 60px;height:30px;border:1px #AAAEB3 solid;border-radius: 5px;" type="text" onKeyUp="value=value.replace(/[^\d]/g,'')" 
+	                                    	<input name="COUNTS" id="COUNTS" value="${pd.COUNTS}"  style="background:#F4F7FA;width: 60px;height:30px;border:1px #AAAEB3 solid;border-radius: 5px;" type="text" onKeyUp="value=value.replace(/[^\d]/g,'')" 
 																								onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
 										<span style="line-height: 30px;padding: 0 5px;font-size: 18px;">-&nbsp;P</span>
-	                                    <input  style="background:#F4F7FA;width: 60px;height:30px;border:1px #AAAEB3 solid;border-radius: 5px;" type="text" onKeyUp="value=value.replace(/[^\d]/g,'')" 
+	                                    <input name="COUNTE" id="COUNTE" value="${pd.COUNTE}"  style="background:#F4F7FA;width: 60px;height:30px;border:1px #AAAEB3 solid;border-radius: 5px;" type="text" onKeyUp="value=value.replace(/[^\d]/g,'')" 
 																								onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
 	                                </div>
 						            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
@@ -179,6 +185,16 @@
 				$("#BOOKNAME").focus();
 			return false;
 			}
+			if($("#AUTHOR").val()==""){
+				$("#AUTHOR").tips({
+					side:3,
+		            msg:'请输入书本作者',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				$("#AUTHOR").focus();
+			return false;
+			}
 			if($("#BOOKCONTET").val()==""){
 				$("#BOOKCONTET").tips({
 					side:3,
@@ -189,14 +205,14 @@
 				$("#BOOKCONTET").focus();
 			return false;
 			}
-			if($("#COUNT").val()==""){
-				$("#COUNT").tips({
+			if($("#COUNTS").val()==""||$("#COUNTS").val()==""){
+				$("#COUNTS").tips({
 					side:3,
-		            msg:'请输入学习情况',
+		            msg:'请输入学习页码',
 		            bg:'#AE81FF',
 		            time:2
 		        });
-				$("#COUNT").focus();
+				$("#COUNTS").focus();
 			return false;
 			}
 			if($("#STUDYSTARTTIME").val()==""){
