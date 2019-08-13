@@ -133,7 +133,7 @@
 																		<c:when test="${not empty varList}">
 																			<c:forEach items="${varList}" var="var" varStatus="vs">
 																				<tr ondblclick="contentmx('${var.PROC_INST_ID_}')">
-																					<td id="name" style="vertical-align: middle;text-align: center;">${var.NAME}</td>
+																					<td class="name" style="vertical-align: middle;text-align: center;">${var.NAME}</td>
 																					<td class="month" style="vertical-align: middle;text-align: center;">${var.MONTH}</td>
 																					<td>${var.BOOKNAME}</td>
 																					<td>${var.AUTHOR}</td>
@@ -186,15 +186,15 @@
 		<script type="text/javascript">
 			//合并月份单元格
 			$(function() {
-				$('#name').each(function(index, element) {
+				$('.name').each(function(index, element) {
 					if(!$(this).hasClass('hide')) {
-						var next = $(this).parent('tr').next('tr').children('#name'); //下一个合并的对象
+						var next = $(this).parent('tr').next('tr').children('.name'); //下一个合并的对象
 						$(this).attr('rowspan', 1);
 						while($(this).text() == next.text()) {
 							$(this).attr('rowspan', parseInt($(this).attr('rowspan')) + 1);
 							next.hide();
 							next.addClass('hide');
-							next = next.parent('tr').next('tr').children('#name'); //下一个合并的对象
+							next = next.parent('tr').next('tr').children('.name'); //下一个合并的对象
 						}
 					}
 				});
