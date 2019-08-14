@@ -81,83 +81,82 @@
 												<table>
 													<tr>
 														<td style="border: none;">
-														    <input type="text"  readonly class="form_datetime" name="YEAR" id="YEAR" value=""  maxlength="32" placeholder="这里输入查询年份" title="">
+															<span style="margin-top:8.5px ;margin-left:10px;">搜索：</span>
+															<input type="text" readonly class="form_datetime" name="YEAR" id="YEAR" value="" maxlength="32" placeholder="这里输入查询年份" title="">
+															<shiro:hasPermission name="toExcel">
+																<input type="text" name="ASSIGNEE_2" id="ASSIGNEE_2" value="" style="width:150px;" readonly="readonly" />
+																<a class="btn btn-light btn-sm" onclick="clean();" title="清空" style="width: 23px;height:30px;margin-top:1px;cursor:pointer;">
+																	<div style="margin-top:0px;margin-left: -6px;">清</div>
+																</a>
+																<a class="btn btn-light btn-sm" title="选择办理人(单人)" onclick="getUser();" style="width: 23px;height:30px;margin-top:1px;cursor:pointer;">
+																	<i class="feather icon-user" style="margin-top:-6px;margin-left: -6px;"></i>
+																</a>
+																<a class="btn btn-light btn-sm" onclick="searchs();" style="width: 23px;height:30px;margin-top:1px;" title="检索"><i style="margin-top:-3px;margin-left: -6px;" class="feather icon-search"></i></a>
 
-		                                                    
-		                                                    <span style="margin-top:8.5px ;margin-left:10px;">搜索：</span>
-															<input type="text" name="ASSIGNEE_2" id="ASSIGNEE_2" value="" style="width:150px;" readonly="readonly" />
-															<a class="btn btn-light btn-sm" onclick="clean();" title="清空" style="width: 23px;height:30px;margin-top:1px;cursor:pointer;">
-																<div style="margin-top:0px;margin-left: -6px;">清</div>
-															</a>
-															<a class="btn btn-light btn-sm" title="选择办理人(单人)" onclick="getUser();" style="width: 23px;height:30px;margin-top:1px;cursor:pointer;">
-																<i class="feather icon-user" style="margin-top:-6px;margin-left: -6px;"></i>
-															</a>
-															<a class="btn btn-light btn-sm" onclick="searchs();" style="width: 23px;height:30px;margin-top:1px;" title="检索"><i style="margin-top:-3px;margin-left: -6px;" class="feather icon-search"></i></a>
-															
-															<!--<a class="btn btn-light btn-sm" title="选择办理角色(此角色下所有人都可以办理)" onclick="getRole();" style="width: 23px;height:30px;margin-top:1px;cursor:pointer;margin-left:-8px;">
+																<!--<a class="btn btn-light btn-sm" title="选择办理角色(此角色下所有人都可以办理)" onclick="getRole();" style="width: 23px;height:30px;margin-top:1px;cursor:pointer;margin-left:-8px;">
 																<i class="feather icon-users" style="margin-top:-6px;margin-left: -6px;"></i>
 															</a>-->
 														</td>
 														<td style="vertical-align:top;padding-left:5px;border: none;">
 															<!--<a class="btn btn-light btn-sm" onclick="searchs();" style="width: 23px;height:30px;margin-top:1px;" title="检索"><i style="margin-top:-3px;margin-left: -6px;" class="feather icon-search"></i></a>-->
-															<shiro:hasPermission name="toExcel">
-																<a class="btn btn-light btn-sm" onclick="toExcel();" style="width: 23px;height:30px;margin-top:1px;margin-left: -9px;" title="导出到excel表格">
-																	<i style="margin-top:-3px;margin-left: -6px;" class="mdi mdi-cloud-download"></i>
-																</a>
+
+															<a class="btn btn-light btn-sm" onclick="toExcel();" style="width: 23px;height:30px;margin-top:1px;margin-left: -9px;" title="导出到excel表格">
+																<i style="margin-top:-3px;margin-left: -6px;" class="mdi mdi-cloud-download"></i>
+															</a>
 															</shiro:hasPermission>
 														</td>
 													</tr>
 												</table>
 											</div>
 											<!-- 主内容  -->
-											
-													<div class="card-block table-border-style" style="margin-top: -15px" id="exclTable">
-														<div class="table-responsive">
-															<table class="table table-hover" style="border: 1px solid #EAEDF4;">
-																<thead>
-																	<tr style="border: 1px solid #EAEDF4;">
-																		<th>提交人</th>
-																		<th>月份</th>
-																		<th>书目</th>
-																		<th>作者</th>
-																		<th>书本信息</th>
-																		<th>评分</th>
-																		<th>页码</th>
-																		<th>页数</th>
-																		<th>合计页码</th>
-																	</tr>
-																</thead>
-																<tbody>
-																	<!-- 开始循环 -->
-																	<c:choose>
-																		<c:when test="${not empty varList}">
-																			<c:forEach items="${varList}" var="var" varStatus="vs">
-																				<tr ondblclick="contentmx('${var.PROC_INST_ID_}')">
-																					<td class="name" style="vertical-align: middle;text-align: center;">${var.NAME}</td>
-																					<td class="month" style="vertical-align: middle;text-align: center;">${var.MONTH}</td>
-																					<td>${var.BOOKNAME}</td>
-																					<td>${var.AUTHOR}</td>
-																					<td>${var.BOOKCONTET}</td>
-																					<td>${var.SCORE}</td>
-																					<td>${var.COUNT}</td>
-																					<td>${var.TOTAL_PAGE}</td>
-																					<td class="sum"  style="vertical-align: middle;text-align: center;">${var.TOTAL_MONTH_PAGE}</td>
-																					<!--<td>${var.PROC_INST_ID_}</td>-->
-																				</tr>
-																			</c:forEach>
-																		</c:when>
-																		<c:otherwise>
-																			<tr>
-																				<td colspan="100">没有相关数据</td>
-																			</tr>
-																		</c:otherwise>
-																	</c:choose>
 
-																</tbody>
-															</table>
-														</div>
-													</div>
-												</form>
+											<div class="card-block table-border-style" style="margin-top: -15px" id="exclTable">
+												<div class="table-responsive">
+													<table class="table table-hover" style="border: 1px solid #EAEDF4;">
+														<thead>
+															<tr style="border: 1px solid #EAEDF4;">
+																<th>提交人</th>
+																<th>月份</th>
+																<th>书目</th>
+																<th>作者</th>
+																<th>书本信息</th>
+																<th>评分</th>
+																<th>页码</th>
+																<th>页数</th>
+																<th>合计页码</th>
+															</tr>
+														</thead>
+														<tbody>
+															<!-- 开始循环 -->
+															<c:choose>
+																<c:when test="${not empty varList}">
+																	<c:forEach items="${varList}" var="var" varStatus="vs">
+																		<tr ondblclick="contentmx('${var.PROC_INST_ID_}')">
+																			<td class="name" style="vertical-align: middle;text-align: center;">${var.NAME}</td>
+																			<td class="month" style="vertical-align: middle;text-align: center;">${var.MONTH}</td>
+																			<td>${var.BOOKNAME}</td>
+																			<td>${var.AUTHOR}</td>
+																			<td>${var.BOOKCONTET}</td>
+																			<td>${var.SCORE}</td>
+																			<td>${var.COUNT}</td>
+																			<td>${var.TOTAL_PAGE}</td>
+																			<td class="sum" style="vertical-align: middle;text-align: center;">${var.TOTAL_MONTH_PAGE}</td>
+																			<!--<td>${var.PROC_INST_ID_}</td>-->
+																		</tr>
+																	</c:forEach>
+																</c:when>
+																<c:otherwise>
+																	<tr>
+																		<td colspan="100">没有相关数据</td>
+																	</tr>
+																</c:otherwise>
+															</c:choose>
+
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</form>
 
 									</div>
 								</div>
@@ -233,10 +232,10 @@
 				$("select").append($("<option value=" + year + ">" + year + "</option><option value=" + (year - 1) + ">" + (year - 1) + "</option><option value=" + (year - 2) + ">" + (year - 2) + "</option>"));
 			});
 			//检索
-		function searchs(){
-            console.log($("#ASSIGNEE_2").val())
-			$("#Form").submit();
-		}
+			function searchs() {
+				console.log($("#ASSIGNEE_2").val())
+				$("#Form").submit();
+			}
 
 			function save() {
 				if($("#ASSIGNEE_2").val() == "") {
@@ -275,26 +274,26 @@
 				diag.show();
 			}
 
-//			function getRole() {
-//				var diag = new top.Dialog();
-//				diag.Drag = true;
-//				diag.Title = "选择角色";
-//				diag.URL = '<%=basePath%>role/roleListWindow?ROLE_ID=1';
-//				diag.Width = 700;
-//				diag.Height = 545;
-//				diag.Modal = true; //有无遮罩窗口
-//				diag.ShowMaxButton = true; //最大化按钮
-//				diag.ShowMinButton = true; //最小化按钮
-//				diag.CancelEvent = function() { //关闭事件
-//					var RNUMBER = diag.innerFrame.contentWindow.document.getElementById('RNUMBER').value;
-//					if("" != RNUMBER) {
-//						$("#ASSIGNEE_").val(RNUMBER);
-//						$("#ASSIGNEE_2").val(RNUMBER);
-//					}
-//					diag.close();
-//				};
-//				diag.show();
-//			}
+			//			function getRole() {
+			//				var diag = new top.Dialog();
+			//				diag.Drag = true;
+			//				diag.Title = "选择角色";
+			//				diag.URL = '<%=basePath%>role/roleListWindow?ROLE_ID=1';
+			//				diag.Width = 700;
+			//				diag.Height = 545;
+			//				diag.Modal = true; //有无遮罩窗口
+			//				diag.ShowMaxButton = true; //最大化按钮
+			//				diag.ShowMinButton = true; //最小化按钮
+			//				diag.CancelEvent = function() { //关闭事件
+			//					var RNUMBER = diag.innerFrame.contentWindow.document.getElementById('RNUMBER').value;
+			//					if("" != RNUMBER) {
+			//						$("#ASSIGNEE_").val(RNUMBER);
+			//						$("#ASSIGNEE_2").val(RNUMBER);
+			//					}
+			//					diag.close();
+			//				};
+			//				diag.show();
+			//			}
 
 			//清空下一任务对象
 			function clean() {
@@ -303,21 +302,21 @@
 			}
 
 			$(function() {});
-						$(function() {
-					        $(".form_datetime").datetimepicker({
-    		 format: 'yyyy',
-			 weekStart: 1,
-	         autoclose: true,
-	         startView: 4,
-	         minView: 4,
-	         forceParse: false,
-	         language: 'zh-CN'
-        	});
-						});
+			$(function() {
+				$(".form_datetime").datetimepicker({
+					format: 'yyyy',
+					weekStart: 1,
+					autoclose: true,
+					startView: 4,
+					minView: 4,
+					forceParse: false,
+					language: 'zh-CN'
+				});
+			});
 			//导出excel
 			function toExcel() {
-				var filename = "工作计划执行情况表"
-				var html = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:x='urn:schemas-microsoft-com:office:excel' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8' /><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>工作计划执行情况表</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body>" + document.getElementById("exclTable").outerHTML + "</body></html>";
+				var filename = "学习情况年度统计表"
+				var html = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:x='urn:schemas-microsoft-com:office:excel' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8' /><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>学习情况年度统计表</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body>" + document.getElementById("exclTable").outerHTML + "</body></html>";
 				var blob = new Blob([html], {
 					type: "application/vnd.ms-excel"
 				});
@@ -350,7 +349,7 @@
 			//				diag.show();
 			//			}
 		</script>
-		
+
 	</body>
 
 </html>

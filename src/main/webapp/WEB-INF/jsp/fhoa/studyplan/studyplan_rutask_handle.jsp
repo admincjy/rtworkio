@@ -115,7 +115,8 @@
 																	<thead >
 																		<tr>
 																			<th style="width:50px;height: 20px;">NO</th>
-																			<th style="height: 20px;">学习书目</th>
+																			<th style="height: 20px;">书目</th>
+																			<th style="height: 20px;">作者</th>
 																			<th style="height: 20px;">书本信息</th>
 																			<th style="height: 20px;">学习情况</th>
 																			<th style="height: 20px;">开始时间</th>
@@ -132,6 +133,7 @@
 																					<tr>
 																						<td scope="row">${page.showCount*(page.currentPage-1)+vs.index+1}</td>
 																						<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap; ">${var.BOOKNAME}</td>
+																						<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap; ">${var.AUTHOR}</td>
 																						<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap; ">${var.BOOKCONTET}</td>
 																						<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap; ">${var.COUNT}</td>
 																						<td style="word-break: break-all; word-wrap: normal;white-space:pre-wrap; ">${var.STUDYSTARTTIME}</td>
