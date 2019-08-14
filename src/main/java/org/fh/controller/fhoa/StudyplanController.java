@@ -275,9 +275,10 @@ public class StudyplanController extends AcStartController {
         if (Tools.isEmpty(pd.getString("YEAR"))){
             pd.put("YEAR",String.valueOf( Calendar.getInstance().get(Calendar.YEAR)));
         }
-        if(Tools.isEmpty(pd.getString("NAME"))){
+        if(Tools.isEmpty(pd.getString("ASSIGNEE_2"))){
                 pd.put("NAME", Jurisdiction.getName());
         }else {
+			pd.put("USERNAME", pd.getString("ASSIGNEE_2"));
             PageData pageData= usersService.findByUsername(pd);
                 pd.put("NAME", pageData.getString("NAME"));
         }
